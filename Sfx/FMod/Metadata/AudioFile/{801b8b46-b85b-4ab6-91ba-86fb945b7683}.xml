@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{801b8b46-b85b-4ab6-91ba-86fb945b7683}">
+		<property name="assetPath">
+			<value>blowing-sand-into-the-air-317225.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>5.0677551020408167</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{5f19a9b6-96c9-4a07-a775-bfbbc57e1ccf}</destination>
+		</relationship>
+	</object>
+</objects>

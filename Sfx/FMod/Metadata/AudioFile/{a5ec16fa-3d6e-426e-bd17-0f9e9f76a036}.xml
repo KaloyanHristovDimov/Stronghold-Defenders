@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{a5ec16fa-3d6e-426e-bd17-0f9e9f76a036}">
+		<property name="assetPath">
+			<value>chant-49054.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>24</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>163.10400000000001</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{5f19a9b6-96c9-4a07-a775-bfbbc57e1ccf}</destination>
+		</relationship>
+	</object>
+</objects>

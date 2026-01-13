@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{0b869b43-32f1-4c65-9a17-5a86ddab4854}">
+		<property name="assetPath">
+			<value>lightning-magic-4-378647.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>8.0399999999999991</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{5f19a9b6-96c9-4a07-a775-bfbbc57e1ccf}</destination>
+		</relationship>
+	</object>
+</objects>

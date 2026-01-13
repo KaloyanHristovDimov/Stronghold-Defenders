@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{9dfd195f-380d-49af-bf6f-e46844768c17}">
+		<property name="assetPath">
+			<value>iced-magic-6-378606.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>8.0399999999999991</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{5f19a9b6-96c9-4a07-a775-bfbbc57e1ccf}</destination>
+		</relationship>
+	</object>
+</objects>

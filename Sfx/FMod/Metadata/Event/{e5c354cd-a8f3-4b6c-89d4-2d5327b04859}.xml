@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{e5c354cd-a8f3-4b6c-89d4-2d5327b04859}">
 		<property name="name">
-			<value>earth-magic-5-378598</value>
+			<value>Tile Placed</value>
 		</property>
 		<property name="outputFormat">
 			<value>2</value>
@@ -31,6 +31,9 @@
 		</relationship>
 		<relationship name="timeline">
 			<destination>{f1620c11-33fc-442d-98a0-b4fac9380285}</destination>
+		</relationship>
+		<relationship name="banks">
+			<destination>{62371b7f-a2f7-45e1-8447-573022090f71}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{72eb6238-45ab-437f-b3cf-207884d2e076}">
