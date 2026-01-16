@@ -1126,6 +1126,18 @@ PrefabInstance:
       propertyPath: m_text
       value: Start Game
       objectReference: {fileID: 0}
+    - target: {fileID: 3374268216966599723, guid: 23a6e356ed3da794498ee799fd8822fc, type: 3}
+      propertyPath: m_fontSize
+      value: 107.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 3374268216966599723, guid: 23a6e356ed3da794498ee799fd8822fc, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 3345419729273473064, guid: 548a9afdbdb4621408896727066c3826, type: 2}
+    - target: {fileID: 3374268216966599723, guid: 23a6e356ed3da794498ee799fd8822fc, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4021071729558514928, guid: 23a6e356ed3da794498ee799fd8822fc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
