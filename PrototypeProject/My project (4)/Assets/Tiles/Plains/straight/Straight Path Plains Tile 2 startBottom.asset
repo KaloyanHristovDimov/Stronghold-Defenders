@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc730ec13876d8c4490889f698270318, type: 3}
+  m_Name: Straight Path Plains Tile 2 startBottom
+  m_EditorClassIdentifier: 
+  startDirection: 1
+  endDirections: 00000000
+  prefab: {fileID: 919132149155446097, guid: 906c2a6c6a22db44eb3a7e90b59548e7, type: 3}
+  icon: {fileID: 21300000, guid: 628d5cfa27d1fb14a93f1a061777a0d7, type: 3}
