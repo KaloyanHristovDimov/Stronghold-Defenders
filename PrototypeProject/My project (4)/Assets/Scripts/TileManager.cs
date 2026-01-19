@@ -31,7 +31,12 @@ public class TileManager : MonoBehaviour
         if (validTiles.Count == 0)
             return;
 
-        SpawnTile(validTiles[Random.Range(0, validTiles.Count)], spawnPos);
+        //SpawnTile(validTiles[Random.Range(0, validTiles.Count)], spawnPos);
+        List<TileData> options = PickRandomTiles(validTiles, 3);
+
+        TileChoice.Instance.ShowChoices(
+            options,
+            choice => SpawnTile(choice, spawnPos));
     }
 
     bool EndpointsAreFree(TileData tile, Vector2Int gridPos)
@@ -45,6 +50,14 @@ public class TileManager : MonoBehaviour
         return true;
     }
 
+    List<TileData> PickRandomTiles(List<TileData> source, int count)
+    {
+        return source
+            .OrderBy(_ => Random.value)
+            .Take(Mathf.Min(count, source.Count))
+            .ToList();
+    }
+
     void SpawnTile(TileData tileData, Vector2Int gridPos)
     {
         GameObject obj = Instantiate(tileData.prefab);
@@ -53,33 +66,4 @@ public class TileManager : MonoBehaviour
         instance.Initialize(tileData, gridPos);
     }
 
-
-
-
-
-    //private TileData GetCompatibleTile(TileData.Direction lastEnd)
-    //{
-    //    TileData.Direction neededStart = GetOppositeDirection(lastEnd);
-
-    //    // Filter tiles whose start matches the needed start
-    //    List<TileData> compatibleTiles = allTiles.FindAll(tile => tile.startDirection == neededStart);
-
-    //    if (compatibleTiles.Count == 0) return null;
-
-    //    // Pick one randomly
-    //    int index = Random.Range(0, compatibleTiles.Count);
-    //    return compatibleTiles[index];
-    //}
-
-    //private TileData.Direction GetOppositeDirection(TileData.Direction dir)
-    //{
-    //    switch (dir)
-    //    {
-    //        case TileData.Direction.Top: return TileData.Direction.Bottom;
-    //        case TileData.Direction.Bottom: return TileData.Direction.Top;
-    //        case TileData.Direction.Left: return TileData.Direction.Right;
-    //        case TileData.Direction.Right: return TileData.Direction.Left;
-    //        default: return dir;
-    //    }
-    //}
 }
