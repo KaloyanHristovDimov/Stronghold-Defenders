@@ -6,11 +6,35 @@ public class TileManager : MonoBehaviour
 {
     public static TileManager Instance;
 
-    public List<TileData> allTiles;
+    [System.Serializable]
+    public class GameObjectList
+    {
+        public string Biome;
+        public List<TileData> Tiles;
+    }
+
+    public List<GameObjectList> listOfBiomesNormal;
+    public List<GameObjectList> listOfBiomesSplit;
+    private List<TileData> allNormalTiles = new List<TileData>();
+    private List<TileData> allSplitTiles = new List<TileData>();
 
     private void Awake()
     {
         Instance = this;
+        foreach (var item in listOfBiomesNormal) 
+        {
+            foreach (var list in item.Tiles) 
+            {
+                allNormalTiles.Add(list); 
+            }
+        }
+        foreach (var item in listOfBiomesSplit)
+        {
+            foreach (var list in item.Tiles)
+            {
+                allSplitTiles.Add(list);
+            }
+        }
     }
 
     public void TrySpawnTile(TileInstance sourceTile, TileData.Direction exitDir)
@@ -23,7 +47,7 @@ public class TileManager : MonoBehaviour
         TileData.Direction requiredStart =
             DirectionUtils.Opposite(exitDir);
 
-        List<TileData> validTiles = allTiles.Where(tile =>
+        List<TileData> validTiles = allNormalTiles.Where(tile =>
             tile.startDirection == requiredStart &&
             EndpointsAreFree(tile, spawnPos)
         ).ToList();
