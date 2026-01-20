@@ -19,6 +19,7 @@ public class TileManager : MonoBehaviour
     public List<GameObjectList> listOfBiomesSplit;
     private List<TileData> allNormalTiles = new List<TileData>();
     private List<TileData> allSplitTiles = new List<TileData>();
+    public TileData StartingTile;
 
     private void Awake()
     {
@@ -37,6 +38,10 @@ public class TileManager : MonoBehaviour
                 allSplitTiles.Add(list);
             }
         }
+    }
+    private void Start()
+    {
+        SpawnTile(StartingTile, Vector2Int.zero);
     }
 
     public void TrySpawnTile(TileInstance sourceTile, TileData.Direction exitDir)
