@@ -1,79 +1,80 @@
 using UnityEngine;
 
-public class CameraScript : MonoBehaviour
+public class FixedPovCamera : MonoBehaviour
 {
-    [Header("Movement")]
     [SerializeField] private float moveSpeed = 35f;
     [SerializeField] private float scrollSpeed = 250f;
 
-    [Header("Options")]
-    [Tooltip("If true, WASD movement is constrained to a horizontal plane (Y stays constant).")]
-    [SerializeField] private bool constrainWASDToHorizontalPlane = true;
+    [SerializeField] private float minDistance = 5f;
+    [SerializeField] private float maxDistance = 50f;
+    [SerializeField] private float startDistance = 15f;
 
-    [Tooltip("If true, scroll dolly is constrained to a horizontal plane (Y stays constant).")]
-    [SerializeField] private bool constrainScrollToHorizontalPlane = false;
+    [SerializeField] private bool constrainMoveToHorizontalPlane = true;
 
-    [Tooltip("If true, movement speed scales with Shift.")]
-    [SerializeField] private bool enableShiftBoost = true;
-
-    [SerializeField] private float shiftMultiplier = 2f;
-
-    private Quaternion lockedRotation;
+    private Quaternion lockedRot;
+    private Vector3 pivot;
+    private float distance;
 
     private void Awake()
     {
-        // Lock whatever rotation the camera currently has.
-        lockedRotation = transform.rotation;
+        lockedRot = transform.rotation;
+
+        distance = Mathf.Clamp(startDistance, minDistance, maxDistance);
+
+        Vector3 axis = (lockedRot * Vector3.forward).normalized;
+
+        pivot = transform.position;
+        transform.position = pivot + axis * distance;
     }
 
     private void LateUpdate()
     {
-        // Enforce locked rotation every frame.
-        transform.rotation = lockedRotation;
+        transform.rotation = lockedRot;
 
         float dt = Time.deltaTime;
 
-        float boost = 1f;
-        if (enableShiftBoost && (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)))
-            boost = shiftMultiplier;
-
-        // WASD input
         float x = 0f;
         float z = 0f;
-
         if (Input.GetKey(KeyCode.A)) x -= 1f;
         if (Input.GetKey(KeyCode.D)) x += 1f;
         if (Input.GetKey(KeyCode.S)) z -= 1f;
         if (Input.GetKey(KeyCode.W)) z += 1f;
 
-        // Build movement in camera-relative space.
-        Vector3 right = transform.right;
-        Vector3 forward = transform.forward;
+        Vector3 right = lockedRot * Vector3.right;
+        Vector3 forward = lockedRot * Vector3.forward;
 
-        if (constrainWASDToHorizontalPlane)
+        if (constrainMoveToHorizontalPlane)
         {
             right.y = 0f;
             forward.y = 0f;
-            right = right.sqrMagnitude > 0f ? right.normalized : Vector3.right;
-            forward = forward.sqrMagnitude > 0f ? forward.normalized : Vector3.forward;
+            if (right.sqrMagnitude > 0.0001f) right.Normalize();
+            if (forward.sqrMagnitude > 0.0001f) forward.Normalize();
         }
-
-        Vector3 wasdMove = (right * x + forward * z);
-        if (wasdMove.sqrMagnitude > 1f) wasdMove.Normalize();
-
-        // Scroll dolly (projected axis = camera forward)
-        float scroll = Input.mouseScrollDelta.y; // positive = scroll up by default
-        Vector3 dollyDir = transform.forward;
-
-        if (constrainScrollToHorizontalPlane)
+        else
         {
-            dollyDir.y = 0f;
-            dollyDir = dollyDir.sqrMagnitude > 0f ? dollyDir.normalized : Vector3.forward;
+            right.Normalize();
+            forward.Normalize();
         }
 
-        Vector3 dollyMove = dollyDir * (scroll * scrollSpeed);
+        Vector3 move = right * x + forward * z;
+        if (move.sqrMagnitude > 1f) move.Normalize();
 
-        // Apply combined movement
-        transform.position += (wasdMove * moveSpeed * boost + dollyMove) * dt;
+        pivot += move * moveSpeed * dt;
+
+        float scroll = Input.mouseScrollDelta.y;
+
+        distance += scroll * scrollSpeed * dt;
+        distance = Mathf.Clamp(distance, minDistance, maxDistance);
+
+        Vector3 axis = (lockedRot * Vector3.forward).normalized;
+        transform.position = pivot + axis * distance;
+    }
+
+    private void OnValidate()
+    {
+        if (maxDistance < minDistance)
+            maxDistance = minDistance;
+
+        startDistance = Mathf.Clamp(startDistance, minDistance, maxDistance);
     }
 }
