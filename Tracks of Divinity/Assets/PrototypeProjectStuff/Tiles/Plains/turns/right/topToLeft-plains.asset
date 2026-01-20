@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: topToLeft-plains
   m_EditorClassIdentifier: 
   startDirection: 0
-  endDirections: 
+  endDirections: 03000000
   prefab: {fileID: 4600251927474969595, guid: e8873d30cc4dd1e41ad5c1afe334256c, type: 3}
   icon: {fileID: 21300000, guid: 0c8adbf8dc8c84749ac1b1ba7d27a014, type: 3}

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eb484b882b85bb43a5063a37a1fcf72, type: 3}
   m_Name: leftToBottom-plains
   m_EditorClassIdentifier: 
-  startDirection: 0
-  endDirections: 
+  startDirection: 3
+  endDirections: 01000000
   prefab: {fileID: 3399002757734770842, guid: 650d3e9e2f0c9b347a28771cb3883bee, type: 3}
   icon: {fileID: 21300000, guid: 0c8adbf8dc8c84749ac1b1ba7d27a014, type: 3}
