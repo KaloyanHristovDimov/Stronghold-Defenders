@@ -3,8 +3,8 @@ using UnityEngine;
 public class CameraScript : MonoBehaviour
 {
     [Header("Movement")]
-    [SerializeField] private float moveSpeed = 10f;
-    [SerializeField] private float scrollSpeed = 25f;
+    [SerializeField] private float moveSpeed = 35f;
+    [SerializeField] private float scrollSpeed = 250f;
 
     [Header("Options")]
     [Tooltip("If true, WASD movement is constrained to a horizontal plane (Y stays constant).")]
