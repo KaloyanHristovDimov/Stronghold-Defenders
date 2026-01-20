@@ -17,5 +17,6 @@ public class EndPoint : MonoBehaviour, IPointerDownHandler
     {
         TileManager.Instance.TrySpawnTile(parentTile, direction);
         gameObject.SetActive(false);
+
     }
 }

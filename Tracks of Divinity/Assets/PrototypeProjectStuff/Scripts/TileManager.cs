@@ -6,6 +6,8 @@ public class TileManager : MonoBehaviour
 {
     public static TileManager Instance;
 
+    private int tilesWithoutSplit = 0;
+
     [System.Serializable]
     public class GameObjectList
     {
@@ -39,6 +41,18 @@ public class TileManager : MonoBehaviour
 
     public void TrySpawnTile(TileInstance sourceTile, TileData.Direction exitDir)
     {
+        List<TileData> tilesToUse = new List<TileData>();
+        if (tilesWithoutSplit >= 5)
+        {
+            tilesToUse = allSplitTiles;
+            tilesWithoutSplit = 0;
+        }
+        else 
+        {
+            tilesToUse = allNormalTiles;
+            tilesWithoutSplit++;
+        }
+
         Vector2Int spawnPos = sourceTile.gridPosition + DirectionUtils.ToVector(exitDir);
 
         if (GridManager.Instance.IsOccupied(spawnPos))
@@ -47,7 +61,7 @@ public class TileManager : MonoBehaviour
         TileData.Direction requiredStart =
             DirectionUtils.Opposite(exitDir);
 
-        List<TileData> validTiles = allNormalTiles.Where(tile =>
+        List<TileData> validTiles = tilesToUse.Where(tile =>
             tile.startDirection == requiredStart &&
             EndpointsAreFree(tile, spawnPos)
         ).ToList();
