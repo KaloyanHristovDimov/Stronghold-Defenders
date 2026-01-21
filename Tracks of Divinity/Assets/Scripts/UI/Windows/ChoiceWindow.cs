@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ChoiceWindow : Window
 {
+    public static ChoiceWindow Instance;
     ///<summary> indexes = id (like left is 0, mid is 1, right as 2) </summary>
     [SerializeField] private List<Transform> tileContainers;
     ///<summary> indexes = id (like left is 0, mid is 1, right as 2) </summary>
@@ -13,6 +14,12 @@ public class ChoiceWindow : Window
 
     const string towerSpacesTextPrefix = "<color=#666666>Tower Spaces:</color> ",
      biomeBuffTextPrefix = "<color=#666666>Biome Buff:</color> ", biomeDebuffTextPrefix = "<color=#666666>Biome Debuff:</color> ";
+    void Awake()
+    {
+        Instance = this;
+        gameObject.SetActive(false);
+
+    }
 
     public override void Open()
     {

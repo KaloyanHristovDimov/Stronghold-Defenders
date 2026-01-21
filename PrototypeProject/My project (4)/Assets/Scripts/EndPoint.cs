@@ -18,4 +18,16 @@ public class EndPoint : MonoBehaviour, IPointerDownHandler
         TileManager.Instance.TrySpawnTile(parentTile, direction);
         gameObject.SetActive(false);
     }
+
+    private void OnEnable()
+    {
+        if (WaveManager.Instance != null)
+            WaveManager.Instance.RegisterEndpoint(this);
+    }
+
+    private void OnDisable()
+    {
+        if (WaveManager.Instance != null)
+            WaveManager.Instance.UnregisterEndpoint(this);
+    }
 }

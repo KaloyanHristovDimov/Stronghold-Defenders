@@ -38,6 +38,6 @@ public class MoneyManager : MonoBehaviour
 
     void UpdateMoney()
     {
-        moneyText.text = "Money: " + MoneyManager.Instance.money;
+        //moneyText.text = "Money: " + MoneyManager.Instance.money;
     }
 }
