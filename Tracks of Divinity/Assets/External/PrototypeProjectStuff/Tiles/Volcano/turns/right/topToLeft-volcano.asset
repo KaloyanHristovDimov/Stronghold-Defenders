@@ -16,3 +16,5 @@ MonoBehaviour:
   endDirections: 03000000
   prefab: {fileID: 6087972484872815333, guid: 9a06aa12ab801a747b68bc85314aa501, type: 3}
   icon: {fileID: 21300000, guid: ccd6302bad5c35d48926057fc394763a, type: 3}
+  towerAmount: 6
+  tileBiome: 3
