@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class FixedPovCamera : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 35f;
+    [SerializeField] private float moveSpeed = 25f;
     [SerializeField] private float scrollSpeed = 250f;
 
-    [SerializeField] private float minDistance = 5f;
-    [SerializeField] private float maxDistance = 50f;
-    [SerializeField] private float startDistance = 15f;
+    [SerializeField] private float minDistance = 25f;
+    [SerializeField] private float maxDistance = 85f;
+    [SerializeField] private float startDistance = 45f;
 
     [SerializeField] private bool constrainMoveToHorizontalPlane = true;
 
