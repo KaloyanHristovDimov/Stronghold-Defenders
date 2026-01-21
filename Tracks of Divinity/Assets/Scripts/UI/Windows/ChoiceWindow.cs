@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -21,9 +22,14 @@ public class ChoiceWindow : Window
 
     }
 
-    public override void Open()
-    {
+    private List<TileData> tilesToChooseFrom = new List<TileData>();
+    private Action<TileData> Choose;
 
+
+    public void Open(List<TileData> tilesToShow, Action<TileData> onChosen)
+    {
+        tilesToChooseFrom = tilesToShow;
+        Choose = onChosen;
         // Additional logic for opening the ChoiceWindow can be added here
         // Like assigning randomly hosen tiles to their respective tileContainers ^ & v
         for (int i = 0; i < tileContainers.Count; i++)
@@ -33,18 +39,19 @@ public class ChoiceWindow : Window
             // Have to make the default 0 argument Open() throw an exception when going for that route
             Instantiate(temporaryPlaceholderTestTilePrefab, tileContainers[i]);
 
+            towerSpacesTexts[i].text = towerSpacesTextPrefix + tilesToShow[i].towerAmount.ToString();
+
             // Also assign the stats from the chosen tiles to the respective texts here
             // Do it like this for each field (3): towerSpacesTexts[i].text = towerSpacesTextPrefix + yourObjectWithTileInfo.towerSpaces;
         }
 
         Activate(true); //this should always be at the end of this method
     }
-
     public void ChooseOption(int id)
     {
         Close(); //this should always be at the start of this method, unless you wanna spawn the tiles without the player noticing
-
-        // Logic for handling the chosen option, use the id (left is 0, mid is 1, right as 2) to know which was chosen
         Debug.Log($"Option {id} chosen.");
+        Choose(tilesToChooseFrom[id]);
+        // Logic for handling the chosen option, use the id (left is 0, mid is 1, right as 2) to know which was chosen
     }
 }
