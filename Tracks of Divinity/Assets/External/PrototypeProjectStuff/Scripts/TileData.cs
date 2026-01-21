@@ -17,4 +17,13 @@ public class TileData : ScriptableObject
     public List<Direction> endDirections;     // Where the tile "ends"
     public GameObject prefab;                 // Tile prefab
     public Sprite icon;                       // Optional, for UI previews
+    public int towerAmount = 1;               // Number of towers on this tile
+    public enum biomeType
+    {
+        Plains,
+        Desert,
+        Snow,
+        Volcanic
+    }
+    public biomeType tileBiome;
 }
