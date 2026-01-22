@@ -22,6 +22,7 @@ public class ChoiceWindow : Window
 
     }
 
+    private readonly List<GameObject> spawnedIcons = new();
     private List<TileData> tilesToChooseFrom = new List<TileData>();
     private Action<TileData> Choose;
 
@@ -37,8 +38,9 @@ public class ChoiceWindow : Window
             // For testing purposes, instantiate a temporary placeholder tile, remove when adding the actual recieved tiles
             // Can add a new Open() with arguments List<GameObject> with the chosen tiles and simply instantiate them here
             // Have to make the default 0 argument Open() throw an exception when going for that route
-            temporaryPlaceholderTestTilePrefab = tilesToShow[i].icon;
-            Instantiate(temporaryPlaceholderTestTilePrefab, tileContainers[i]);
+            var iconPrefab = tilesToShow[i].icon;
+            var iconInstance = Instantiate(iconPrefab, tileContainers[i]);
+            spawnedIcons.Add(iconInstance);
 
             towerSpacesTexts[i].text = towerSpacesTextPrefix + tilesToShow[i].towerAmount.ToString();
 
@@ -76,5 +78,16 @@ public class ChoiceWindow : Window
         Debug.Log($"Option {id} chosen.");
         Choose(tilesToChooseFrom[id]);
         // Logic for handling the chosen option, use the id (left is 0, mid is 1, right as 2) to know which was chosen
+    }
+
+    public override void Close()
+    {
+        base.Close();
+        for (int i = 0; i < tileContainers.Count; i++) 
+        {
+            if (spawnedIcons[i] != null)
+                Destroy(spawnedIcons[i]);
+        }
+        spawnedIcons.Clear();
     }
 }
