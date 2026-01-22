@@ -14,14 +14,8 @@ public class TowereScript : MonoBehaviour
     public GameObject projectilePrefab;
     public Transform firePoint;
 
-    private LineRenderer lineRenderer;
-    public AudioSource atackSFX;
+    //public AudioSource atackSFX;
 
-    void Start()
-    {
-        lineRenderer = GetComponent<LineRenderer>();
-        lineRenderer.enabled = false;
-    }
 
     void Update()
     {
@@ -30,6 +24,11 @@ public class TowereScript : MonoBehaviour
         {
             attackTimer = 0f;
             Atack();
+        }
+
+        if (enemyToDamage != null)
+        {
+            RotateTowardsEnemy(enemyToDamage.transform);
         }
     }
     private void Atack()
@@ -95,9 +94,25 @@ public class TowereScript : MonoBehaviour
         );
 
         Projectile projectile = projectileGO.GetComponent<Projectile>();
-        projectile.Initialize(target, damage);
+        projectile.Initialize(target, damage, aoe, aoeRange);
 
-        atackSFX.Play();
+        //atackSFX.Play();
+    }
+
+    private void RotateTowardsEnemy(Transform target)
+    {
+        Vector3 direction = target.position - transform.position;
+        direction.y = 0f; // Y-axis only
+
+        if (direction != Vector3.zero)
+        {
+            Quaternion lookRotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Slerp(
+                transform.rotation,
+                lookRotation,
+                Time.deltaTime * 5f
+            );
+        }
     }
 
 }

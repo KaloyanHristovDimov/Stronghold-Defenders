@@ -39,8 +39,12 @@ public class EnemyScript : MonoBehaviour
         }
     }
 
+
     void OnDestroy()
     {
+        if (WaveManager.Instance == null)
+            return;
         MoneyManager.Instance.AddMoney(moneyAward);
+        WaveManager.Instance.EnemyDestroyed();
     }
 }

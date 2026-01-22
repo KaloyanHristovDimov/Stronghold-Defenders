@@ -4,24 +4,18 @@ using UnityEngine;
 public class TowereScript : MonoBehaviour
 {
     private float attackTimer = 0f;
-    public float attackTime = 5f;
+    public float attackTime = 1f;
     public List<GameObject> enemiesInRange = new List<GameObject>();
-    public int damage = 100;
+    public int damage = 50;
     public bool aoe = false;
-    public float aoeRange = 5;
+    public float aoeRange = 4;
     private GameObject enemyToDamage;
 
     public GameObject projectilePrefab;
     public Transform firePoint;
 
-    private LineRenderer lineRenderer;
-    public AudioSource atackSFX;
+    //public AudioSource atackSFX;
 
-    void Start()
-    {
-        lineRenderer = GetComponent<LineRenderer>();
-        lineRenderer.enabled = false;
-    }
 
     void Update()
     {
@@ -30,6 +24,11 @@ public class TowereScript : MonoBehaviour
         {
             attackTimer = 0f;
             Atack();
+        }
+
+        if (enemyToDamage != null)
+        {
+            RotateTowardsEnemy(enemyToDamage.transform);
         }
     }
     private void Atack()
@@ -95,9 +94,25 @@ public class TowereScript : MonoBehaviour
         );
 
         Projectile projectile = projectileGO.GetComponent<Projectile>();
-        projectile.Initialize(target, damage);
+        projectile.Initialize(target, damage, aoe, aoeRange);
 
-        atackSFX.Play();
+        //atackSFX.Play();
+    }
+
+    private void RotateTowardsEnemy(Transform target)
+    {
+        Vector3 direction = target.position - transform.position;
+        direction.y = 0f; // Y-axis only
+
+        if (direction != Vector3.zero)
+        {
+            Quaternion lookRotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Slerp(
+                transform.rotation,
+                lookRotation,
+                Time.deltaTime * 5f
+            );
+        }
     }
 
 }
