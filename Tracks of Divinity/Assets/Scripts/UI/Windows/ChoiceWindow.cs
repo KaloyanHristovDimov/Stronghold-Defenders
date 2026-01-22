@@ -6,42 +6,64 @@ using UnityEngine;
 public class ChoiceWindow : Window
 {
     public static ChoiceWindow Instance;
-    ///<summary> indexes = id (like left is 0, mid is 1, right as 2) </summary>
     [SerializeField] private List<Transform> tileContainers;
-    ///<summary> indexes = id (like left is 0, mid is 1, right as 2) </summary>
     [SerializeField] private List<TextMeshProUGUI> towerSpacesTexts, biomeBuffTexts, biomeDebuffTexts, tileNameTexts;
 
     const string towerSpacesTextPrefix = "<color=#666666>Tower Spaces:</color> ",
-     biomeBuffTextPrefix = "<color=#666666>Biome Buff:</color> ", biomeDebuffTextPrefix = "<color=#666666>Biome Debuff:</color> ";
+                 biomeBuffTextPrefix = "<color=#666666>Biome Buff:</color> ",
+                 biomeDebuffTextPrefix = "<color=#666666>Biome Debuff:</color> ";
+
+    public GameObject camera;
+
+    Vector3 newPosition = new Vector3(1000f, 1000f, 1000f);
+
+    private Transform camTf;
+    private FixedPovCamera fixedPovCam;
+    private Vector3 cameraOffsetApplied;
+
     void Awake()
     {
         Instance = this;
         gameObject.SetActive(false);
-
     }
 
     private readonly List<GameObject> spawnedIcons = new();
     private List<TileData> tilesToChooseFrom = new List<TileData>();
     private Action<TileData> Choose;
 
-
     public void Open(List<TileData> tilesToShow, Action<TileData> onChosen)
     {
+        camTf = (camera != null) ? camera.transform : (Camera.main != null ? Camera.main.transform : null);
+
+        if (camTf != null)
+        {
+            if (fixedPovCam == null)
+                fixedPovCam = camTf.GetComponent<FixedPovCamera>();
+
+            cameraOffsetApplied = newPosition;
+
+            if (fixedPovCam != null)
+                fixedPovCam.AddWorldOffset(cameraOffsetApplied);
+            else
+                camTf.position += cameraOffsetApplied;
+        }
+        else
+        {
+            Debug.LogWarning("ChoiceWindow: No camera found. Assign 'camera' or tag your main camera as MainCamera.");
+        }
+
         tilesToChooseFrom = tilesToShow;
         Choose = onChosen;
-        // Additional logic for opening the ChoiceWindow can be added here
-        // Like assigning randomly hosen tiles to their respective tileContainers ^ & v
+
         for (int i = 0; i < tileContainers.Count; i++)
         {
-            // For testing purposes, instantiate a temporary placeholder tile, remove when adding the actual recieved tiles
-            // Can add a new Open() with arguments List<GameObject> with the chosen tiles and simply instantiate them here
-            // Have to make the default 0 argument Open() throw an exception when going for that route
             var iconPrefab = tilesToShow[i].icon;
             var iconInstance = Instantiate(iconPrefab, tileContainers[i]);
             spawnedIcons.Add(iconInstance);
 
             tileNameTexts[i].text = tilesToShow[i].name;
             towerSpacesTexts[i].text = towerSpacesTextPrefix + tilesToShow[i].towerAmount.ToString();
+
             switch (tilesToShow[i].tileBiome)
             {
                 case TileData.biomeType.Plains:
@@ -60,32 +82,39 @@ public class ChoiceWindow : Window
                     biomeBuffTexts[i].text = biomeBuffTextPrefix + "Higher damage";
                     biomeDebuffTexts[i].text = biomeDebuffTextPrefix + "More expensive";
                     break;
-                default:
-                    break;
             }
-
-            // Also assign the stats from the chosen tiles to the respective texts here
-            // Do it like this for each field (3): towerSpacesTexts[i].text = towerSpacesTextPrefix + yourObjectWithTileInfo.towerSpaces;
         }
 
-        Activate(true); //this should always be at the end of this method
+        Activate(true);
     }
+
     public void ChooseOption(int id)
     {
-        Close(); //this should always be at the start of this method, unless you wanna spawn the tiles without the player noticing
+        Close();
         Debug.Log($"Option {id} chosen.");
         Choose(tilesToChooseFrom[id]);
-        // Logic for handling the chosen option, use the id (left is 0, mid is 1, right as 2) to know which was chosen
     }
 
     public override void Close()
     {
         base.Close();
-        for (int i = 0; i < tileContainers.Count; i++) 
+
+        for (int i = 0; i < tileContainers.Count; i++)
         {
             if (spawnedIcons[i] != null)
                 Destroy(spawnedIcons[i]);
         }
         spawnedIcons.Clear();
+
+        if (camTf != null)
+        {
+            if (fixedPovCam == null)
+                fixedPovCam = camTf.GetComponent<FixedPovCamera>();
+
+            if (fixedPovCam != null)
+                fixedPovCam.AddWorldOffset(-cameraOffsetApplied);
+            else
+                camTf.position -= cameraOffsetApplied;
+        }
     }
 }

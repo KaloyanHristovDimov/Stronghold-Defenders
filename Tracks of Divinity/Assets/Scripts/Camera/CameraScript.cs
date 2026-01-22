@@ -77,4 +77,11 @@ public class FixedPovCamera : MonoBehaviour
 
         startDistance = Mathf.Clamp(startDistance, minDistance, maxDistance);
     }
+
+    public void AddWorldOffset(Vector3 offset)
+    {
+        pivot += offset;
+        transform.position += offset; // keeps it visually consistent until next LateUpdate recalculates
+    }
+
 }
