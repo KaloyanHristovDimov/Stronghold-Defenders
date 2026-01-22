@@ -37,9 +37,32 @@ public class ChoiceWindow : Window
             // For testing purposes, instantiate a temporary placeholder tile, remove when adding the actual recieved tiles
             // Can add a new Open() with arguments List<GameObject> with the chosen tiles and simply instantiate them here
             // Have to make the default 0 argument Open() throw an exception when going for that route
+            temporaryPlaceholderTestTilePrefab = tilesToShow[i].icon;
             Instantiate(temporaryPlaceholderTestTilePrefab, tileContainers[i]);
 
             towerSpacesTexts[i].text = towerSpacesTextPrefix + tilesToShow[i].towerAmount.ToString();
+
+            switch (tilesToShow[i].tileBiome)
+            {
+                case TileData.biomeType.Plains:
+                    biomeBuffTexts[i].text = biomeBuffTextPrefix + "Cheaper than normal";
+                    biomeDebuffTexts[i].text = biomeDebuffTextPrefix + "None";
+                    break;
+                case TileData.biomeType.Desert:
+                    biomeBuffTexts[i].text = biomeBuffTextPrefix + "Higher range";
+                    biomeDebuffTexts[i].text = biomeDebuffTextPrefix + "Lower attack speed";
+                    break;
+                case TileData.biomeType.Snow:
+                    biomeBuffTexts[i].text = biomeBuffTextPrefix + "Towers slow enemies";
+                    biomeDebuffTexts[i].text = biomeDebuffTextPrefix + "Lower range";
+                    break;
+                case TileData.biomeType.Volcanic:
+                    biomeBuffTexts[i].text = biomeBuffTextPrefix + "Higher damage";
+                    biomeDebuffTexts[i].text = biomeDebuffTextPrefix + "More expensive";
+                    break;
+                default:
+                    break;
+            }
 
             // Also assign the stats from the chosen tiles to the respective texts here
             // Do it like this for each field (3): towerSpacesTexts[i].text = towerSpacesTextPrefix + yourObjectWithTileInfo.towerSpaces;
