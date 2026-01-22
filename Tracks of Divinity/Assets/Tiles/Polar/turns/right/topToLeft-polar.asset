@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 0
   endDirections: 03000000
+  name: Waste
   prefab: {fileID: 5749760207211005535, guid: 5d50111456ec30a4aa5f25e5e037a476, type: 3}
   icon: {fileID: 5749760207211005535, guid: 967fec1c2a88e8a459344dbab1b7d859, type: 3}
   towerAmount: 6

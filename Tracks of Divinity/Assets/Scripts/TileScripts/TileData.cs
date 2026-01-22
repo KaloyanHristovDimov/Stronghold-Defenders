@@ -15,6 +15,7 @@ public class TileData : ScriptableObject
 
     public Direction startDirection;          // Where the tile "starts"
     public List<Direction> endDirections;     // Where the tile "ends"
+    public string name;
     public GameObject prefab;                 // Tile prefab
     public GameObject icon;                       // Optional, for UI previews
     public int towerAmount;               // Number of towers on this tile

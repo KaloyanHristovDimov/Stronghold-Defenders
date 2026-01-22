@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 3
   endDirections: 0200000001000000
+  name: Oil
   prefab: {fileID: 1700625340213646226, guid: fc5cc2c878abf5842a093f0568f91b95, type: 3}
   icon: {fileID: 1700625340213646226, guid: fa461c450e8e31f4eaea1f19668452c8, type: 3}
   towerAmount: 5

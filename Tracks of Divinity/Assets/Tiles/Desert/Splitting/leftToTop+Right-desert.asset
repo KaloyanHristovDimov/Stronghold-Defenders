@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 3
   endDirections: 0200000000000000
+  name: Kate
   prefab: {fileID: 5334181249081432885, guid: 60fd819e7c37014479963383dfbbc4c6, type: 3}
   icon: {fileID: 5334181249081432885, guid: 0eeac287b022b0943812715bd99ba907, type: 3}
   towerAmount: 5

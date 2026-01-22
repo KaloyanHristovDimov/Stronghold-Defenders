@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 3
   endDirections: 00000000
+  name: Queternion Rotation
   prefab: {fileID: 5919291851981437706, guid: f60e2f0dfd4c603478a0b0e8d5978e3b, type: 3}
   icon: {fileID: 5919291851981437706, guid: 34050c8c206617049a62053b1715df2e, type: 3}
   towerAmount: 6

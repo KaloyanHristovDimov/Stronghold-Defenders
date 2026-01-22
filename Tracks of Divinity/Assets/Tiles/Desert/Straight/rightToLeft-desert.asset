@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 2
   endDirections: 03000000
+  name: Rum
   prefab: {fileID: 5970696486247210434, guid: b1f4a984b74de95448d1ad6c0da95ec1, type: 3}
   icon: {fileID: 5970696486247210434, guid: 344cbd47be467b84ea5462fe6f8c5c2f, type: 3}
   towerAmount: 6

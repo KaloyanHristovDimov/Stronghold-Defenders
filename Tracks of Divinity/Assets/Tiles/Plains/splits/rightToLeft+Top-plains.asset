@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 2
   endDirections: 0300000000000000
+  name: Krystal
   prefab: {fileID: 5480488351566936299, guid: fe578ad97b0a518408deef22333a3949, type: 3}
   icon: {fileID: 5480488351566936299, guid: 8109f43371a30cb42a11ab05de5d2d8a, type: 3}
   towerAmount: 5

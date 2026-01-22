@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 0
   endDirections: 01000000
+  name: Rita
   prefab: {fileID: 4264829712003437150, guid: 48846509c9904d04e9d8e8a952ad05af, type: 3}
   icon: {fileID: 4264829712003437150, guid: 10d1f5440c6e7f94c83aef23e4cec6ba, type: 3}
   towerAmount: 6

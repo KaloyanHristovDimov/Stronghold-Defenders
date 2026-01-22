@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 1
   endDirections: 0200000000000000
+  name: Samsung
   prefab: {fileID: 5128479903484116077, guid: 683e926b088129e4ab5769f3a62cff73, type: 3}
   icon: {fileID: 5128479903484116077, guid: 4db3bd4dd8073894bb3c174294dd6ed0, type: 3}
   towerAmount: 5

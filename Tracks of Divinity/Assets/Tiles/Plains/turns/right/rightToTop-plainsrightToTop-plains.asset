@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 2
   endDirections: 00000000
+  name: Love
   prefab: {fileID: 6136087279169716855, guid: 60fce060098caae449cbf15ebc015ca2, type: 3}
   icon: {fileID: 6136087279169716855, guid: 3571bd868fafcb448adf3afef2ef7ee9, type: 3}
   towerAmount: 6

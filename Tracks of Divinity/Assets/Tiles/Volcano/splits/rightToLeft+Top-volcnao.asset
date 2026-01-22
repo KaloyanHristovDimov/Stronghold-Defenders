@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 2
   endDirections: 0300000000000000
+  name: Bernadeta
   prefab: {fileID: 6293167577354988558, guid: 9baf306d39a8ef047b90c5c84cc82833, type: 3}
   icon: {fileID: 6293167577354988558, guid: 4861b40dbaad8834d8848b696c324045, type: 3}
   towerAmount: 5

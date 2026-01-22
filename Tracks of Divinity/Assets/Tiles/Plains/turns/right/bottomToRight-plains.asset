@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 1
   endDirections: 02000000
+  name: Yanislav
   prefab: {fileID: 1628297690817434460, guid: d096076e2d295c947888e48f83c9fa93, type: 3}
   icon: {fileID: 1628297690817434460, guid: d4b774abc7e59cb45b9718f01444f15c, type: 3}
   towerAmount: 6

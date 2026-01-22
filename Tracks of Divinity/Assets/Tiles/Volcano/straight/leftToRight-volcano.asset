@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 3
   endDirections: 02000000
+  name: Darko
   prefab: {fileID: 4392721788639268509, guid: 2e3022fdb3c3b7d44bfee70b3e38ec85, type: 3}
   icon: {fileID: 4392721788639268509, guid: 451494245b23a854a9c9f1888b978cda, type: 3}
   towerAmount: 6

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 3
   endDirections: 0100000000000000
+  name: Gustav
   prefab: {fileID: 120882757236607577, guid: 1d2488cf2232d2e4ca9cd76fc7e2670d, type: 3}
   icon: {fileID: 120882757236607577, guid: 45236c59ba744564ab95e42e1aee1a48, type: 3}
   towerAmount: 5

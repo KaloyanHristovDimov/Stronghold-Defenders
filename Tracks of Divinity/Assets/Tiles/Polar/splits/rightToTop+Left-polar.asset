@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 2
   endDirections: 0300000000000000
+  name: Gambino
   prefab: {fileID: 8458895350566642208, guid: 6948ab20e58a6e04fa1a1d42336682e0, type: 3}
   icon: {fileID: 8458895350566642208, guid: 8e7242854a3ca174e938b949259cc897, type: 3}
   towerAmount: 5

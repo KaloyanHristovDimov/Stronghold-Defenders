@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 1
   endDirections: 03000000
+  name: Apple
   prefab: {fileID: 3721637228883798048, guid: bbf949a9477cde447b55997430e48eb8, type: 3}
   icon: {fileID: 3721637228883798048, guid: 5d0aac9c7f3d21e4d944f68d51c2f730, type: 3}
   towerAmount: 6

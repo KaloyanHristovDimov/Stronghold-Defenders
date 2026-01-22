@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 3
   endDirections: 0000000002000000
+  name: Nalini
   prefab: {fileID: 3376072093836458601, guid: 33424d60bd9d7aa4caa4bc9f8b5288fe, type: 3}
   icon: {fileID: 3376072093836458601, guid: e854a82dca7d69a4ea3acba8d435b537, type: 3}
   towerAmount: 5

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 1
   endDirections: 00000000
+  name: Ilyas
   prefab: {fileID: 9045385851118466643, guid: b117d191c2fbf5e4f86979e2d08fb0d3, type: 3}
   icon: {fileID: 9045385851118466643, guid: 1108e00edf6a7cb4fbdcb751065adb99, type: 3}
   towerAmount: 6

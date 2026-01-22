@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 0
   endDirections: 030000000100000002000000
+  name: Lorenzo
   prefab: {fileID: 5034368644384159366, guid: 98d4114ff5f3f8748a03b1a27e8b9330, type: 3}
   icon: {fileID: 5034368644384159366, guid: f54eedde60cf40a4aae0bb20ff998157, type: 3}
   towerAmount: 4

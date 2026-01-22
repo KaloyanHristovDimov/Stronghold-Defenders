@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 1
   endDirections: 0300000000000000
+  name: Reuben
   prefab: {fileID: 5772727232190784807, guid: 579f8db9be16e4d4981e0f78b131362b, type: 3}
   icon: {fileID: 5772727232190784807, guid: dc589dc2d2f082846a8b6e50e4d3a6a3, type: 3}
   towerAmount: 5

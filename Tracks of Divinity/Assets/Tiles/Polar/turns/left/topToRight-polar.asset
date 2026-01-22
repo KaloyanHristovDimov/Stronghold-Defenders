@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 0
   endDirections: 02000000
+  name: Jack
   prefab: {fileID: 8632462338817782381, guid: b137a452fa5abf44984ebd9063cf6ead, type: 3}
   icon: {fileID: 8632462338817782381, guid: 37264065192d6674ca93899d05d3cf56, type: 3}
   towerAmount: 6

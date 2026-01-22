@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 0
   endDirections: 010000000200000003000000
+  name: Pantaleone
   prefab: {fileID: 5719399689497439824, guid: c1876212b68bfe24e8d454ef6deb3626, type: 3}
   icon: {fileID: 5719399689497439824, guid: f60d516bcddf88c48a110cfb02e6c1ff, type: 3}
   towerAmount: 4

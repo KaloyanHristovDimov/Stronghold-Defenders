@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 3
   endDirections: 00000000
+  name: Ali
   prefab: {fileID: 3453197368952268429, guid: 876630a7bcce60b43aa9fa2155b641f5, type: 3}
   icon: {fileID: 3453197368952268429, guid: 8c9a74d84573abc4099467dd9bc007e7, type: 3}
   towerAmount: 6

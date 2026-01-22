@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 1
   endDirections: 030000000200000000000000
+  name: Cefin
   prefab: {fileID: 8188990117851319739, guid: 910384525331b084dabfff799d4d491f, type: 3}
   icon: {fileID: 8188990117851319739, guid: 1f345512bd2d5dd46acbc59be0fd99f3, type: 3}
   towerAmount: 4

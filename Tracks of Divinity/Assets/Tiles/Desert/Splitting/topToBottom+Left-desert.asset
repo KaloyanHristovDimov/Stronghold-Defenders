@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 0
   endDirections: 0100000003000000
+  name: DDR
   prefab: {fileID: 7190940779001923541, guid: 6e9127254f5928a4faa8d03397134d1f, type: 3}
   icon: {fileID: 7190940779001923541, guid: 7e6a57fcfa237b547bf339baab021686, type: 3}
   towerAmount: 5

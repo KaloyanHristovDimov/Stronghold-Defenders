@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 3
   endDirections: 0000000002000000
+  name: Varang
   prefab: {fileID: 1454482935226854865, guid: 7e69712e4f91b0943a408095d46da702, type: 3}
   icon: {fileID: 1454482935226854865, guid: 5eeecd006044fe54e82419bea96a2912, type: 3}
   towerAmount: 5

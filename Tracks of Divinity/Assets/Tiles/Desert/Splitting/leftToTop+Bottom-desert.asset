@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 3
   endDirections: 0100000000000000
+  name: Nika
   prefab: {fileID: 4255990844568176516, guid: 0f4c526b482a80f439b84876fd20d23f, type: 3}
   icon: {fileID: 4255990844568176516, guid: 9c86da0248f1e4648a3e483ae1f421a0, type: 3}
   towerAmount: 5

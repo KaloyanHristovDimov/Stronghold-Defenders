@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 2
   endDirections: 0300000000000000
+  name: Gamble
   prefab: {fileID: 3455271878039270316, guid: f1f80952f1fa78343a2b8dd589b88870, type: 3}
   icon: {fileID: 3455271878039270316, guid: 8bc30b61c70ef274bb8c9a3f9090dee4, type: 3}
   towerAmount: 5

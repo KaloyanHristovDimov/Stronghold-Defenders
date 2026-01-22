@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 1
   endDirections: 000000000300000002000000
+  name: Hjalmar
   prefab: {fileID: 5626642184166101891, guid: c5c2f6ed750c7e14c984206cc67e6f7b, type: 3}
   icon: {fileID: 985004646540888612, guid: dc246573caab5f9449e366a0a0cb84b1, type: 3}
   towerAmount: 4

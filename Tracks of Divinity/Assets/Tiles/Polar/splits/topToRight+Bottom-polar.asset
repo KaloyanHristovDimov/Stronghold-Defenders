@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 0
   endDirections: 0200000001000000
+  name: Shou
   prefab: {fileID: 3071725993584325554, guid: 2653ec8144689814d976cad1ce9c0db6, type: 3}
   icon: {fileID: 3071725993584325554, guid: 5063882732c04dc44ae667e5d379cf52, type: 3}
   towerAmount: 5

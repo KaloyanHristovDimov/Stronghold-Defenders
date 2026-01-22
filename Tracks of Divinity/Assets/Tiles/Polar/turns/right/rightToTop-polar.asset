@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 2
   endDirections: 00000000
+  name: Life
   prefab: {fileID: 4953214272332103946, guid: 84c02412f660e5d41a5fd9b320fe38f4, type: 3}
   icon: {fileID: 4953214272332103946, guid: e23aad70dd077974cb794f1cd60f6209, type: 3}
   towerAmount: 6

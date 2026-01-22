@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 1
   endDirections: 03000000
+  name: Annick
   prefab: {fileID: 4899121859833563752, guid: 6d6ad5e502e1bc043b2999211f7f4e4c, type: 3}
   icon: {fileID: 4899121859833563752, guid: ae92b14a318e9cf4dba38372a93af688, type: 3}
   towerAmount: 6

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 2
   endDirections: 0100000000000000
+  name: Noah
   prefab: {fileID: 6300381477281689030, guid: bf464151dbc832447bc51bda7bdd50dd, type: 3}
   icon: {fileID: 6300381477281689030, guid: a16f66fb6eccfa845b44dd57dc633d8c, type: 3}
   towerAmount: 5

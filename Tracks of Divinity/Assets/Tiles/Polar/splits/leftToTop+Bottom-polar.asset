@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 3
   endDirections: 0000000001000000
+  name: Johnathan
   prefab: {fileID: 3050250762938330452, guid: b26f0f3b7e1ed7242b13e439017793bf, type: 3}
   icon: {fileID: 3050250762938330452, guid: 227999b5527f7164ab68c0eb59ebb75d, type: 3}
   towerAmount: 5

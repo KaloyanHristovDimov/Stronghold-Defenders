@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 3
   endDirections: 02000000
+  name: Daniel
   prefab: {fileID: 5447391669085580349, guid: 1cd2cc819246dc84d838687b99dd904f, type: 3}
   icon: {fileID: 5447391669085580349, guid: 45630affb2b4f4943b713ead2b107561, type: 3}
   towerAmount: 6

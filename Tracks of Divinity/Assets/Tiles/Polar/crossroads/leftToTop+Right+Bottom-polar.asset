@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 3
   endDirections: 000000000200000001000000
+  name: Bote
   prefab: {fileID: 5878166903297813948, guid: b811eb1825662984184ea9f398aa982b, type: 3}
   icon: {fileID: 5878166903297813948, guid: a26c5c807d27f7e45bff965f9db6a441, type: 3}
   towerAmount: 4

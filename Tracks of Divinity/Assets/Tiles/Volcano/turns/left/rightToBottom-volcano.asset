@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 2
   endDirections: 01000000
+  name: Caleb
   prefab: {fileID: 2166473520763662302, guid: e66b8e6b4d4dcb84d8f1d01a403b0186, type: 3}
   icon: {fileID: 2166473520763662302, guid: 753dcbe386cdfc94985d5f2c31e88992, type: 3}
   towerAmount: 6

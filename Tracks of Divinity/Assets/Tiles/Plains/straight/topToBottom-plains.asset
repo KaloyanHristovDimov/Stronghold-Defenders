@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 0
   endDirections: 01000000
+  name: Mona
   prefab: {fileID: 5309401602209060556, guid: 77c8c059a7fb7184fbfcfe1ba5f45087, type: 3}
   icon: {fileID: 5309401602209060556, guid: dc631c8b78ea89f43a294b79f78323bc, type: 3}
   towerAmount: 6

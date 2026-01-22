@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 3
   endDirections: 00000000
+  name: Mid
   prefab: {fileID: 6235249307664734134, guid: 08671f8bb4df50447ac72d73c48ee9f5, type: 3}
   icon: {fileID: 6235249307664734134, guid: 1fd617946a9ec5849b31d52b6a689ccf, type: 3}
   towerAmount: 6

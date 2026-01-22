@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 0
   endDirections: 0100000003000000
+  name: Tim
   prefab: {fileID: 7660499520077453103, guid: 724413c523a2bc347a1c2fc2c0fc8cb8, type: 3}
   icon: {fileID: 7660499520077453103, guid: 1800332c64b2a5744916c5be46d24dad, type: 3}
   towerAmount: 5

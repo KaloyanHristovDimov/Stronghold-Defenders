@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 0
   endDirections: 02000000
+  name: Neitiri
   prefab: {fileID: 5218309740200892311, guid: 11fac434ea4f54242a0063a2158d66c5, type: 3}
   icon: {fileID: 5218309740200892311, guid: 4a816751bfb03994384095a86e317847, type: 3}
   towerAmount: 6

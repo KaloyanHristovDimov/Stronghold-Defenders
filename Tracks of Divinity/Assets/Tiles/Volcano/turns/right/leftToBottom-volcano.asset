@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 3
   endDirections: 01000000
+  name: Nana
   prefab: {fileID: 2505537371419068484, guid: e8acf2b8a716c484db37a2a648c1bd2f, type: 3}
   icon: {fileID: 2505537371419068484, guid: 74a15bce37f522044abc97026cc2c70e, type: 3}
   towerAmount: 6

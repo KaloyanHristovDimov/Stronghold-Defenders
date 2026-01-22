@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 1
   endDirections: 00000000
+  name: Adelinde
   prefab: {fileID: 2749596350475193893, guid: 7c67838dcedb28744a81770e46fc98ca, type: 3}
   icon: {fileID: 2749596350475193893, guid: 28a7a8fdd512f494096da8b824485554, type: 3}
   towerAmount: 6

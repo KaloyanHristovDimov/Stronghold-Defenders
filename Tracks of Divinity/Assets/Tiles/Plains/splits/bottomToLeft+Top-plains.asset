@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 1
   endDirections: 0300000000000000
+  name: Momo
   prefab: {fileID: 2259678873917815182, guid: 990ba04647844694a91b242345de2b47, type: 3}
   icon: {fileID: 2259678873917815182, guid: fe2751e1dcbdd9f4ea6c3bce2a6d4d23, type: 3}
   towerAmount: 5

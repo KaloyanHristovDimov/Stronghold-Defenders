@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 3
   endDirections: 01000000
+  name: Lewis
   prefab: {fileID: 5360173212619452338, guid: 2d8b0d881d3aee74e900604c1c105301, type: 3}
   icon: {fileID: 5360173212619452338, guid: a72df7d42e5c97a44ab4d07e89f1bc5e, type: 3}
   towerAmount: 6

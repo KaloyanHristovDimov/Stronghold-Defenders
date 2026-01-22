@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 1
   endDirections: 03000000
+  name: Juma
   prefab: {fileID: 7394666823353685024, guid: 2b023f94ae2630c49b96ace8707895d1, type: 3}
   icon: {fileID: 7394666823353685024, guid: f638756d158cfe2439bb22ab777e15e4, type: 3}
   towerAmount: 6

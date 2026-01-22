@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 3
   endDirections: 02000000
+  name: Romania
   prefab: {fileID: 4914175069024859819, guid: 0c6263098971b5f4dba7100be5d7a810, type: 3}
   icon: {fileID: 4914175069024859819, guid: 8b68e47d92ccd9645954c34e8d348565, type: 3}
   towerAmount: 6

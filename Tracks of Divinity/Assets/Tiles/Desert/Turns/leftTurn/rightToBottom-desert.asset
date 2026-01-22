@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 2
   endDirections: 01000000
+  name: Uduakobong
   prefab: {fileID: 4569314460808725147, guid: 57289ae27e08bb341953781a4547f95b, type: 3}
   icon: {fileID: 4569314460808725147, guid: 1fd3a582e98e35345965d916cc734cc9, type: 3}
   towerAmount: 6

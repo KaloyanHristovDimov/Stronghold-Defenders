@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 0
   endDirections: 0200000003000000
+  name: Zlatan
   prefab: {fileID: 3118268688153107172, guid: 82613058ac5e79148ae45aed25334dfc, type: 3}
   icon: {fileID: 3118268688153107172, guid: e7309a24018bee846867701a4275e952, type: 3}
   towerAmount: 5

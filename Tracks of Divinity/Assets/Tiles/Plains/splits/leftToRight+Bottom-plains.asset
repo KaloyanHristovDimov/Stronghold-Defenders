@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 3
   endDirections: 0200000001000000
+  name: Cheese
   prefab: {fileID: 8821552343108641845, guid: 9fbb742bdcd7d9749b2d3ef76e0bd9ee, type: 3}
   icon: {fileID: 8821552343108641845, guid: 5ceab6cace59e7a42b604f034eea56b8, type: 3}
   towerAmount: 5

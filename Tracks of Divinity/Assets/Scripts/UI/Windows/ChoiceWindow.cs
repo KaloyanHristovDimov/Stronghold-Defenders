@@ -9,9 +9,7 @@ public class ChoiceWindow : Window
     ///<summary> indexes = id (like left is 0, mid is 1, right as 2) </summary>
     [SerializeField] private List<Transform> tileContainers;
     ///<summary> indexes = id (like left is 0, mid is 1, right as 2) </summary>
-    [SerializeField] private List<TextMeshProUGUI> towerSpacesTexts, biomeBuffTexts, biomeDebuffTexts;
-
-    [SerializeField] private GameObject temporaryPlaceholderTestTilePrefab;
+    [SerializeField] private List<TextMeshProUGUI> towerSpacesTexts, biomeBuffTexts, biomeDebuffTexts, tileNameTexts;
 
     const string towerSpacesTextPrefix = "<color=#666666>Tower Spaces:</color> ",
      biomeBuffTextPrefix = "<color=#666666>Biome Buff:</color> ", biomeDebuffTextPrefix = "<color=#666666>Biome Debuff:</color> ";
@@ -42,8 +40,8 @@ public class ChoiceWindow : Window
             var iconInstance = Instantiate(iconPrefab, tileContainers[i]);
             spawnedIcons.Add(iconInstance);
 
+            tileNameTexts[i].text = tilesToShow[i].name;
             towerSpacesTexts[i].text = towerSpacesTextPrefix + tilesToShow[i].towerAmount.ToString();
-
             switch (tilesToShow[i].tileBiome)
             {
                 case TileData.biomeType.Plains:

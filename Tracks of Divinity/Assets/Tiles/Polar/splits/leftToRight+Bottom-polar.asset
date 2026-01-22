@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 3
   endDirections: 0100000002000000
+  name: Locked Out
   prefab: {fileID: 4520894320913699244, guid: 8142975c4dcd1c14d8871c0d6cb23cab, type: 3}
   icon: {fileID: 4520894320913699244, guid: 2096bcf34b0d09b4fb01e5c0429945c4, type: 3}
   towerAmount: 5

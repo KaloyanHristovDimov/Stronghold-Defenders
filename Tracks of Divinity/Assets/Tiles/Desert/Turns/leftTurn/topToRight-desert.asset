@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 0
   endDirections: 02000000
+  name: Salsa
   prefab: {fileID: 3803572702585384058, guid: eb4744c9d839d30498378379eed3226d, type: 3}
   icon: {fileID: 3803572702585384058, guid: 1f620934cc4e22b4798895e99e8a0f23, type: 3}
   towerAmount: 6

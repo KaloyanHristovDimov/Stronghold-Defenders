@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 2
   endDirections: 0100000000000000
+  name: Mary
   prefab: {fileID: 8273552707127430829, guid: fed53f19e366e2142bc7e23279e13838, type: 3}
   icon: {fileID: 8273552707127430829, guid: eeb0a55f2b195574a99763af2371d1dc, type: 3}
   towerAmount: 5

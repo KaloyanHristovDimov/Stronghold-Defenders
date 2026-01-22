@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 3
   endDirections: 010000000200000000000000
+  name: Virginio
   prefab: {fileID: 8543288536520781421, guid: 7cab2e8508c162b4499a912154037de6, type: 3}
   icon: {fileID: 8543288536520781421, guid: 189f125bafd4b1e41b52601067468b71, type: 3}
   towerAmount: 4

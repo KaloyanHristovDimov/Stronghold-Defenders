@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 1
   endDirections: 000000000300000002000000
+  name: Ophelia
   prefab: {fileID: 622358176289706262, guid: 019934fe2cb813244b1d466d36c8c1c4, type: 3}
   icon: {fileID: 622358176289706262, guid: fac719a853d4d614a93221739372d856, type: 3}
   towerAmount: 4

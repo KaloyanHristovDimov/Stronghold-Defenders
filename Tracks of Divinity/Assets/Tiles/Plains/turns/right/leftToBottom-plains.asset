@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 3
   endDirections: 01000000
+  name: Izabele
   prefab: {fileID: 3399002757734770842, guid: 650d3e9e2f0c9b347a28771cb3883bee, type: 3}
   icon: {fileID: 3399002757734770842, guid: 412bcbe6e414dad4c96421d075d530d6, type: 3}
   towerAmount: 6

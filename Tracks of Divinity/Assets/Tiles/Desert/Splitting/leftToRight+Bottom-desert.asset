@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 3
   endDirections: 0200000001000000
+  name: Thomas
   prefab: {fileID: 606705808501703536, guid: 1100a832f76bc2f4384d329b9a94d066, type: 3}
   icon: {fileID: 606705808501703536, guid: 16e123484bcc91342896e6c56a187940, type: 3}
   towerAmount: 5

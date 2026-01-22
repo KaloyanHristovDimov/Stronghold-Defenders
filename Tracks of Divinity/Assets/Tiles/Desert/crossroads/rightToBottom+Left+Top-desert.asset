@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 2
   endDirections: 010000000300000000000000
+  name: Azriel
   prefab: {fileID: 2172817106227455450, guid: e8d3966c9842398499a5b50e11048dbc, type: 3}
   icon: {fileID: 2172817106227455450, guid: 5732eedb58873cb499dea027425c8505, type: 3}
   towerAmount: 4

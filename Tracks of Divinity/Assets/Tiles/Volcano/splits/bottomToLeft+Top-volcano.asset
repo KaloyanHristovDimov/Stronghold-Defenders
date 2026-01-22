@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 1
   endDirections: 0300000000000000
+  name: Lisa
   prefab: {fileID: 164452244606151706, guid: 6d0f3355529713b4aa2bf31250eaaef3, type: 3}
   icon: {fileID: 164452244606151706, guid: 4e9a9465fc6c639498c0407258e4e4fd, type: 3}
   towerAmount: 5

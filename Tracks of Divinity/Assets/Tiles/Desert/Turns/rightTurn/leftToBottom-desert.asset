@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 3
   endDirections: 01000000
+  name: Anil
   prefab: {fileID: 8312654452884068119, guid: f9ef465640cb0e74b9d190573b8ffc7e, type: 3}
   icon: {fileID: 8312654452884068119, guid: 26ea0adcbc296d546af2df12291f5f65, type: 3}
   towerAmount: 6

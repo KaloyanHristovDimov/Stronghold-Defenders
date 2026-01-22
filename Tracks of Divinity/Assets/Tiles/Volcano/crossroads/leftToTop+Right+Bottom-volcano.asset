@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 1
   endDirections: 000000000300000002000000
+  name: Mamata
   prefab: {fileID: 5626642184166101891, guid: c5c2f6ed750c7e14c984206cc67e6f7b, type: 3}
   icon: {fileID: 5626642184166101891, guid: 664452f67f031014aadbcad03f258a2a, type: 3}
   towerAmount: 4

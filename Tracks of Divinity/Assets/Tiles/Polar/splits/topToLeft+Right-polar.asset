@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 0
   endDirections: 0200000003000000
+  name: Teodora
   prefab: {fileID: 6144166389232897845, guid: ac7f15cbc118d794d89a5d6121dbac5e, type: 3}
   icon: {fileID: 6144166389232897845, guid: e72df1606f1aa7d4aac28ddeb625a68f, type: 3}
   towerAmount: 5

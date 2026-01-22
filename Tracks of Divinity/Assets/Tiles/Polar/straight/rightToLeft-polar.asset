@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 2
   endDirections: 03000000
+  name: Void
   prefab: {fileID: 6881998101920701532, guid: 9be702538526dcf4e9d15add0d5cd3c9, type: 3}
   icon: {fileID: 6881998101920701532, guid: ec48b07d069debf4f945fcf974fd61e9, type: 3}
   towerAmount: 6

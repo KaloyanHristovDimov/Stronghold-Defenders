@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 0
   endDirections: 03000000
+  name: Ronald
   prefab: {fileID: 6087972484872815333, guid: 9a06aa12ab801a747b68bc85314aa501, type: 3}
   icon: {fileID: 6087972484872815333, guid: 76506b68cce44dd468827e571ff0d90f, type: 3}
   towerAmount: 6

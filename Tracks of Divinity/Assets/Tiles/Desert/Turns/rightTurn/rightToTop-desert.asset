@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 2
   endDirections: 00000000
+  name: Kalpana
   prefab: {fileID: 8689968202479229098, guid: a0a2e6a92aa5fdd499a64d9c01d5afd4, type: 3}
   icon: {fileID: 8689968202479229098, guid: a8c2639772b5d4b4ca1fc609b87ff891, type: 3}
   towerAmount: 6

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 2
   endDirections: 030000000000000001000000
+  name: Lilly
   prefab: {fileID: 296220104579504964, guid: 94d13f97edc33414d9f9686787782f6b, type: 3}
   icon: {fileID: 296220104579504964, guid: 89a53135138c78143a57d15cf052da79, type: 3}
   towerAmount: 4
