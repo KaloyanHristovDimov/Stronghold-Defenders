@@ -1461,7 +1461,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 536f95289a9ffde43b41586b2ad0bc5b, type: 2}
     - {fileID: 11400000, guid: ea439d9bea8972747aead88cd53eb3bd, type: 2}
     - {fileID: 11400000, guid: 8a031fd727e58f249b8f9d6c4656861b, type: 2}
-  StartingTile: {fileID: 11400000, guid: 7327a0ca012635147b7b7131023eb6e5, type: 2}
+  StartingTile: {fileID: 11400000, guid: 2aa7e14599d046b42865184bfab69d53, type: 2}
 --- !u!4 &1145370901
 Transform:
   m_ObjectHideFlags: 0
