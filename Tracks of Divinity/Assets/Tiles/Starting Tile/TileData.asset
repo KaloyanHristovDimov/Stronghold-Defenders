@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDirection: 0
   endDirections: 
-  prefab: {fileID: 0}
-  icon: {fileID: 0}
+  prefab: {fileID: 6999419108160271467, guid: 4a4a81ad246190448b74a0734064b1d8, type: 3}
+  icon: {fileID: 6999419108160271467, guid: 4a4a81ad246190448b74a0734064b1d8, type: 3}
   towerAmount: 1
   tileBiome: 0
