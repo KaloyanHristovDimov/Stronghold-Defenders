@@ -12,5 +12,10 @@ public class TileInstance : MonoBehaviour
 
         transform.position = GridManager.Instance.GridToWorld(gridPos);
         GridManager.Instance.RegisterTile(gridPos, this);
+        if (GetComponentInChildren<EnemyNavigation>() != null) 
+        {
+            GetComponentInChildren<EnemyNavigation>().SetupNavigation(tileData);
+        }
+        
     }
 }

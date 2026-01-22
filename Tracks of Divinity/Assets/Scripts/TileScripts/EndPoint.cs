@@ -12,6 +12,15 @@ public class EndPoint : MonoBehaviour, IPointerDownHandler
     {
         parentTile = GetComponentInParent<TileInstance>();
     }
+    private void OnEnable()
+    {
+        WaveManager.Instance.RegisterEndpoint(this);
+    }
+
+    private void OnDisable()
+    {
+        WaveManager.Instance.UnregisterEndpoint(this);
+    }
 
     public void OnPointerDown(PointerEventData eventData)
     {

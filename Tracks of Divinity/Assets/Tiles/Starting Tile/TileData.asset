@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TileData
   m_EditorClassIdentifier: 
   startDirection: 0
-  endDirections: 
+  endDirections: 01000000
   name: Starter
   prefab: {fileID: 6999419108160271467, guid: 4a4a81ad246190448b74a0734064b1d8, type: 3}
   icon: {fileID: 6999419108160271467, guid: 4a4a81ad246190448b74a0734064b1d8, type: 3}

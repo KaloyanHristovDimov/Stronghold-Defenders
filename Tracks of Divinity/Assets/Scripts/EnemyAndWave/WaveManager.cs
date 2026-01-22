@@ -14,7 +14,7 @@ public class WaveManager : MonoBehaviour
         public GameObject MonsterPrefab;
         public int amount;
     }
-
+        
     [Header("Groups")]
     public List<MonsterGroup> listOfAllGroupsOfMonsters;
     public List<MonsterGroup> listOfGroupsToPickFrom;
@@ -34,9 +34,9 @@ public class WaveManager : MonoBehaviour
     public int currentWave = 0;
     public float timeBetweenWaves = 5f;
 
-    private int aliveEnemies = 0;
-    private bool waveInProgress = false;
-    private bool finishedSpawning = false;
+    public int aliveEnemies = 0;
+    public bool waveInProgress = false;
+    public bool finishedSpawning = false;
 
     private void Awake()
     {
@@ -46,7 +46,7 @@ public class WaveManager : MonoBehaviour
     private void Start()
     {
         // Start first wave
-        StartWave(1);
+        StartCoroutine(NextWaveCountdown());
     }
 
 
@@ -64,6 +64,7 @@ public class WaveManager : MonoBehaviour
         if (waveNumber == 1)
         {
             listOfGroupsOfMonstersToSpawn.Add(listOfAllGroupsOfMonsters[0]);
+            listOfGroupsToPickFrom.Add(listOfAllGroupsOfMonsters[0]);
         }
         else
         {
@@ -71,7 +72,7 @@ public class WaveManager : MonoBehaviour
             for (int i = 0; i < waveNumber; i++)
             {
                 MonsterGroup randomGroup =
-                    listOfGroupsToPickFrom[Random.Range(0, listOfGroupsToPickFrom.Count)];
+                    listOfGroupsToPickFrom[Random.Range(0, listOfGroupsToPickFrom.Count-1)];
 
                 listOfGroupsOfMonstersToSpawn.Add(randomGroup);
             }
@@ -104,11 +105,11 @@ public class WaveManager : MonoBehaviour
                     switch (endpoint.direction)
                     {
                         case TileData.Direction.Top:
-                            rotation = Quaternion.Euler(0f, -90f, 0f);
+                            rotation = Quaternion.Euler(0f, 90f, 0f);
                             break;
 
                         case TileData.Direction.Bottom:
-                            rotation = Quaternion.Euler(0f, 90f, 0f);
+                            rotation = Quaternion.Euler(0f, -90f, 0f);
                             break;
 
                         case TileData.Direction.Right:
