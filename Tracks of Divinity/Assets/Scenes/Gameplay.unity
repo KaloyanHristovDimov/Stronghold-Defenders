@@ -520,6 +520,24 @@ MonoBehaviour:
   - Name: Orc
     MonsterPrefab: {fileID: 7709249339422852092, guid: fec35155239fd14448510d7b498e6665, type: 3}
     amount: 5
+  - Name: Goblin Boss
+    MonsterPrefab: {fileID: 7051209767090465233, guid: e47b57a0224fad141b6a91c851f32075, type: 3}
+    amount: 1
+  - Name: Orc Boss
+    MonsterPrefab: {fileID: 7709249339422852092, guid: d469a08bfe78040409d8a2047640bc1f, type: 3}
+    amount: 1
+  - Name: Goblin Horde
+    MonsterPrefab: {fileID: 7051209767090465233, guid: f53834ef5f4ab7046986925060d53e16, type: 3}
+    amount: 15
+  - Name: Orc horde
+    MonsterPrefab: {fileID: 7709249339422852092, guid: fec35155239fd14448510d7b498e6665, type: 3}
+    amount: 15
+  - Name: Goblin Boss horde
+    MonsterPrefab: {fileID: 7051209767090465233, guid: e47b57a0224fad141b6a91c851f32075, type: 3}
+    amount: 5
+  - Name: Orc boss horde
+    MonsterPrefab: {fileID: 7709249339422852092, guid: d469a08bfe78040409d8a2047640bc1f, type: 3}
+    amount: 5
   listOfGroupsToPickFrom: []
   listOfGroupsOfMonstersToSpawn: []
   listOfActiveEndPoints: []
