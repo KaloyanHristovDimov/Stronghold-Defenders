@@ -518,7 +518,7 @@ MonoBehaviour:
     MonsterPrefab: {fileID: 7051209767090465233, guid: f53834ef5f4ab7046986925060d53e16, type: 3}
     amount: 5
   - Name: Orc
-    MonsterPrefab: {fileID: 8340102750115270344, guid: 87da2225371f8f84d9c15d50458cd708, type: 3}
+    MonsterPrefab: {fileID: 7709249339422852092, guid: fec35155239fd14448510d7b498e6665, type: 3}
     amount: 5
   listOfGroupsToPickFrom: []
   listOfGroupsOfMonstersToSpawn: []

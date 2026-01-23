@@ -253,7 +253,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackTime: 1
   enemiesInRange: []
-  damage: 50
+  damage: 200
   aoe: 0
   aoeRange: 4
   projectilePrefab: {fileID: 9213508673528884966, guid: d21ddb6004a0aa64a8820e6d8963a066, type: 3}
