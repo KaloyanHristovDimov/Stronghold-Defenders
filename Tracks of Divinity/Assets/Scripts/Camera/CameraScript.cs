@@ -7,17 +7,17 @@ public class FixedPovCamera : MonoBehaviour
     [SerializeField] private bool constrainMoveToHorizontalPlane = true;
 
     [Header("Zoom (along forward axis)")]
-    [SerializeField] private float scrollSpeed = 250f;
+    [SerializeField] private float scrollSpeed = 300f;
     [Tooltip("How far BACK the camera can move from its start position (negative recommended)")]
-    [SerializeField] private float minDistance = -40f;
+    [SerializeField] private float minDistance = 45f;
     [Tooltip("How far FORWARD the camera can move from its start position")]
-    [SerializeField] private float maxDistance = 40f;
+    [SerializeField] private float maxDistance = 90f;
     [Tooltip("Starting offset along the forward axis (0 = scene position)")]
-    [SerializeField] private float startDistance = 0f;
+    [SerializeField] private float startDistance = 60f;
 
     [Header("Rotation (Q / E)")]
     [SerializeField] private bool allowRotation = true;
-    [SerializeField] private float rotationSpeed = 90f;
+    [SerializeField] private float rotationSpeed = 45f;
     [SerializeField] private bool invertRotationKeys = false;
 
     // Fixed pitch (your ~60°)
