@@ -38,19 +38,28 @@ public class EnemyNavigation : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        StartCoroutine(DoThingAfterDelay(0.01f));
-
-        IEnumerator DoThingAfterDelay(float delay)
+        Debug.Log("Colided");
+        if (other.CompareTag("Enemy"))
         {
-            yield return new WaitForSeconds(delay);
-            Debug.Log("Colided");
-            if (other.CompareTag("Enemy"))
-            {
-
-                other.transform.rotation = newRotation;
-                Debug.Log("Rotated");
-            }
+            Vector3 monsterPosition = other.transform.position;
+            monsterPosition.x = transform.position.x;
+            monsterPosition.z = transform.position.z;
+            other.transform.position = monsterPosition;
+            other.transform.rotation = newRotation;
+            Debug.Log("Rotated");
         }
-        
+        //StartCoroutine(DoThingAfterDelay(0.01f));
+
+        //IEnumerator DoThingAfterDelay(float delay)
+        //{
+        //    yield return new WaitForSeconds(delay);
+        //    Debug.Log("Colided");
+        //    if (other.CompareTag("Enemy"))
+        //    {
+        //        other.transform.rotation = newRotation;
+        //        Debug.Log("Rotated");
+        //    }
+        //}
+
     }
 }

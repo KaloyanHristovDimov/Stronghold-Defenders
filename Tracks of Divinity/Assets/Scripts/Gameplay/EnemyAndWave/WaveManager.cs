@@ -72,7 +72,7 @@ public class WaveManager : MonoBehaviour
             for (int i = 0; i < waveNumber; i++)
             {
                 MonsterGroup randomGroup =
-                    listOfGroupsToPickFrom[Random.Range(0, listOfGroupsToPickFrom.Count-1)];
+                    listOfGroupsToPickFrom[Random.Range(0, listOfGroupsToPickFrom.Count)];
 
                 listOfGroupsOfMonstersToSpawn.Add(randomGroup);
             }

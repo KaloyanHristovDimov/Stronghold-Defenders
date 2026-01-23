@@ -515,8 +515,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   listOfAllGroupsOfMonsters:
   - Name: Goblin
-    MonsterPrefab: {fileID: 5482413371994844719, guid: c9160343a24ed45459207387b48bb50e, type: 3}
-    amount: 24
+    MonsterPrefab: {fileID: 7051209767090465233, guid: f53834ef5f4ab7046986925060d53e16, type: 3}
+    amount: 5
   - Name: Orc
     MonsterPrefab: {fileID: 8340102750115270344, guid: 87da2225371f8f84d9c15d50458cd708, type: 3}
     amount: 5
@@ -2187,6 +2187,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 9558588210842374, guid: bb9c4a840e9e8ee4c9bd99310864c064, type: 3}
+      propertyPath: selectedTower
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5443076624556340563, guid: bb9c4a840e9e8ee4c9bd99310864c064, type: 3}
       propertyPath: m_Name
       value: TowerSelect
