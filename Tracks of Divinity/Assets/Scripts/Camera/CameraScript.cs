@@ -2,37 +2,67 @@ using UnityEngine;
 
 public class FixedPovCamera : MonoBehaviour
 {
+    [Header("Movement")]
     [SerializeField] private float moveSpeed = 25f;
-    [SerializeField] private float scrollSpeed = 250f;
-
-    [SerializeField] private float minDistance = 25f;
-    [SerializeField] private float maxDistance = 85f;
-    [SerializeField] private float startDistance = 45f;
-
     [SerializeField] private bool constrainMoveToHorizontalPlane = true;
 
-    private Quaternion lockedRot;
-    private Vector3 pivot;
-    private float distance;
+    [Header("Zoom (along forward axis)")]
+    [SerializeField] private float scrollSpeed = 250f;
+    [Tooltip("How far BACK the camera can move from its start position (negative recommended)")]
+    [SerializeField] private float minDistance = -40f;
+    [Tooltip("How far FORWARD the camera can move from its start position")]
+    [SerializeField] private float maxDistance = 40f;
+    [Tooltip("Starting offset along the forward axis (0 = scene position)")]
+    [SerializeField] private float startDistance = 0f;
+
+    [Header("Rotation (Q / E)")]
+    [SerializeField] private bool allowRotation = true;
+    [SerializeField] private float rotationSpeed = 90f;
+    [SerializeField] private bool invertRotationKeys = false;
+
+    // Fixed pitch (your ~60°)
+    private float pitch;
+    private float yaw;
+
+    // Immutable reference position
+    private Vector3 basePosition;
+
+    // Zoom offset along forward axis
+    private float zoomOffset;
 
     private void Awake()
     {
-        lockedRot = transform.rotation;
+        Vector3 e = transform.eulerAngles;
+        pitch = e.x;
+        yaw = e.y;
 
-        distance = Mathf.Clamp(startDistance, minDistance, maxDistance);
+        basePosition = transform.position;
 
-        Vector3 axis = (lockedRot * Vector3.forward).normalized;
+        zoomOffset = Mathf.Clamp(startDistance, minDistance, maxDistance);
 
-        pivot = transform.position;
-        transform.position = pivot + axis * distance;
+        UpdateTransform();
     }
 
     private void LateUpdate()
     {
-        transform.rotation = lockedRot;
-
         float dt = Time.deltaTime;
 
+        // --- Rotation (yaw only) ---
+        if (allowRotation)
+        {
+            float yawInput = 0f;
+            if (Input.GetKey(KeyCode.Q)) yawInput -= 1f;
+            if (Input.GetKey(KeyCode.E)) yawInput += 1f;
+
+            if (invertRotationKeys)
+                yawInput = -yawInput;
+
+            yaw += yawInput * rotationSpeed * dt;
+        }
+
+        Quaternion rot = Quaternion.Euler(pitch, yaw, 0f);
+
+        // --- Movement (WASD moves base position) ---
         float x = 0f;
         float z = 0f;
         if (Input.GetKey(KeyCode.A)) x -= 1f;
@@ -40,34 +70,38 @@ public class FixedPovCamera : MonoBehaviour
         if (Input.GetKey(KeyCode.S)) z -= 1f;
         if (Input.GetKey(KeyCode.W)) z += 1f;
 
-        Vector3 right = lockedRot * Vector3.right;
-        Vector3 forward = lockedRot * Vector3.forward;
+        Vector3 right = rot * Vector3.right;
+        Vector3 forward = rot * Vector3.forward;
 
         if (constrainMoveToHorizontalPlane)
         {
             right.y = 0f;
             forward.y = 0f;
-            if (right.sqrMagnitude > 0.0001f) right.Normalize();
-            if (forward.sqrMagnitude > 0.0001f) forward.Normalize();
-        }
-        else
-        {
             right.Normalize();
             forward.Normalize();
         }
 
         Vector3 move = right * x + forward * z;
-        if (move.sqrMagnitude > 1f) move.Normalize();
+        if (move.sqrMagnitude > 1f)
+            move.Normalize();
 
-        pivot += move * moveSpeed * dt;
+        basePosition += move * moveSpeed * dt;
 
+        // --- Zoom ---
         float scroll = Input.mouseScrollDelta.y;
+        zoomOffset += scroll * scrollSpeed * dt;
+        zoomOffset = Mathf.Clamp(zoomOffset, minDistance, maxDistance);
 
-        distance += scroll * scrollSpeed * dt;
-        distance = Mathf.Clamp(distance, minDistance, maxDistance);
+        UpdateTransform();
+    }
 
-        Vector3 axis = (lockedRot * Vector3.forward).normalized;
-        transform.position = pivot + axis * distance;
+    private void UpdateTransform()
+    {
+        Quaternion rot = Quaternion.Euler(pitch, yaw, 0f);
+        Vector3 forward = rot * Vector3.forward;
+
+        transform.rotation = rot;
+        transform.position = basePosition + forward * zoomOffset;
     }
 
     private void OnValidate()
@@ -80,8 +114,7 @@ public class FixedPovCamera : MonoBehaviour
 
     public void AddWorldOffset(Vector3 offset)
     {
-        pivot += offset;
-        transform.position += offset; // keeps it visually consistent until next LateUpdate recalculates
+        basePosition += offset;
+        transform.position += offset;
     }
-
 }
