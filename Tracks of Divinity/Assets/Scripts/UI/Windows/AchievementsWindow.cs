@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class AchievementsWindow : Window
 {
-    public override void Open()
-    {
-        base.Open();
-        // Load and display achievements
-    }
+    [SerializeField] private Transform achievementsContainer;
+    [SerializeField] private GameObject achievementPrefab;
 
-    public override void Close()
+    private void CreateAchievement(Achievement a) => Instantiate(achievementPrefab, achievementsContainer).GetComponent<AchievementController>().Setup(a);
+
+    private void Start()
     {
-        // Optionally save state or perform cleanup
-        base.Close();
+        AchievementsLoader.obj.unlockedAchievements.ForEach(a => CreateAchievement(a));
+        AchievementsLoader.obj.lockedAchievements.ForEach(a => CreateAchievement(a));
+        Close();
     }
 }

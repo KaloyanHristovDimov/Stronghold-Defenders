@@ -10,7 +10,7 @@ public abstract class Loader<T> : MonoBehaviour where T : class, new()
 
     protected abstract void CustomNew();
 
-    private void Awake()
+    protected virtual void Awake()
     {
         dataService ??= new JsonDataService();
 
@@ -28,7 +28,7 @@ public abstract class Loader<T> : MonoBehaviour where T : class, new()
 
     public static void SaveObj() => dataService.SaveData(savePath, obj);
     
-    private void OnDestroy()
+    protected virtual void OnDestroy()
     {
         PersisterObj = obj;
         SaveObj();
