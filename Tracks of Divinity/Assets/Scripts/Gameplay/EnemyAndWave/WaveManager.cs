@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class WaveManager : MonoBehaviour
 {
     public static WaveManager Instance;
@@ -14,7 +13,7 @@ public class WaveManager : MonoBehaviour
         public GameObject MonsterPrefab;
         public int amount;
     }
-        
+
     [Header("Groups")]
     public List<MonsterGroup> listOfAllGroupsOfMonsters;
     public List<MonsterGroup> listOfGroupsToPickFrom;
@@ -38,6 +37,12 @@ public class WaveManager : MonoBehaviour
     public bool waveInProgress = false;
     public bool finishedSpawning = false;
 
+    private bool waitingForPlayerTile = true;
+    private bool nextWaveCountdownRunning = false;
+    private Coroutine startNextWaveCoroutine;
+
+    public bool CanPlaceTile => waitingForPlayerTile && !waveInProgress && !nextWaveCountdownRunning;
+
     private void Awake()
     {
         Instance = this;
@@ -45,10 +50,48 @@ public class WaveManager : MonoBehaviour
 
     private void Start()
     {
-        // Start first wave
-        StartCoroutine(NextWaveCountdown());
+        waitingForPlayerTile = true;
+        nextWaveCountdownRunning = false;
+        SetEndpointsInteractable(true);
     }
 
+    private void SetEndpointsInteractable(bool interactable)
+    {
+        for (int i = 0; i < listOfActiveEndPoints.Count; i++)
+        {
+            if (listOfActiveEndPoints[i] != null)
+                listOfActiveEndPoints[i].SetInteractable(interactable);
+        }
+    }
+
+    public void NotifyTilePlaced_StartNextWave()
+    {
+        if (!waitingForPlayerTile || waveInProgress || nextWaveCountdownRunning)
+            return;
+
+        waitingForPlayerTile = false;
+        nextWaveCountdownRunning = true;
+
+        SetEndpointsInteractable(false);
+
+        if (startNextWaveCoroutine != null)
+            StopCoroutine(startNextWaveCoroutine);
+
+        startNextWaveCoroutine = StartCoroutine(StartNextWaveAfterDelay());
+    }
+
+    private IEnumerator StartNextWaveAfterDelay()
+    {
+        float timer = timeBetweenWaves;
+        while (timer > 0f)
+        {
+            timer -= Time.deltaTime;
+            yield return null;
+        }
+
+        nextWaveCountdownRunning = false;
+        StartWave(currentWave + 1);
+    }
 
     public void StartWave(int waveNumber)
     {
@@ -56,19 +99,21 @@ public class WaveManager : MonoBehaviour
         waveInProgress = true;
         finishedSpawning = false;
         aliveEnemies = 0;
-        UpdateGroupsToPickFrom();
 
+        SetEndpointsInteractable(false);
+
+        UpdateGroupsToPickFrom();
         listOfGroupsOfMonstersToSpawn.Clear();
 
-        // First wave → only Group A (index 0 for example)
         if (waveNumber == 1)
         {
             listOfGroupsOfMonstersToSpawn.Add(listOfAllGroupsOfMonsters[0]);
-            listOfGroupsToPickFrom.Add(listOfAllGroupsOfMonsters[0]);
+
+            if (!listOfGroupsToPickFrom.Contains(listOfAllGroupsOfMonsters[0]))
+                listOfGroupsToPickFrom.Add(listOfAllGroupsOfMonsters[0]);
         }
         else
         {
-            // Pick X random groups, where X = wave number
             for (int i = 0; i < waveNumber; i++)
             {
                 MonsterGroup randomGroup =
@@ -78,69 +123,80 @@ public class WaveManager : MonoBehaviour
             }
         }
 
-        // Copy list (important: NEW list, not reference)
         listOfGroupsLeftToSpawn = new List<MonsterGroup>(listOfGroupsOfMonstersToSpawn);
-
         StartCoroutine(SpawnWaveRoutine());
     }
 
     private IEnumerator SpawnWaveRoutine()
     {
-        // While there are groups left
+        // Small optimization: reuse the same wait object.
+        WaitForSeconds wait = new WaitForSeconds(spawnDelay);
+
         while (listOfGroupsLeftToSpawn.Count > 0)
         {
-            foreach (EndPoint endpoint in listOfActiveEndPoints)
+            // Build a valid endpoint list every cycle (not just once).
+            List<EndPoint> validEndpoints = new List<EndPoint>();
+            for (int i = 0; i < listOfActiveEndPoints.Count; i++)
             {
-                if (listOfGroupsLeftToSpawn.Count == 0)
-                    yield break;
+                EndPoint ep = listOfActiveEndPoints[i];
+                if (ep != null && ep.gameObject.activeInHierarchy)
+                    validEndpoints.Add(ep);
+            }
 
-                // Always take the last group
-                MonsterGroup group = listOfGroupsLeftToSpawn[listOfGroupsLeftToSpawn.Count - 1];
-                    
+            if (validEndpoints.Count == 0)
+            {
+                Debug.LogError("[WaveManager] No valid endpoints during spawning. Aborting remaining spawns to avoid soft-lock.");
+                finishedSpawning = true;
+                yield break;
+            }
 
-                // Spawn all monsters in that group
-                for (int i = 0; i < group.amount; i++)
+            // Pick the next group (stack behaviour like your original).
+            MonsterGroup group = listOfGroupsLeftToSpawn[listOfGroupsLeftToSpawn.Count - 1];
+
+            // Choose an endpoint to spawn this group from.
+            // If you only want ONE endpoint ever, just pick [0].
+            EndPoint endpoint = validEndpoints[Random.Range(0, validEndpoints.Count)];
+
+            // Spawn the whole group from that endpoint.
+            for (int i = 0; i < group.amount; i++)
+            {
+                // If endpoint disappears mid-group, exit cleanly instead of crashing.
+                if (endpoint == null || !endpoint.gameObject.activeInHierarchy)
                 {
-                    Quaternion rotation;
-                    switch (endpoint.direction)
-                    {
-                        case TileData.Direction.Top:
-                            rotation = Quaternion.Euler(0f, 90f, 0f);
-                            break;
-
-                        case TileData.Direction.Bottom:
-                            rotation = Quaternion.Euler(0f, -90f, 0f);
-                            break;
-
-                        case TileData.Direction.Right:
-                            rotation = Quaternion.Euler(0f, 180f, 0f);
-                            break;
-
-                        case TileData.Direction.Left:
-                            rotation = Quaternion.Euler(0f, 0f, 0f);
-                            break;
-
-                        default:
-                            rotation = Quaternion.identity;
-                            break;
-                    }
-                    Instantiate(group.MonsterPrefab, endpoint.transform.position, rotation);
-                    aliveEnemies++;
-                    yield return new WaitForSeconds(spawnDelay);
+                    Debug.LogError("[WaveManager] Endpoint became invalid mid-group. Aborting remaining spawns to avoid stuck wave.");
+                    finishedSpawning = true;
+                    yield break;
                 }
 
-                // Remove group after spawning
-                listOfGroupsLeftToSpawn.RemoveAt(listOfGroupsLeftToSpawn.Count - 1);
-            }
-        }
-        finishedSpawning = true;
+                Quaternion rotation = endpoint.direction switch
+                {
+                    TileData.Direction.Top => Quaternion.Euler(0f, 90f, 0f),
+                    TileData.Direction.Bottom => Quaternion.Euler(0f, -90f, 0f),
+                    TileData.Direction.Right => Quaternion.Euler(0f, 180f, 0f),
+                    TileData.Direction.Left => Quaternion.Euler(0f, 0f, 0f),
+                    _ => Quaternion.identity
+                };
 
+                Instantiate(group.MonsterPrefab, endpoint.transform.position, rotation);
+                aliveEnemies++;
+
+                yield return wait;
+            }
+
+            // Now we can safely remove the group.
+            listOfGroupsLeftToSpawn.RemoveAt(listOfGroupsLeftToSpawn.Count - 1);
+        }
+
+        finishedSpawning = true;
     }
+
 
     public void RegisterEndpoint(EndPoint endpoint)
     {
         if (!listOfActiveEndPoints.Contains(endpoint))
             listOfActiveEndPoints.Add(endpoint);
+
+        endpoint.SetInteractable(CanPlaceTile);
     }
 
     public void UnregisterEndpoint(EndPoint endpoint)
@@ -155,14 +211,14 @@ public class WaveManager : MonoBehaviour
 
         wavesSinceLastGroupAdded = 0;
 
-        // If last pickable group is already the last overall group → stop
+        if (listOfGroupsToPickFrom.Count == 0)
+            return;
+
         if (listOfGroupsToPickFrom[^1] == listOfAllGroupsOfMonsters[^1])
             return;
 
-        // Case 1: Sliding window (max 6 groups)
         if (listOfGroupsToPickFrom.Count >= 6)
         {
-            // Remove oldest
             listOfGroupsToPickFrom.RemoveAt(0);
 
             bool addNext = false;
@@ -176,20 +232,14 @@ public class WaveManager : MonoBehaviour
                 }
 
                 if (group == listOfGroupsToPickFrom[^1])
-                {
                     addNext = true;
-                }
             }
         }
-        // Case 2: Still growing pool
         else
         {
             int nextIndex = listOfGroupsToPickFrom.Count;
-
             if (nextIndex < listOfAllGroupsOfMonsters.Count)
-            {
                 listOfGroupsToPickFrom.Add(listOfAllGroupsOfMonsters[nextIndex]);
-            }
         }
     }
 
@@ -197,21 +247,11 @@ public class WaveManager : MonoBehaviour
     {
         wavesSinceLastGroupAdded++;
 
-        StartCoroutine(NextWaveCountdown());
-    }
+        waveInProgress = false;
+        waitingForPlayerTile = true;
+        nextWaveCountdownRunning = false;
 
-    private IEnumerator NextWaveCountdown()
-    {
-        float timer = timeBetweenWaves;
-
-        while (timer > 0f)
-        {
-            // UI hook here if needed
-            yield return null;
-            timer -= Time.deltaTime;
-        }
-
-        StartWave(currentWave + 1);
+        SetEndpointsInteractable(true);
     }
 
     public void EnemyDestroyed()
@@ -219,7 +259,6 @@ public class WaveManager : MonoBehaviour
         aliveEnemies--;
         if (finishedSpawning && aliveEnemies <= 0 && waveInProgress)
         {
-            waveInProgress = false;
             OnWaveCompleted();
         }
     }

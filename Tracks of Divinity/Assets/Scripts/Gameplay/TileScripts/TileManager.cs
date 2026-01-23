@@ -21,38 +21,43 @@ public class TileManager : MonoBehaviour
     private List<TileData> allSplitTiles = new List<TileData>();
     public TileData StartingTile;
 
+    private bool spawningStartingTile = false;
+
     private void Awake()
     {
         Instance = this;
-        foreach (var item in listOfBiomesNormal) 
-        {
-            foreach (var list in item.Tiles) 
-            {
-                allNormalTiles.Add(list); 
-            }
-        }
+
+        foreach (var item in listOfBiomesNormal)
+            foreach (var t in item.Tiles)
+                allNormalTiles.Add(t);
+
         foreach (var item in listOfBiomesSplit)
-        {
-            foreach (var list in item.Tiles)
-            {
-                allSplitTiles.Add(list);
-            }
-        }
+            foreach (var t in item.Tiles)
+                allSplitTiles.Add(t);
     }
+
     private void Start()
     {
+        // Starting tile should NOT start wave 1.
+        spawningStartingTile = true;
         SpawnTile(StartingTile, Vector2Int.zero);
+        spawningStartingTile = false;
     }
 
     public void TrySpawnTile(TileInstance sourceTile, TileData.Direction exitDir)
     {
-        List<TileData> tilesToUse = new List<TileData>();
+        // NEW: hard lock tile placement when wave is active OR countdown is running
+        if (WaveManager.Instance != null && !WaveManager.Instance.CanPlaceTile)
+            return;
+
+        List<TileData> tilesToUse;
+
         if (tilesWithoutSplit >= 5)
         {
             tilesToUse = allSplitTiles;
             tilesWithoutSplit = 0;
         }
-        else 
+        else
         {
             tilesToUse = allNormalTiles;
             tilesWithoutSplit++;
@@ -63,8 +68,7 @@ public class TileManager : MonoBehaviour
         if (GridManager.Instance.IsOccupied(spawnPos))
             return;
 
-        TileData.Direction requiredStart =
-            DirectionUtils.Opposite(exitDir);
+        TileData.Direction requiredStart = DirectionUtils.Opposite(exitDir);
 
         List<TileData> validTiles = tilesToUse.Where(tile =>
             tile.startDirection == requiredStart &&
@@ -74,12 +78,8 @@ public class TileManager : MonoBehaviour
         if (validTiles.Count == 0)
             return;
 
-        //SpawnTile(validTiles[Random.Range(0, validTiles.Count)], spawnPos);
         List<TileData> options = PickRandomTiles(validTiles, 3);
         ChoiceWindow.Instance.Open(options, choice => SpawnTile(choice, spawnPos));
-        /*TileChoice.Instance.ShowChoices(
-            options,
-            choice => SpawnTile(choice, spawnPos));*/
     }
 
     bool EndpointsAreFree(TileData tile, Vector2Int gridPos)
@@ -107,6 +107,9 @@ public class TileManager : MonoBehaviour
 
         TileInstance instance = obj.AddComponent<TileInstance>();
         instance.Initialize(tileData, gridPos);
-    }
 
+        // Player-placed tiles (NOT the starting tile) start the next wave.
+        if (!spawningStartingTile && WaveManager.Instance != null)
+            WaveManager.Instance.NotifyTilePlaced_StartNextWave();
+    }
 }
