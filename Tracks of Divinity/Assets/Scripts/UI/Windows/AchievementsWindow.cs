@@ -9,6 +9,7 @@ public class AchievementsWindow : Window
 
     private void Start()
     {
+        Debug.Log(achievementsContainer.gameObject.scene.name);
         AchievementsLoader.obj.unlockedAchievements.ForEach(a => CreateAchievement(a));
         AchievementsLoader.obj.lockedAchievements.ForEach(a => CreateAchievement(a));
         Close();

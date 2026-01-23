@@ -414,7 +414,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6907604806476836188}
-  - component: {fileID: 8456859575660789782}
+  - component: {fileID: 8330690579273874712}
   m_Layer: 0
   m_Name: TileSpinner
   m_TagString: Untagged
@@ -437,7 +437,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7750960946286137316}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!114 &8456859575660789782
+--- !u!114 &8330690579273874712
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

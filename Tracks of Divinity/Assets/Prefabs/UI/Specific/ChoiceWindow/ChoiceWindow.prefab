@@ -133,6 +133,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5430647964216541968 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1839058458700043288, guid: 0814b222ac30ae84980aa465813f5fea, type: 3}
+  m_PrefabInstance: {fileID: 5969570098261595912}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &6823176836648311682 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 894218852332047498, guid: 0814b222ac30ae84980aa465813f5fea, type: 3}
@@ -186,7 +197,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2348076963582948600, guid: b1c784c441926d8478aca3ce5e0a02e7, type: 3}
       propertyPath: m_text
-      value: '*Choice Title*'
+      value: Pick a tile!
       objectReference: {fileID: 0}
     - target: {fileID: 3753065287163034443, guid: b1c784c441926d8478aca3ce5e0a02e7, type: 3}
       propertyPath: m_Pivot.x
@@ -332,17 +343,21 @@ MonoBehaviour:
   - {fileID: 3733679616647210305}
   towerSpacesTexts:
   - {fileID: 5491144539715755717}
-  - {fileID: 5276662235719647590}
-  - {fileID: 3532000389398929622}
-  biomeBuffTexts:
   - {fileID: 6995275499551520634}
-  - {fileID: 7213139893363304665}
-  - {fileID: 2027868295566035305}
-  biomeDebuffTexts:
   - {fileID: 6899539145574934639}
+  biomeBuffTexts:
+  - {fileID: 5276662235719647590}
+  - {fileID: 7213139893363304665}
   - {fileID: 6543194560556300236}
+  biomeDebuffTexts:
+  - {fileID: 3532000389398929622}
+  - {fileID: 2027868295566035305}
   - {fileID: 2517599283794548348}
-  temporaryPlaceholderTestTilePrefab: {fileID: 4220443797206538677, guid: d781258c21ca2314e9a2b8167d8aa507, type: 3}
+  tileNameTexts:
+  - {fileID: 7385280311464356527}
+  - {fileID: 5430647964216541968}
+  - {fileID: 8469487223903149061}
+  camera: {fileID: 0}
 --- !u!224 &6766057638203339391 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 657549098796719847, guid: b1c784c441926d8478aca3ce5e0a02e7, type: 3}
@@ -508,6 +523,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 894218852332047498, guid: 0814b222ac30ae84980aa465813f5fea, type: 3}
   m_PrefabInstance: {fileID: 7785611244933384221}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8469487223903149061 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1839058458700043288, guid: 0814b222ac30ae84980aa465813f5fea, type: 3}
+  m_PrefabInstance: {fileID: 7785611244933384221}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &9221239795449773751
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -651,6 +677,17 @@ MonoBehaviour:
 --- !u!114 &5491144539715755717 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3732387196312739954, guid: 0814b222ac30ae84980aa465813f5fea, type: 3}
+  m_PrefabInstance: {fileID: 9221239795449773751}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7385280311464356527 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1839058458700043288, guid: 0814b222ac30ae84980aa465813f5fea, type: 3}
   m_PrefabInstance: {fileID: 9221239795449773751}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
