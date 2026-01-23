@@ -36,6 +36,11 @@ public class EndPoint : MonoBehaviour, IPointerDownHandler
 
         if (col != null)
             col.enabled = value;
+
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).gameObject.SetActive(value);
+        }
     }
 
     public void OnPointerDown(PointerEventData eventData)

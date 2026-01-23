@@ -14,13 +14,32 @@ public class WaveManager : MonoBehaviour
         public int amount;
     }
 
+    [System.Serializable]
+    public class SpawnGroupState
+    {
+        public string Name;
+        public GameObject MonsterPrefab;
+
+        public int total;       // total planned for this group
+        public int remaining;   // how many are left to spawn
+        public int spawned;     // how many already spawned
+
+        public SpawnGroupState(MonsterGroup src)
+        {
+            Name = src != null ? src.Name : "NULL";
+            MonsterPrefab = src != null ? src.MonsterPrefab : null;
+            total = src != null ? Mathf.Max(0, src.amount) : 0;
+            remaining = total;
+            spawned = 0;
+        }
+    }
+
     [Header("Groups")]
     public List<MonsterGroup> listOfAllGroupsOfMonsters;
     public List<MonsterGroup> listOfGroupsToPickFrom;
 
-    [Header("Runtime")]
+    [Header("Runtime (Planned This Wave)")]
     public List<MonsterGroup> listOfGroupsOfMonstersToSpawn = new();
-    private List<MonsterGroup> listOfGroupsLeftToSpawn = new();
 
     [Header("Spawn Points")]
     public List<EndPoint> listOfActiveEndPoints = new();
@@ -42,6 +61,11 @@ public class WaveManager : MonoBehaviour
     private Coroutine startNextWaveCoroutine;
 
     public bool CanPlaceTile => waitingForPlayerTile && !waveInProgress && !nextWaveCountdownRunning;
+
+    [Header("Debug (Runtime Spawn State)")]
+    [SerializeField] private List<SpawnGroupState> groupsLeftDebug = new();
+    [SerializeField] private SpawnGroupState currentSpawningGroup;
+    [SerializeField] private EndPoint currentSpawningEndpoint;
 
     private void Awake()
     {
@@ -107,34 +131,60 @@ public class WaveManager : MonoBehaviour
 
         if (waveNumber == 1)
         {
-            listOfGroupsOfMonstersToSpawn.Add(listOfAllGroupsOfMonsters[0]);
+            if (listOfAllGroupsOfMonsters != null && listOfAllGroupsOfMonsters.Count > 0)
+            {
+                listOfGroupsOfMonstersToSpawn.Add(listOfAllGroupsOfMonsters[0]);
 
-            if (!listOfGroupsToPickFrom.Contains(listOfAllGroupsOfMonsters[0]))
-                listOfGroupsToPickFrom.Add(listOfAllGroupsOfMonsters[0]);
+                if (!listOfGroupsToPickFrom.Contains(listOfAllGroupsOfMonsters[0]))
+                    listOfGroupsToPickFrom.Add(listOfAllGroupsOfMonsters[0]);
+            }
+            else
+            {
+                Debug.LogError("[WaveManager] listOfAllGroupsOfMonsters is empty. Cannot start wave 1.");
+                finishedSpawning = true;
+                waveInProgress = false;
+                waitingForPlayerTile = true;
+                SetEndpointsInteractable(true);
+                return;
+            }
         }
         else
         {
+            if (listOfGroupsToPickFrom == null || listOfGroupsToPickFrom.Count == 0)
+            {
+                Debug.LogError("[WaveManager] listOfGroupsToPickFrom is empty. Cannot start wave.");
+                finishedSpawning = true;
+                waveInProgress = false;
+                waitingForPlayerTile = true;
+                SetEndpointsInteractable(true);
+                return;
+            }
+
             for (int i = 0; i < waveNumber; i++)
             {
-                MonsterGroup randomGroup =
-                    listOfGroupsToPickFrom[Random.Range(0, listOfGroupsToPickFrom.Count)];
-
+                MonsterGroup randomGroup = listOfGroupsToPickFrom[Random.Range(0, listOfGroupsToPickFrom.Count)];
                 listOfGroupsOfMonstersToSpawn.Add(randomGroup);
             }
         }
 
-        listOfGroupsLeftToSpawn = new List<MonsterGroup>(listOfGroupsOfMonstersToSpawn);
+        groupsLeftDebug.Clear();
+        for (int i = 0; i < listOfGroupsOfMonstersToSpawn.Count; i++)
+        {
+            groupsLeftDebug.Add(new SpawnGroupState(listOfGroupsOfMonstersToSpawn[i]));
+        }
+
+        currentSpawningGroup = null;
+        currentSpawningEndpoint = null;
+
         StartCoroutine(SpawnWaveRoutine());
     }
 
     private IEnumerator SpawnWaveRoutine()
     {
-        // Small optimization: reuse the same wait object.
         WaitForSeconds wait = new WaitForSeconds(spawnDelay);
 
-        while (listOfGroupsLeftToSpawn.Count > 0)
+        while (groupsLeftDebug.Count > 0)
         {
-            // Build a valid endpoint list every cycle (not just once).
             List<EndPoint> validEndpoints = new List<EndPoint>();
             for (int i = 0; i < listOfActiveEndPoints.Count; i++)
             {
@@ -147,24 +197,31 @@ public class WaveManager : MonoBehaviour
             {
                 Debug.LogError("[WaveManager] No valid endpoints during spawning. Aborting remaining spawns to avoid soft-lock.");
                 finishedSpawning = true;
+                TryCompleteWave(); // IMPORTANT: fixes race when last enemy dies before finishedSpawning flips
                 yield break;
             }
 
-            // Pick the next group (stack behaviour like your original).
-            MonsterGroup group = listOfGroupsLeftToSpawn[listOfGroupsLeftToSpawn.Count - 1];
-
-            // Choose an endpoint to spawn this group from.
-            // If you only want ONE endpoint ever, just pick [0].
+            SpawnGroupState group = groupsLeftDebug[groupsLeftDebug.Count - 1];
             EndPoint endpoint = validEndpoints[Random.Range(0, validEndpoints.Count)];
 
-            // Spawn the whole group from that endpoint.
-            for (int i = 0; i < group.amount; i++)
+            currentSpawningGroup = group;
+            currentSpawningEndpoint = endpoint;
+
+            while (group.remaining > 0)
             {
-                // If endpoint disappears mid-group, exit cleanly instead of crashing.
                 if (endpoint == null || !endpoint.gameObject.activeInHierarchy)
                 {
                     Debug.LogError("[WaveManager] Endpoint became invalid mid-group. Aborting remaining spawns to avoid stuck wave.");
                     finishedSpawning = true;
+                    TryCompleteWave();
+                    yield break;
+                }
+
+                if (group.MonsterPrefab == null)
+                {
+                    Debug.LogError($"[WaveManager] MonsterPrefab is null for group '{group.Name}'. Aborting to avoid stuck wave.");
+                    finishedSpawning = true;
+                    TryCompleteWave();
                     yield break;
                 }
 
@@ -178,18 +235,24 @@ public class WaveManager : MonoBehaviour
                 };
 
                 Instantiate(group.MonsterPrefab, endpoint.transform.position, rotation);
+
                 aliveEnemies++;
+
+                group.remaining--;
+                group.spawned++;
 
                 yield return wait;
             }
 
-            // Now we can safely remove the group.
-            listOfGroupsLeftToSpawn.RemoveAt(listOfGroupsLeftToSpawn.Count - 1);
+            groupsLeftDebug.RemoveAt(groupsLeftDebug.Count - 1);
         }
 
-        finishedSpawning = true;
-    }
+        currentSpawningGroup = null;
+        currentSpawningEndpoint = null;
 
+        finishedSpawning = true;
+        TryCompleteWave(); // IMPORTANT: fixes race when last enemy dies before finishedSpawning flips
+    }
 
     public void RegisterEndpoint(EndPoint endpoint)
     {
@@ -243,6 +306,15 @@ public class WaveManager : MonoBehaviour
         }
     }
 
+    private void TryCompleteWave()
+    {
+        if (!waveInProgress)
+            return;
+
+        if (finishedSpawning && aliveEnemies <= 0)
+            OnWaveCompleted();
+    }
+
     private void OnWaveCompleted()
     {
         wavesSinceLastGroupAdded++;
@@ -256,10 +328,7 @@ public class WaveManager : MonoBehaviour
 
     public void EnemyDestroyed()
     {
-        aliveEnemies--;
-        if (finishedSpawning && aliveEnemies <= 0 && waveInProgress)
-        {
-            OnWaveCompleted();
-        }
+        aliveEnemies = Mathf.Max(0, aliveEnemies - 1);
+        TryCompleteWave();
     }
 }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7933242528047729936}
   - component: {fileID: 8622301472185634968}
   - component: {fileID: 2382794530653097023}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Orc prefab
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 5189544158186010721}
   - component: {fileID: 5058090494933742578}
   - component: {fileID: 8616008098855090516}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}

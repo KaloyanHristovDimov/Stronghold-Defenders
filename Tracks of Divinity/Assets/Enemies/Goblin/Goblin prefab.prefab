@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 449878253977459631}
   - component: {fileID: 8053614487590600732}
   - component: {fileID: 1603911447114301234}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: default
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 1255149560339231677}
   - component: {fileID: 2648526543094374476}
   - component: {fileID: 795241479371937070}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Goblin prefab
   m_TagString: Enemy
   m_Icon: {fileID: 0}
