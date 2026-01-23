@@ -52,7 +52,7 @@ public class TileManager : MonoBehaviour
 
         List<TileData> tilesToUse;
 
-        if (tilesWithoutSplit >= 5)
+        if (tilesWithoutSplit >= 4)
         {
             tilesToUse = allSplitTiles;
             tilesWithoutSplit = 0;

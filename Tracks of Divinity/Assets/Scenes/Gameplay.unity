@@ -524,9 +524,10 @@ MonoBehaviour:
   listOfGroupsOfMonstersToSpawn: []
   listOfActiveEndPoints: []
   spawnDelay: 0.5
+  timeBetweenWaves: 5
+  endpointAssignmentDelay: 0.25
   wavesSinceLastGroupAdded: 0
   currentWave: 0
-  timeBetweenWaves: 5
   aliveEnemies: 0
   waveInProgress: 0
   finishedSpawning: 0
