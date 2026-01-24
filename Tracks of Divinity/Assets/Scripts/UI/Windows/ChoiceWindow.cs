@@ -85,7 +85,8 @@ public class ChoiceWindow : Window
             }
         }
 
-        Activate(true);
+        UICanvasController.inst.gameObject.SetActive(false);
+        base.Open();
     }
 
     public void ChooseOption(int id)
@@ -97,6 +98,7 @@ public class ChoiceWindow : Window
 
     public override void Close()
     {
+        UICanvasController.inst.gameObject.SetActive(true);
         base.Close();
 
         for (int i = 0; i < tileContainers.Count; i++)
