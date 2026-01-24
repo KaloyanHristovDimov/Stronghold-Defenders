@@ -101,6 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1000
+  healthCounterName: HealthCounter
 --- !u!65 &282566240968071674
 BoxCollider:
   m_ObjectHideFlags: 0

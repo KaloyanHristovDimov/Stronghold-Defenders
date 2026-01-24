@@ -11,10 +11,13 @@ public class EnemyScript : MonoBehaviour
     public bool isSlowed = false;
     public int moneyAward = 25;
     public int damage = 10;
+    public string goldCounterName = "GoldCounter";
+    private GameObject goldCounter;
 
     void Start()
     {
         originalSpeed = speed;
+        goldCounter = GameObject.Find(goldCounterName);
     }
     void Update()
     {
@@ -41,7 +44,8 @@ public class EnemyScript : MonoBehaviour
 
     void OnDestroy()
     {
-        //MoneyManager.Instance.AddMoney(moneyAward);
+        GoldCounter moneyManager = goldCounter.GetComponent<GoldCounter>();
+        moneyManager.IncrementCount(moneyAward);
         WaveManager.Instance.EnemyDestroyed();
     }
 }

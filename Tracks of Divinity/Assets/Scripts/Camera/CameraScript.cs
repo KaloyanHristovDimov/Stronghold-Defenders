@@ -6,13 +6,10 @@ public class FixedPovCamera : MonoBehaviour
     [SerializeField] private float moveSpeed = 25f;
     [SerializeField] private bool constrainMoveToHorizontalPlane = true;
 
-    [Header("Zoom (along forward axis)")]
+    [Header("Zoom (offset along view forward)")]
     [SerializeField] private float scrollSpeed = 300f;
-    [Tooltip("How far BACK the camera can move from its start position (negative recommended)")]
     [SerializeField] private float minDistance = 45f;
-    [Tooltip("How far FORWARD the camera can move from its start position")]
     [SerializeField] private float maxDistance = 90f;
-    [Tooltip("Starting offset along the forward axis (0 = scene position)")]
     [SerializeField] private float startDistance = 60f;
 
     [Header("Rotation (Q / E)")]
@@ -20,14 +17,14 @@ public class FixedPovCamera : MonoBehaviour
     [SerializeField] private float rotationSpeed = 45f;
     [SerializeField] private bool invertRotationKeys = false;
 
-    // Fixed pitch (your ~60°)
     private float pitch;
     private float yaw;
 
-    // Immutable reference position
+    // Anchor point so that:
+    // position = basePosition + forward * zoomOffset
     private Vector3 basePosition;
 
-    // Zoom offset along forward axis
+    // Offset along camera forward
     private float zoomOffset;
 
     private void Awake()
@@ -37,7 +34,6 @@ public class FixedPovCamera : MonoBehaviour
         yaw = e.y;
 
         basePosition = transform.position;
-
         zoomOffset = Mathf.Clamp(startDistance, minDistance, maxDistance);
 
         UpdateTransform();
@@ -47,22 +43,37 @@ public class FixedPovCamera : MonoBehaviour
     {
         float dt = Time.deltaTime;
 
-        // --- Rotation (yaw only) ---
+        Vector3 worldPosBefore = transform.position;
+
+        // ---------- ROTATION ----------
+        float yawInput = 0f;
+
         if (allowRotation)
         {
-            float yawInput = 0f;
             if (Input.GetKey(KeyCode.Q)) yawInput -= 1f;
             if (Input.GetKey(KeyCode.E)) yawInput += 1f;
-
-            if (invertRotationKeys)
-                yawInput = -yawInput;
+            if (invertRotationKeys) yawInput = -yawInput;
 
             yaw += yawInput * rotationSpeed * dt;
         }
 
-        Quaternion rot = Quaternion.Euler(pitch, yaw, 0f);
+        // Reset yaw to world 0 when pressing O
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            yaw = 0f;
+            yawInput = 1f; // force compensation
+        }
 
-        // --- Movement (WASD moves base position) ---
+        Quaternion rot = Quaternion.Euler(pitch, yaw, 0f);
+        Vector3 viewForward = rot * Vector3.forward;
+
+        // Compensate anchor so camera doesn't move when yaw changes
+        if (yawInput != 0f)
+        {
+            basePosition = worldPosBefore - viewForward * zoomOffset;
+        }
+
+        // ---------- MOVEMENT ----------
         float x = 0f;
         float z = 0f;
         if (Input.GetKey(KeyCode.A)) x -= 1f;
@@ -87,7 +98,7 @@ public class FixedPovCamera : MonoBehaviour
 
         basePosition += move * moveSpeed * dt;
 
-        // --- Zoom ---
+        // ---------- ZOOM ----------
         float scroll = Input.mouseScrollDelta.y;
         zoomOffset += scroll * scrollSpeed * dt;
         zoomOffset = Mathf.Clamp(zoomOffset, minDistance, maxDistance);
