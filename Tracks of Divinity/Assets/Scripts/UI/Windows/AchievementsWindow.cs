@@ -9,7 +9,8 @@ public class AchievementsWindow : Window
 
     private void Start()
     {
-        Debug.Log(achievementsContainer.gameObject.scene.name);
+        if(AchievementsLoader.obj.unlockedAchievements.Count + AchievementsLoader.obj.lockedAchievements.Count != AchievementsLoader.Source.Count)
+            AchievementsLoader.obj.InitialSet();
         AchievementsLoader.obj.unlockedAchievements.ForEach(a => CreateAchievement(a));
         AchievementsLoader.obj.lockedAchievements.ForEach(a => CreateAchievement(a));
         Close();

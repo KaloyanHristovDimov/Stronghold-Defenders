@@ -11,8 +11,8 @@ public class Achievements
 
     public void InitialSet()
     {
-        unlockedAchievements = new(){ AchievementsLoader.AchievementsSource[0] };
-        lockedAchievements = new(AchievementsLoader.AchievementsSource);
+        unlockedAchievements = new(){ AchievementsLoader.Source[0] };
+        lockedAchievements = new(AchievementsLoader.Source);
         lockedAchievements.RemoveAt(0);
     }
 }
