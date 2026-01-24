@@ -44,8 +44,7 @@ public class EnemyScript : MonoBehaviour
 
     void OnDestroy()
     {
-        GoldCounter moneyManager = goldCounter.GetComponent<GoldCounter>();
-        moneyManager.IncrementCount(moneyAward);
+        UICanvasController.GoldCounter.IncrementCount(moneyAward);
         WaveManager.Instance.EnemyDestroyed();
     }
 }
