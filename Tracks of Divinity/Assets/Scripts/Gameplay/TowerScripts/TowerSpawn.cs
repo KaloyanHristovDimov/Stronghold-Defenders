@@ -42,13 +42,13 @@ public class TowerSpawn : MonoBehaviour, IPointerDownHandler
 
     private void TrySpawnTower(GameObject prefab, int cost)
     {
-        if (!MoneyManager.Instance.CanAfford(cost))
+        if (!UICanvasController.GoldCounter.CanAfford(cost))
         {
             //ErrorFeedback();
             return;
         }
 
-        MoneyManager.Instance.SpendMoney(cost);
+        UICanvasController.GoldCounter.DecrementCount(cost);
         Instantiate(prefab, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }

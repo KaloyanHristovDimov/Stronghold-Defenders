@@ -105,6 +105,7 @@ public class WaveManager : MonoBehaviour
         if (startNextWaveCoroutine != null)
             StopCoroutine(startNextWaveCoroutine);
 
+        UICanvasController.WaveCounter.IncrementCount();
         startNextWaveCoroutine = StartCoroutine(StartNextWaveAfterDelay());
     }
 
