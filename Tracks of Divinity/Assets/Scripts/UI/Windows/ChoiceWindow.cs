@@ -91,12 +91,12 @@ public class ChoiceWindow : Window
 
     public void ChooseOption(int id)
     {
-        Close();
+        CloseAfterChoice();
         Debug.Log($"Option {id} chosen.");
         Choose(tilesToChooseFrom[id]);
     }
 
-    public override void Close()
+    public void CloseAfterChoice()
     {
         UICanvasController.inst.gameObject.SetActive(true);
         base.Close();
@@ -119,4 +119,6 @@ public class ChoiceWindow : Window
                 camTf.position -= cameraOffsetApplied;
         }
     }
+
+    public override void Close() => Debug.Log("ChoiceWindow: Use CloseAfterChoice() instead of Close() to close the choice window.");
 }
