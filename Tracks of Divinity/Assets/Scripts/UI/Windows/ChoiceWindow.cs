@@ -12,6 +12,7 @@ public class ChoiceWindow : Window
     const string towerSpacesTextPrefix = "<color=#666666>Tower Spaces:</color> ",
                  biomeBuffTextPrefix = "<color=#666666>Biome Buff:</color> ",
                  biomeDebuffTextPrefix = "<color=#666666>Biome Debuff:</color> ";
+    readonly Quaternion defaultRotation = Quaternion.Euler(0, 0, 0);
 
     public GameObject camera;
 
@@ -84,6 +85,8 @@ public class ChoiceWindow : Window
                     break;
             }
         }
+
+        tileContainers.ForEach(tc => tc.transform.localRotation = Quaternion.identity);
 
         UICanvasController.inst.gameObject.SetActive(false);
         base.Open();

@@ -106,7 +106,7 @@ public class TileManager : MonoBehaviour
         GameObject obj = Instantiate(tileData.prefab);
 
         TileInstance instance = obj.AddComponent<TileInstance>();
-        instance.Initialize(tileData, gridPos);
+        instance.Initialize(tileData, gridPos, spawningStartingTile);
 
         // Player-placed tiles (NOT the starting tile) start the next wave.
         if (!spawningStartingTile && WaveManager.Instance != null)
