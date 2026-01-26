@@ -13,7 +13,8 @@ public class KillBox : MonoBehaviour
         {
             UICanvasController.HealthCounter.DecrementCount(enemyS.health);
             enemyS.health -= damage;
-            //Add death screen event activation
+            
+            if(UICanvasController.HealthCounter.Count <= 0) UICanvasController.LoseScreen.Open();
         }
     }
 }
