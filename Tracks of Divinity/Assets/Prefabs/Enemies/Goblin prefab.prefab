@@ -161,12 +161,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  health: 100
+  health: 1
   pathPoints: 0
   slowCoolDown: 1
   isSlowed: 0
   moneyAward: 25
   damage: 10
+  goldCounterName: GoldCounter
 --- !u!65 &795241479371937070
 BoxCollider:
   m_ObjectHideFlags: 0
