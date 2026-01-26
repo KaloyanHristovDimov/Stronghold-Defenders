@@ -44,3 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 366a930cd7ed20244891ad90c1830890, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cursorTex: {fileID: 2800000, guid: e50602bb4737a4a8795f25305980c3b7, type: 3}
+  dragCursorTex: {fileID: 2800000, guid: d5341ee0556844303a17dd8cb83e9727, type: 3}

@@ -10,5 +10,9 @@ public class UICanvasController : MonoBehaviour
     public static CounterController WaveCounter => inst.waveCounter;
     public static CounterController HealthCounter => inst.healthCounter;
 
-    private void Awake() => inst = this;
+    private void Awake()
+    {
+        inst = this;
+        Persister.SetCursor();
+    }
 }

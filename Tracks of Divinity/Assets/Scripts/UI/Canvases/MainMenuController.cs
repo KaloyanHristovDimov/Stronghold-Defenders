@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class MainMenuController : MonoBehaviour
 {
+    private void Awake() => Persister.SetCursor();
+
     public void StartGame() => UnityEngine.SceneManagement.SceneManager.LoadScene(1);
 
     public void QuitGame()

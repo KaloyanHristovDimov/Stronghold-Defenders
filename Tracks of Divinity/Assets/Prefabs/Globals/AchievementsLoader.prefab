@@ -45,7 +45,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   achievementsSource:
-  - name: Start on the trail
+  - name: Start on the Trail
     description: Play the game for the first time.
+  - name: Trail Novice
+    description: Beat the 5th wave
+  - name: Trail Adept
+    description: Beat the 10th wave
   - name: Trail Master
-    description: Finish the tutorial by completing your 5th run.
+    description: Beat the 25th wave
+  - name: Trail GrandMaster
+    description: Beat the 50th wave
+  - name: Touch Grass
+    description: Beat the 100th wave
+  - name: Magic Enthusiast
+    description: Build 50 mage towers
+  - name: Balista Enthusiast
+    description: Build 50 balista towers
+  - name: Goblin Murderer
+    description: Kill 100 goblins
+  - name: Goblin Mass-Murderer
+    description: Kill 1000 goblins
+  - name: Orc Murderer
+    description: Kill 10 orcs
+  - name: Orc Mass-Murderer
+    description: Kill 100 orcs
+  - name: Suicide
+    description: Die without building a single tower
+  - name: Impossible
+    description: Expand your tiles so that you can not expand them anymore
