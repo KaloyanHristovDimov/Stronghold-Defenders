@@ -150,7 +150,7 @@ MonoBehaviour:
   Path: Assets/Audio/SFX/FMod/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639050269559415745
+  lastModified: 639051265606562123
   FileSizes: []
   Exists: 1
 --- !u!114 &-4061772737242212175
@@ -219,7 +219,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: 8743097032352320319}
   cacheVersion: 131856
-  cacheTime: 639050269559438646
+  cacheTime: 639051265606986880
   SerializableEventsDict:
   - key: event:/magic atack earth
     index: 0
@@ -567,7 +567,7 @@ MonoBehaviour:
   Path: Assets/Audio/SFX/FMod/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639050269559438646
+  lastModified: 639051265606986880
   FileSizes:
   - Name: 
     Value: 1570
