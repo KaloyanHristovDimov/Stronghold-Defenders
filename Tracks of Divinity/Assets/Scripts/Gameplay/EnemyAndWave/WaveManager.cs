@@ -47,6 +47,7 @@ public class WaveManager : MonoBehaviour
     [Header("Timing")]
     public float spawnDelay = 0.5f;
     public float timeBetweenWaves = 5f;
+    public int wavesBetweenAddNewGround = 5;
 
     [Header("Spawn Sync")]
     [SerializeField] private float endpointAssignmentDelay = 0.1f;
@@ -321,7 +322,7 @@ public class WaveManager : MonoBehaviour
 
     private void UpdateGroupsToPickFrom()
     {
-        if (wavesSinceLastGroupAdded < 5)
+        if (wavesSinceLastGroupAdded < wavesBetweenAddNewGround)
             return;
 
         wavesSinceLastGroupAdded = 0;
