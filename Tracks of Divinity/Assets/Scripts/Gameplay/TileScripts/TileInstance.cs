@@ -17,8 +17,7 @@ public class TileInstance : MonoBehaviour
             GetComponentInChildren<EnemyNavigation>().SetupNavigation(tileData);
         }
         
-        // Some error gets thrown on the below row (I think while dragging on the choice window over a tile)
-        // The row itself is not faulty so don't touch it aside from gates/ifs
-        if(!spawningStartingTile) foreach(var sp in transform.Find("default").GetChild(0).GetComponentsInChildren<TowerSpawn>()) sp.Initialize();
+        if(!spawningStartingTile) foreach(var sp in transform.Find("default").GetChild(0).GetComponentsInChildren<TowerSpawn>())
+            sp.Initialize((int)tileData.tileBiome);
     }
 }

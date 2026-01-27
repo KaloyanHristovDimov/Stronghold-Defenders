@@ -53,6 +53,7 @@ public class TowerButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         RectTransformUtility.ScreenPointToLocalPointInRectangle(UICanvasController.canvasRectT, Input.mousePosition, null, out var mousePos);
         UICanvasController.towerCardRectT.anchoredPosition = new(mousePos.x, mousePos.y);
     
-        //UICanvasController.MainTowerCard.Display();
+        UICanvasController.MainTowerCard.Display();
+        UICanvasController.MainTowerCard.gameObject.SetActive(true);
     }
 }

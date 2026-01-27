@@ -3630,11 +3630,11 @@ RectTransform:
   - {fileID: 1622055707}
   m_Father: {fileID: 1019564016}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 645, y: 860}
-  m_Pivot: {x: 1, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &974333997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3692,6 +3692,55 @@ MonoBehaviour:
   healthCounter: {fileID: 577058910}
   mainTowerCard: {fileID: 974333997}
   loseScreen: {fileID: 1426240046}
+  towers:
+  - biome: 0
+    pair:
+    - prefab: {fileID: 2532222564612703519, guid: ee2990c6a6cb2bd4a9082b7d8d574091, type: 3}
+      price: 25
+    - prefab: {fileID: 6019181310076494403, guid: 4526876e78553274895564a59e9b2688, type: 3}
+      price: 0
+    - prefab: {fileID: 6019181310076494403, guid: 2ad04db315e30f94b86087ed31da268e, type: 3}
+      price: 0
+    - prefab: {fileID: 6019181310076494403, guid: b481931617662704bbd97cb9731ae559, type: 3}
+      price: 0
+    - prefab: {fileID: 6019181310076494403, guid: f31058ac3b817be4cb4f56830582194c, type: 3}
+      price: 0
+  - biome: 1
+    pair:
+    - prefab: {fileID: 2532222564612703519, guid: ee2990c6a6cb2bd4a9082b7d8d574091, type: 3}
+      price: 25
+    - prefab: {fileID: 6019181310076494403, guid: 4526876e78553274895564a59e9b2688, type: 3}
+      price: 0
+    - prefab: {fileID: 6019181310076494403, guid: 2ad04db315e30f94b86087ed31da268e, type: 3}
+      price: 0
+    - prefab: {fileID: 6019181310076494403, guid: b481931617662704bbd97cb9731ae559, type: 3}
+      price: 0
+    - prefab: {fileID: 6019181310076494403, guid: f31058ac3b817be4cb4f56830582194c, type: 3}
+      price: 0
+  - biome: 2
+    pair:
+    - prefab: {fileID: 2532222564612703519, guid: ee2990c6a6cb2bd4a9082b7d8d574091, type: 3}
+      price: 25
+    - prefab: {fileID: 6019181310076494403, guid: 4526876e78553274895564a59e9b2688, type: 3}
+      price: 0
+    - prefab: {fileID: 6019181310076494403, guid: 2ad04db315e30f94b86087ed31da268e, type: 3}
+      price: 0
+    - prefab: {fileID: 6019181310076494403, guid: b481931617662704bbd97cb9731ae559, type: 3}
+      price: 0
+    - prefab: {fileID: 6019181310076494403, guid: f31058ac3b817be4cb4f56830582194c, type: 3}
+      price: 0
+  - biome: 3
+    pair:
+    - prefab: {fileID: 2532222564612703519, guid: ee2990c6a6cb2bd4a9082b7d8d574091, type: 3}
+      price: 25
+    - prefab: {fileID: 6019181310076494403, guid: 4526876e78553274895564a59e9b2688, type: 3}
+      price: 0
+    - prefab: {fileID: 6019181310076494403, guid: 2ad04db315e30f94b86087ed31da268e, type: 3}
+      price: 0
+    - prefab: {fileID: 6019181310076494403, guid: b481931617662704bbd97cb9731ae559, type: 3}
+      price: 0
+    - prefab: {fileID: 6019181310076494403, guid: f31058ac3b817be4cb4f56830582194c, type: 3}
+      price: 0
 --- !u!114 &1019564013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4966,11 +5015,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 974333996}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -50, y: 30}
+  m_SizeDelta: {x: 644, y: 860}
+  m_Pivot: {x: 1, y: 0}
 --- !u!114 &1622055708
 MonoBehaviour:
   m_ObjectHideFlags: 0
