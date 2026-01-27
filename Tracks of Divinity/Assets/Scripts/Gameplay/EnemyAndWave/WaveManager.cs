@@ -69,8 +69,8 @@ public class WaveManager : MonoBehaviour
 
     private List<SpawnGroupState> groupsLeft = new();
 
-    private readonly Dictionary<EndPoint, bool> endpointBusy = new();
-    private readonly Dictionary<EndPoint, Coroutine> endpointSpawnRoutines = new();
+    // NEW: allow multiple spawn coroutines per endpoint; just count active jobs
+    private int activeSpawnJobs = 0;
 
     private void Awake()
     {
@@ -180,121 +180,93 @@ public class WaveManager : MonoBehaviour
         StartCoroutine(SpawnWaveRoutine());
     }
 
+    // UPDATED: assign groups immediately, even to the same endpoint (multiple concurrent coroutines)
     private IEnumerator SpawnWaveRoutine()
     {
         finishedSpawning = false;
 
-        var keys = new List<EndPoint>(endpointBusy.Keys);
-        for (int i = 0; i < keys.Count; i++)
-            endpointBusy[keys[i]] = false;
+        List<EndPoint> validEndpoints = new List<EndPoint>();
+        for (int i = 0; i < listOfActiveEndPoints.Count; i++)
+        {
+            EndPoint ep = listOfActiveEndPoints[i];
+            if (ep != null && ep.gameObject.activeInHierarchy)
+                validEndpoints.Add(ep);
+        }
+
+        if (validEndpoints.Count == 0)
+        {
+            Debug.LogError("[WaveManager] No valid endpoints during spawning. Aborting remaining spawns to avoid soft-lock.");
+            finishedSpawning = true;
+            TryCompleteWave();
+            yield break;
+        }
+
+        activeSpawnJobs = 0;
+
+        int epIndex = 0;
 
         while (groupsLeft.Count > 0)
         {
-            List<EndPoint> validEndpoints = new List<EndPoint>();
-            for (int i = 0; i < listOfActiveEndPoints.Count; i++)
-            {
-                EndPoint ep = listOfActiveEndPoints[i];
-                if (ep != null && ep.gameObject.activeInHierarchy)
-                    validEndpoints.Add(ep);
-            }
+            EndPoint ep = validEndpoints[epIndex % validEndpoints.Count];
+            epIndex++;
 
-            if (validEndpoints.Count == 0)
-            {
-                Debug.LogError("[WaveManager] No valid endpoints during spawning. Aborting remaining spawns to avoid soft-lock.");
-                finishedSpawning = true;
-                TryCompleteWave();
-                yield break;
-            }
+            SpawnGroupState group = groupsLeft[groupsLeft.Count - 1];
+            groupsLeft.RemoveAt(groupsLeft.Count - 1);
 
-            bool assignedAtLeastOne = false;
+            activeSpawnJobs++;
+            StartCoroutine(SpawnGroupOnEndpoint(ep, group));
 
-            for (int e = 0; e < validEndpoints.Count && groupsLeft.Count > 0; e++)
-            {
-                EndPoint ep = validEndpoints[e];
-
-                if (!endpointBusy.TryGetValue(ep, out bool busy))
-                {
-                    endpointBusy[ep] = false;
-                    busy = false;
-                }
-
-                if (busy)
-                    continue;
-
-                SpawnGroupState group = groupsLeft[groupsLeft.Count - 1];
-                groupsLeft.RemoveAt(groupsLeft.Count - 1);
-
-                assignedAtLeastOne = true;
-
-                endpointBusy[ep] = true;
-
-                Coroutine c = StartCoroutine(SpawnGroupOnEndpoint(ep, group));
-                endpointSpawnRoutines[ep] = c;
-
-                if (endpointAssignmentDelay > 0f)
-                    yield return new WaitForSeconds(endpointAssignmentDelay);
-            }
-
-            if (!assignedAtLeastOne)
-                yield return null;
+            if (endpointAssignmentDelay > 0f)
+                yield return new WaitForSeconds(endpointAssignmentDelay);
             else
-                yield return null;
+                yield return null; // keeps frames responsive
         }
 
-        while (AnyEndpointBusy())
+        while (activeSpawnJobs > 0)
             yield return null;
 
         finishedSpawning = true;
         TryCompleteWave();
     }
 
-    private bool AnyEndpointBusy()
-    {
-        foreach (var kv in endpointBusy)
-        {
-            if (kv.Key != null && kv.Key.gameObject.activeInHierarchy && kv.Value)
-                return true;
-        }
-        return false;
-    }
-
+    // UPDATED: no endpoint busy flags; decrement active jobs when done
     private IEnumerator SpawnGroupOnEndpoint(EndPoint endpoint, SpawnGroupState group)
     {
         WaitForSeconds wait = new WaitForSeconds(spawnDelay);
 
-        while (group.remaining > 0)
+        try
         {
-            if (endpoint == null || !endpoint.gameObject.activeInHierarchy)
-                break;
-
-            if (group.MonsterPrefab == null)
-                break;
-
-            Quaternion rotation = endpoint.direction switch
+            while (group.remaining > 0)
             {
-                TileData.Direction.Top => Quaternion.Euler(0f, 90f, 0f),
-                TileData.Direction.Bottom => Quaternion.Euler(0f, -90f, 0f),
-                TileData.Direction.Right => Quaternion.Euler(0f, 180f, 0f),
-                TileData.Direction.Left => Quaternion.Euler(0f, 0f, 0f),
-                _ => Quaternion.identity
-            };
+                if (endpoint == null || !endpoint.gameObject.activeInHierarchy)
+                    break;
 
-            Instantiate(group.MonsterPrefab, endpoint.transform.position, rotation);
-            aliveEnemies++;
+                if (group.MonsterPrefab == null)
+                    break;
 
-            group.remaining--;
-            group.spawned++;
+                Quaternion rotation = endpoint.direction switch
+                {
+                    TileData.Direction.Top => Quaternion.Euler(0f, 90f, 0f),
+                    TileData.Direction.Bottom => Quaternion.Euler(0f, -90f, 0f),
+                    TileData.Direction.Right => Quaternion.Euler(0f, 180f, 0f),
+                    TileData.Direction.Left => Quaternion.Euler(0f, 0f, 0f),
+                    _ => Quaternion.identity
+                };
 
-            yield return wait;
+                Instantiate(group.MonsterPrefab, endpoint.transform.position, rotation);
+                aliveEnemies++;
+
+                group.remaining--;
+                group.spawned++;
+
+                yield return wait;
+            }
         }
-
-        if (endpoint != null)
-            endpointBusy[endpoint] = false;
-
-        if (endpoint != null)
-            endpointSpawnRoutines[endpoint] = null;
-
-        TryCompleteWave();
+        finally
+        {
+            activeSpawnJobs = Mathf.Max(0, activeSpawnJobs - 1);
+            TryCompleteWave();
+        }
     }
 
     public void RegisterEndpoint(EndPoint endpoint)
@@ -302,22 +274,14 @@ public class WaveManager : MonoBehaviour
         if (!listOfActiveEndPoints.Contains(endpoint))
             listOfActiveEndPoints.Add(endpoint);
 
-        if (!endpointBusy.ContainsKey(endpoint))
-            endpointBusy.Add(endpoint, false);
-
         endpoint.SetInteractable(CanPlaceTile);
     }
 
     public void UnregisterEndpoint(EndPoint endpoint)
     {
         listOfActiveEndPoints.Remove(endpoint);
-
-        endpointBusy.Remove(endpoint);
-
-        if (endpointSpawnRoutines.TryGetValue(endpoint, out var c) && c != null)
-            StopCoroutine(c);
-
-        endpointSpawnRoutines.Remove(endpoint);
+        // Spawn coroutines will naturally stop spawning if the endpoint becomes null/inactive.
+        // Avoid StopCoroutine here unless you also handle decrementing activeSpawnJobs.
     }
 
     private void UpdateGroupsToPickFrom()
@@ -328,6 +292,9 @@ public class WaveManager : MonoBehaviour
         wavesSinceLastGroupAdded = 0;
 
         if (listOfGroupsToPickFrom.Count == 0)
+            return;
+
+        if (listOfAllGroupsOfMonsters == null || listOfAllGroupsOfMonsters.Count == 0)
             return;
 
         if (listOfGroupsToPickFrom[^1] == listOfAllGroupsOfMonsters[^1])
