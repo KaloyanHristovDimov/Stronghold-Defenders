@@ -2,27 +2,36 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+[System.Serializable]
+public class PrefabPricePair
+{
+    public GameObject prefab;
+    public int price;
+}
+
+[System.Serializable]
+public class BiomeTowerPair
+{
+    public Biome biome;
+    public List<PrefabPricePair> pair;
+}
+
 public class TowerSpawn : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    [System.Serializable]
-    public class PrefabPricePair
-    {
-        public GameObject prefab;
-        public int price;
-    }
-
-    public List<PrefabPricePair> towers;
+    
 
     private bool initialized;
+    private int biome;
 
     //public AudioSource audioSource;
 
 
-    public void Initialize()
+    public void Initialize(int tileBiome)
     {
         UICanvasController.TowerSpawnpoints.Add(gameObject);
         gameObject.SetActive(false);
         initialized = true;
+        biome = tileBiome;
     }
 
     // public void OnPointerDown(PointerEventData eventData)
@@ -43,7 +52,7 @@ public class TowerSpawn : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         if(!initialized)
             return;
         UICanvasController.currentTowerSpawnPoint = this;
-        UICanvasController.currentTowerButton.ShowCard();
+        UICanvasController.currentTowerButton.ShowCard(biome);
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -56,17 +65,18 @@ public class TowerSpawn : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void TrySpawnTower()
     {
-        int selected = UICanvasController.currentTowerButton.id;
+        PrefabPricePair pair = UICanvasController.Towers[biome].pair[(int)UICanvasController.currentTowerButton.type];
 
-        if (!UICanvasController.GoldCounter.CanAfford(towers[selected].price))
+        if (!UICanvasController.GoldCounter.CanAfford(pair.price))
         {
             //ErrorFeedback();
             return;
         }
 
 
-        UICanvasController.GoldCounter.DecrementCount(towers[selected].price);
-        Instantiate(towers[selected].prefab, transform.position, Quaternion.identity);
+        UICanvasController.GoldCounter.DecrementCount(pair.price);
+        Instantiate(pair.prefab, transform.position, Quaternion.identity);
+        OnPointerExit(null);
         UICanvasController.TowerSpawnpoints.Remove(gameObject);
         Destroy(gameObject);
     }

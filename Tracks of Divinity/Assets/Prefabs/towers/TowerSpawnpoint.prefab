@@ -154,10 +154,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towers:
+<<<<<<< Updated upstream
   - prefab: {fileID: 2532222564612703519, guid: ee2990c6a6cb2bd4a9082b7d8d574091, type: 3}
     price: 10
+=======
+  - prefab: {fileID: 6019181310076494403, guid: ae55943e859e0414a91a625c415f59bf, type: 3}
+    price: 30
+>>>>>>> Stashed changes
   - prefab: {fileID: 6019181310076494403, guid: 4526876e78553274895564a59e9b2688, type: 3}
-    price: 0
+    price: 120
   - prefab: {fileID: 6019181310076494403, guid: 2ad04db315e30f94b86087ed31da268e, type: 3}
     price: 0
   - prefab: {fileID: 6019181310076494403, guid: b481931617662704bbd97cb9731ae559, type: 3}
@@ -165,4 +170,8 @@ MonoBehaviour:
   - prefab: {fileID: 6019181310076494403, guid: f31058ac3b817be4cb4f56830582194c, type: 3}
     price: 0
   - prefab: {fileID: 2532222564612703519, guid: ee2990c6a6cb2bd4a9082b7d8d574091, type: 3}
+<<<<<<< Updated upstream
     price: 50
+=======
+    price: 65
+>>>>>>> Stashed changes

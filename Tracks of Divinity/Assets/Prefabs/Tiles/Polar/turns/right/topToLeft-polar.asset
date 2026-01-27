@@ -15,7 +15,7 @@ MonoBehaviour:
   startDirection: 0
   endDirections: 03000000
   name: Waste
-  prefab: {fileID: 5749760207211005535, guid: 5d50111456ec30a4aa5f25e5e037a476, type: 3}
+  prefab: {fileID: 8632462338817782381, guid: cff3a688c82622a47bea282c26202292, type: 3}
   icon: {fileID: 5749760207211005535, guid: 967fec1c2a88e8a459344dbab1b7d859, type: 3}
   towerAmount: 6
   tileBiome: 2

@@ -15,7 +15,7 @@ MonoBehaviour:
   startDirection: 1
   endDirections: 02000000
   name: Tadala
-  prefab: {fileID: 2167092883784262508, guid: 47ca33fd60f628740bfaa495b49d7797, type: 3}
+  prefab: {fileID: 1219550755347318381, guid: 47e313b9c31532b40b9d27b3f2793764, type: 3}
   icon: {fileID: 2167092883784262508, guid: 08103156ac846f8469e9cacb93d5a97e, type: 3}
   towerAmount: 6
   tileBiome: 2

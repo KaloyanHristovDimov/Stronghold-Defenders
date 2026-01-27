@@ -3,7 +3,7 @@ using UnityEngine.EventSystems;
 
 public class TowerButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    public int id;
+    public TowerType type;
     [SerializeField] private GameObject cover, dragCover;
 
     private bool isDragging;
@@ -48,11 +48,15 @@ public class TowerButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void HideCard() => UICanvasController.MainTowerCard.gameObject.SetActive(false);
 
-    public void ShowCard()
+    public void ShowCard(int biome = 0)
     {
         RectTransformUtility.ScreenPointToLocalPointInRectangle(UICanvasController.canvasRectT, Input.mousePosition, null, out var mousePos);
         UICanvasController.towerCardRectT.anchoredPosition = new(mousePos.x, mousePos.y);
     
-        //UICanvasController.MainTowerCard.Display();
+        //populate Tower class; type, biome and price are already gotten from here so just do everything else
+        Tower tower = new(type, UICanvasController.Towers[biome].pair[(int)type].price, (Biome)biome);
+
+        UICanvasController.MainTowerCard.Display(tower);
+        UICanvasController.MainTowerCard.gameObject.SetActive(true);
     }
 }
