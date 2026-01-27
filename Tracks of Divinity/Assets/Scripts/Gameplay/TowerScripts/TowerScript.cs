@@ -7,6 +7,7 @@ public class TowereScript : MonoBehaviour
     public float attackTime = 1f;
     public List<GameObject> enemiesInRange = new List<GameObject>();
     public int damage = 50;
+    public float range = 5f;
     public bool aoe = false;
     public float aoeRange = 4;
     private GameObject enemyToDamage;
@@ -16,6 +17,10 @@ public class TowereScript : MonoBehaviour
 
     //public AudioSource atackSFX;
 
+    private void Start()
+    {
+        GetComponent<SphereCollider>().radius = range;
+    }
 
     void Update()
     {
