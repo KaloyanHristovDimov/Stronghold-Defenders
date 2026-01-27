@@ -79,8 +79,9 @@ MonoBehaviour:
   pathPoints: 0
   slowCoolDown: 1
   isSlowed: 0
-  moneyAward: 25
+  moneyAward: 500
   damage: 10
+  goldCounterName: GoldCounter
 --- !u!65 &2382794530653097023
 BoxCollider:
   m_ObjectHideFlags: 0
