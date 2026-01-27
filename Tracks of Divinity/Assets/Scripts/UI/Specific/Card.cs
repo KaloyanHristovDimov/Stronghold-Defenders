@@ -1,8 +1,12 @@
 using UnityEngine;
 
+public interface ICardInfo{}
+
 public class Card : MonoBehaviour
 {
-    public virtual void Display()
+    protected const string cBeginTag = "<color=#666666>", cEndTag = "</color>";
+
+    public virtual void Display(ICardInfo info)
     {
         
     }

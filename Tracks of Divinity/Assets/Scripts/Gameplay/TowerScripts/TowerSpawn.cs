@@ -52,7 +52,7 @@ public class TowerSpawn : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         if(!initialized)
             return;
         UICanvasController.currentTowerSpawnPoint = this;
-        UICanvasController.currentTowerButton.ShowCard();
+        UICanvasController.currentTowerButton.ShowCard(biome);
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -65,7 +65,7 @@ public class TowerSpawn : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void TrySpawnTower()
     {
-        PrefabPricePair pair = UICanvasController.Towers[biome].pair[UICanvasController.currentTowerButton.id];
+        PrefabPricePair pair = UICanvasController.Towers[biome].pair[(int)UICanvasController.currentTowerButton.type];
 
         if (!UICanvasController.GoldCounter.CanAfford(pair.price))
         {
@@ -76,6 +76,7 @@ public class TowerSpawn : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
         UICanvasController.GoldCounter.DecrementCount(pair.price);
         Instantiate(pair.prefab, transform.position, Quaternion.identity);
+        OnPointerExit(null);
         UICanvasController.TowerSpawnpoints.Remove(gameObject);
         Destroy(gameObject);
     }

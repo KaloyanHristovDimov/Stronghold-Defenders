@@ -1,6 +1,6 @@
 public enum TowerType
 {
-    Cannon,
+    Balista,
     Archer,
     Mortar,
     Mage,
