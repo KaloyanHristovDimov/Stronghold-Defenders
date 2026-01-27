@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 3790172643482824751}
   - component: {fileID: 3405630042364798076}
   m_Layer: 0
-  m_Name: ant
+  m_Name: ant Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -131,11 +131,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19b80fdc18c136e44b93aef5e835db12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
-  health: 5
+  speed: 2
+  health: 50
   pathPoints: 0
   slowCoolDown: 1.5
   isSlowed: 0
-  moneyAward: 5
-  damage: 5
+  moneyAward: 20
+  damage: 20
   goldCounterName: GoldCounter
