@@ -6178,9 +6178,217 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
-      propertyPath: listOfAllGroupsOfMonsters.Array.data[4].MonsterPrefab
+      propertyPath: listOfAllGroupsOfMonsters.Array.data[0].Name
+      value: Goblin
+      objectReference: {fileID: 0}
+    - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
+      propertyPath: listOfAllGroupsOfMonsters.Array.data[1].Name
+      value: Fly
+      objectReference: {fileID: 0}
+    - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
+      propertyPath: listOfAllGroupsOfMonsters.Array.data[2].Name
+      value: Orc
+      objectReference: {fileID: 0}
+    - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
+      propertyPath: listOfAllGroupsOfMonsters.Array.data[3].Name
+      value: Goblin Boss
+      objectReference: {fileID: 0}
+    - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
+      propertyPath: listOfAllGroupsOfMonsters.Array.data[4].Name
+      value: Orc Boss
+      objectReference: {fileID: 0}
+    - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
+      propertyPath: listOfAllGroupsOfMonsters.Array.data[5].Name
+      value: Ant
+      objectReference: {fileID: 0}
+    - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
+      propertyPath: listOfAllGroupsOfMonsters.Array.data[6].Name
+      value: Crab
+      objectReference: {fileID: 0}
+    - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
+      propertyPath: listOfAllGroupsOfMonsters.Array.data[7].Name
+      value: Mystic
+      objectReference: {fileID: 0}
+    - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
+      propertyPath: listOfAllGroupsOfMonsters.Array.data[8].Name
+      value: Goblin Horde
+      objectReference: {fileID: 0}
+    - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
+      propertyPath: listOfAllGroupsOfMonsters.Array.data[9].Name
+      value: Orc horde
+      objectReference: {fileID: 0}
+    - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
+      propertyPath: listOfAllGroupsOfMonsters.Array.data[10].Name
+      value: Goblin Boss horde
+      objectReference: {fileID: 0}
+    - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
+      propertyPath: listOfAllGroupsOfMonsters.Array.data[11].Name
+      value: Orc boss horde
+      objectReference: {fileID: 0}
+    - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
+      propertyPath: listOfAllGroupsOfMonsters.Array.data[12].Name
+      value: Ant Boss
+      objectReference: {fileID: 0}
+    - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
+      propertyPath: listOfAllGroupsOfMonsters.Array.data[13].Name
+      value: Crab Boss
+      objectReference: {fileID: 0}
+    - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
+      propertyPath: listOfAllGroupsOfMonsters.Array.data[14].Name
+      value: Ant Horde
+      objectReference: {fileID: 0}
+    - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
+      propertyPath: listOfAllGroupsOfMonsters.Array.data[15].Name
+      value: Crab Horde
+      objectReference: {fileID: 0}
+    - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
+      propertyPath: listOfAllGroupsOfMonsters.Array.data[16].Name
+      value: Ant Boss Horde
+      objectReference: {fileID: 0}
+    - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
+      propertyPath: listOfAllGroupsOfMonsters.Array.data[17].Name
+      value: Crab Boss Horde
+      objectReference: {fileID: 0}
+    - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
+      propertyPath: listOfAllGroupsOfMonsters.Array.data[0].amount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
+      propertyPath: listOfAllGroupsOfMonsters.Array.data[1].amount
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
+      propertyPath: listOfAllGroupsOfMonsters.Array.data[2].amount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
+      propertyPath: listOfAllGroupsOfMonsters.Array.data[3].amount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
+      propertyPath: listOfAllGroupsOfMonsters.Array.data[4].amount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
+      propertyPath: listOfAllGroupsOfMonsters.Array.data[5].amount
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
+      propertyPath: listOfAllGroupsOfMonsters.Array.data[6].amount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
+      propertyPath: listOfAllGroupsOfMonsters.Array.data[7].amount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
+      propertyPath: listOfAllGroupsOfMonsters.Array.data[8].amount
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
+      propertyPath: listOfAllGroupsOfMonsters.Array.data[9].amount
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
+      propertyPath: listOfAllGroupsOfMonsters.Array.data[11].amount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
+      propertyPath: listOfAllGroupsOfMonsters.Array.data[12].amount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
+      propertyPath: listOfAllGroupsOfMonsters.Array.data[13].amount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
+      propertyPath: listOfAllGroupsOfMonsters.Array.data[14].amount
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
+      propertyPath: listOfAllGroupsOfMonsters.Array.data[15].amount
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
+      propertyPath: listOfAllGroupsOfMonsters.Array.data[16].amount
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
+      propertyPath: listOfAllGroupsOfMonsters.Array.data[17].amount
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
+      propertyPath: listOfAllGroupsOfMonsters.Array.data[0].MonsterPrefab
       value: 
       objectReference: {fileID: 7051209767090465233, guid: 5477e9ff9e311c34cb919bd28696fb2a, type: 3}
+    - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
+      propertyPath: listOfAllGroupsOfMonsters.Array.data[1].MonsterPrefab
+      value: 
+      objectReference: {fileID: 8302457157208383754, guid: 84f04bc8e24ac054499137238a8117f9, type: 3}
+    - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
+      propertyPath: listOfAllGroupsOfMonsters.Array.data[2].MonsterPrefab
+      value: 
+      objectReference: {fileID: 7709249339422852092, guid: fec35155239fd14448510d7b498e6665, type: 3}
+    - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
+      propertyPath: listOfAllGroupsOfMonsters.Array.data[3].MonsterPrefab
+      value: 
+      objectReference: {fileID: 7051209767090465233, guid: e47b57a0224fad141b6a91c851f32075, type: 3}
+    - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
+      propertyPath: listOfAllGroupsOfMonsters.Array.data[4].MonsterPrefab
+      value: 
+      objectReference: {fileID: 7709249339422852092, guid: d469a08bfe78040409d8a2047640bc1f, type: 3}
+    - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
+      propertyPath: listOfAllGroupsOfMonsters.Array.data[5].MonsterPrefab
+      value: 
+      objectReference: {fileID: 7141878774471241115, guid: 0cf3ecdc37054564fbdba3cf6e91670a, type: 3}
+    - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
+      propertyPath: listOfAllGroupsOfMonsters.Array.data[6].MonsterPrefab
+      value: 
+      objectReference: {fileID: 7575971027027918242, guid: 527c19e583db5cf4896f03e14b7031bb, type: 3}
+    - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
+      propertyPath: listOfAllGroupsOfMonsters.Array.data[7].MonsterPrefab
+      value: 
+      objectReference: {fileID: 8461746925846130518, guid: 582293ac18e19cd4d9e18716fa6a29ab, type: 3}
+    - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
+      propertyPath: listOfAllGroupsOfMonsters.Array.data[8].MonsterPrefab
+      value: 
+      objectReference: {fileID: 7051209767090465233, guid: 5477e9ff9e311c34cb919bd28696fb2a, type: 3}
+    - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
+      propertyPath: listOfAllGroupsOfMonsters.Array.data[9].MonsterPrefab
+      value: 
+      objectReference: {fileID: 7709249339422852092, guid: fec35155239fd14448510d7b498e6665, type: 3}
+    - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
+      propertyPath: listOfAllGroupsOfMonsters.Array.data[10].MonsterPrefab
+      value: 
+      objectReference: {fileID: 7051209767090465233, guid: e47b57a0224fad141b6a91c851f32075, type: 3}
+    - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
+      propertyPath: listOfAllGroupsOfMonsters.Array.data[11].MonsterPrefab
+      value: 
+      objectReference: {fileID: 7709249339422852092, guid: d469a08bfe78040409d8a2047640bc1f, type: 3}
+    - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
+      propertyPath: listOfAllGroupsOfMonsters.Array.data[12].MonsterPrefab
+      value: 
+      objectReference: {fileID: 7141878774471241115, guid: eb644842273d33c46a4f80157019553b, type: 3}
+    - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
+      propertyPath: listOfAllGroupsOfMonsters.Array.data[13].MonsterPrefab
+      value: 
+      objectReference: {fileID: 7575971027027918242, guid: 88192c982debbfb45ac3efd5e0ffde65, type: 3}
+    - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
+      propertyPath: listOfAllGroupsOfMonsters.Array.data[14].MonsterPrefab
+      value: 
+      objectReference: {fileID: 7141878774471241115, guid: 0cf3ecdc37054564fbdba3cf6e91670a, type: 3}
+    - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
+      propertyPath: listOfAllGroupsOfMonsters.Array.data[15].MonsterPrefab
+      value: 
+      objectReference: {fileID: 7575971027027918242, guid: 527c19e583db5cf4896f03e14b7031bb, type: 3}
+    - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
+      propertyPath: listOfAllGroupsOfMonsters.Array.data[16].MonsterPrefab
+      value: 
+      objectReference: {fileID: 7141878774471241115, guid: eb644842273d33c46a4f80157019553b, type: 3}
+    - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
+      propertyPath: listOfAllGroupsOfMonsters.Array.data[17].MonsterPrefab
+      value: 
+      objectReference: {fileID: 7575971027027918242, guid: 88192c982debbfb45ac3efd5e0ffde65, type: 3}
     - target: {fileID: 9216550061287995353, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
       propertyPath: m_Name
       value: WaveManager

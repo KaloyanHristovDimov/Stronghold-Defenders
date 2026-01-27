@@ -10,9 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2645490094432650445}
   - component: {fileID: 5077295047357174596}
-  m_Layer: 0
+  - component: {fileID: 1458846651086967900}
+  - component: {fileID: 7629178449084049128}
+  m_Layer: 7
   m_Name: fly Boss
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25,14 +27,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8302457157208383754}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.3996485, z: -0, w: 0.91666853}
-  m_LocalPosition: {x: -2.6733508, y: -1.4000001, z: 4.0996227}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.12, y: 0.12, z: 0.12}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4389622758487568206}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 47.112, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &5077295047357174596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53,6 +55,54 @@ MonoBehaviour:
   moneyAward: 35
   damage: 30
   goldCounterName: GoldCounter
+--- !u!65 &1458846651086967900
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8302457157208383754}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.7, y: 2.1000001, z: 4}
+  m_Center: {x: 0.15, y: -15, z: 0}
+--- !u!54 &7629178449084049128
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8302457157208383754}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &8425535256044355216
 GameObject:
   m_ObjectHideFlags: 0
@@ -64,7 +114,7 @@ GameObject:
   - component: {fileID: 4389622758487568206}
   - component: {fileID: 6446678785238038706}
   - component: {fileID: 1959817633871102646}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
