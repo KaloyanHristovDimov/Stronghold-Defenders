@@ -116,6 +116,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 4949020667303652563}
   - {fileID: 5226366832281177569}
   - {fileID: 4462188167231584639}
   m_Father: {fileID: 0}
@@ -142,9 +143,73 @@ MonoBehaviour:
   biome: 0
   damageType: 0
   price: 100
-  Data: {fileID: 11400000, guid: d7bb7147f8c418041996a4c7b7f83206, type: 2}
+  Data: {fileID: 11400000, guid: 4980cf1bb0674514e91128caf35b8f4d, type: 2}
   projectilePrefab: {fileID: 6600213263276241065, guid: 2d6e6914ef540e5489c57326f18c095a, type: 3}
   firePoint: {fileID: 4462188167231584639}
+  atackSFX: {fileID: 0}
+--- !u!1 &8971995483918722747
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4949020667303652563}
+  - component: {fileID: 515845949538258632}
+  m_Layer: 0
+  m_Name: Tower placed Emitter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4949020667303652563
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8971995483918722747}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -15.085684, y: 0, z: -15.055301}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6393821220004884180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &515845949538258632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8971995483918722747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1015558829
+      Data2: 1219541354
+      Data3: -1390344270
+      Data4: -722534839
+    Path: event:/Tower placed
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 1
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &9180988683644036287
 GameObject:
   m_ObjectHideFlags: 0

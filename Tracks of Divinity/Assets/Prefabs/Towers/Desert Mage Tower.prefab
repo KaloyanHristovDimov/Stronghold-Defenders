@@ -30,6 +30,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 5152011885291342785}
   - {fileID: 1403543357021893172}
   - {fileID: 8122509735530776226}
   m_Father: {fileID: 0}
@@ -49,10 +50,17 @@ MonoBehaviour:
   attackTime: 1
   enemiesInRange: []
   damage: 50
+  range: 5
   aoe: 0
   aoeRange: 4
+  towerType: 0
+  biome: 0
+  damageType: 0
+  price: 100
+  Data: {fileID: 11400000, guid: 9dd3a4c0253ab114ab61abeb678b81c0, type: 2}
   projectilePrefab: {fileID: 9030258471697152219, guid: acb22696b30d1754bb6cbbaf5de34410, type: 3}
   firePoint: {fileID: 8122509735530776226}
+  atackSFX: {fileID: 0}
 --- !u!1 &3397131919023532376
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,3 +178,66 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &7978673649974030583
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5152011885291342785}
+  - component: {fileID: 8967242717984060364}
+  m_Layer: 0
+  m_Name: Tower placed Emitter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5152011885291342785
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7978673649974030583}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0, z: -0, w: 1}
+  m_LocalPosition: {x: -9.719593, y: 0, z: -14.524559}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 116339403967239614}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8967242717984060364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7978673649974030583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1015558829
+      Data2: 1219541354
+      Data3: -1390344270
+      Data4: -722534839
+    Path: event:/Tower placed
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 1
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
