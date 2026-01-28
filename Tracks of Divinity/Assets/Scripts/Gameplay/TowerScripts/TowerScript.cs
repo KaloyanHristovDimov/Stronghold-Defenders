@@ -21,7 +21,7 @@ public class TowereScript : MonoBehaviour
     public GameObject projectilePrefab;
     public Transform firePoint;
 
-    //public AudioSource atackSFX;
+    public AudioSource atackSFX;
 
     private void Start()
     {
@@ -118,7 +118,7 @@ public class TowereScript : MonoBehaviour
         Projectile projectile = projectileGO.GetComponent<Projectile>();
         projectile.Initialize(target, damage, aoe, aoeRange);
 
-        //atackSFX.Play();
+        atackSFX.Play();
     }
 
     private void RotateTowardsEnemy(Transform target)
