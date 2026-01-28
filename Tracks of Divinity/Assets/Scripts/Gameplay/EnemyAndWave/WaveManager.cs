@@ -409,6 +409,7 @@ public class WaveManager : MonoBehaviour
 
     public void EnemyDestroyed()
     {
+        
         aliveEnemies = Mathf.Max(0, aliveEnemies - 1);
         TryCompleteWave();
     }

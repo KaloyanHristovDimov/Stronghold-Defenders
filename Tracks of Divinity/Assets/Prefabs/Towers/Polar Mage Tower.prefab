@@ -56,7 +56,7 @@ MonoBehaviour:
   towerType: 0
   biome: 0
   damageType: 0
-  price: 100
+  price: 60
   Data: {fileID: 11400000, guid: 9952ae1f9041e0c4ea0e589a15c25ad8, type: 2}
   projectilePrefab: {fileID: 8413435507212906539, guid: c07cdd5421bddd948ae11a3b803e30fd, type: 3}
   firePoint: {fileID: 2773617276556482187}
