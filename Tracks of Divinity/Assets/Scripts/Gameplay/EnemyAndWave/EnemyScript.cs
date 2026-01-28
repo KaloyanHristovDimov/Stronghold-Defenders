@@ -3,6 +3,16 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
+    public enum MonsterType 
+    {
+        Goblin,
+        Orc,
+        Fly,
+        Ant,
+        Mystic,
+        Crab
+    }
+    public MonsterType type;
     public float speed = 5f;
     public int health = 100;
     public float pathPoints = 0f;
@@ -44,6 +54,7 @@ public class EnemyScript : MonoBehaviour
 
     void OnDestroy()
     {
+
         UICanvasController.GoldCounter.IncrementCount(moneyAward);
         WaveManager.Instance.EnemyDestroyed();
     }

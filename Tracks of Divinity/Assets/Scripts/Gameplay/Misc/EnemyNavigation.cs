@@ -38,7 +38,6 @@ public class EnemyNavigation : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Colided");
         if (other.CompareTag("Enemy"))
         {
             Vector3 monsterPosition = other.transform.position;
@@ -46,20 +45,6 @@ public class EnemyNavigation : MonoBehaviour
             monsterPosition.z = transform.position.z;
             other.transform.position = monsterPosition;
             other.transform.rotation = newRotation;
-            Debug.Log("Rotated");
         }
-        //StartCoroutine(DoThingAfterDelay(0.01f));
-
-        //IEnumerator DoThingAfterDelay(float delay)
-        //{
-        //    yield return new WaitForSeconds(delay);
-        //    Debug.Log("Colided");
-        //    if (other.CompareTag("Enemy"))
-        //    {
-        //        other.transform.rotation = newRotation;
-        //        Debug.Log("Rotated");
-        //    }
-        //}
-
     }
 }

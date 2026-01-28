@@ -3598,8 +3598,8 @@ MonoBehaviour:
       price: 0
     - prefab: {fileID: 6019181310076494403, guid: 2ad04db315e30f94b86087ed31da268e, type: 3}
       price: 0
-    - prefab: {fileID: 6019181310076494403, guid: b481931617662704bbd97cb9731ae559, type: 3}
-      price: 0
+    - prefab: {fileID: 8032982742529412372, guid: 88c877f34095043439612d7b0da4aaca, type: 3}
+      price: 50
     - prefab: {fileID: 6019181310076494403, guid: f31058ac3b817be4cb4f56830582194c, type: 3}
       price: 0
   - biome: 1
@@ -3610,8 +3610,8 @@ MonoBehaviour:
       price: 0
     - prefab: {fileID: 6019181310076494403, guid: 2ad04db315e30f94b86087ed31da268e, type: 3}
       price: 0
-    - prefab: {fileID: 6019181310076494403, guid: b481931617662704bbd97cb9731ae559, type: 3}
-      price: 0
+    - prefab: {fileID: 2440866968495100099, guid: 67537d44160eb8c49bebf73cda175097, type: 3}
+      price: 65
     - prefab: {fileID: 6019181310076494403, guid: f31058ac3b817be4cb4f56830582194c, type: 3}
       price: 0
   - biome: 2
@@ -3622,8 +3622,8 @@ MonoBehaviour:
       price: 0
     - prefab: {fileID: 6019181310076494403, guid: 2ad04db315e30f94b86087ed31da268e, type: 3}
       price: 0
-    - prefab: {fileID: 6019181310076494403, guid: b481931617662704bbd97cb9731ae559, type: 3}
-      price: 0
+    - prefab: {fileID: 162941768074137630, guid: b6f7215c0fc9e614d9bc7ca0aa9fdcc1, type: 3}
+      price: 60
     - prefab: {fileID: 6019181310076494403, guid: f31058ac3b817be4cb4f56830582194c, type: 3}
       price: 0
   - biome: 3
@@ -3634,8 +3634,8 @@ MonoBehaviour:
       price: 0
     - prefab: {fileID: 6019181310076494403, guid: 2ad04db315e30f94b86087ed31da268e, type: 3}
       price: 0
-    - prefab: {fileID: 6019181310076494403, guid: b481931617662704bbd97cb9731ae559, type: 3}
-      price: 0
+    - prefab: {fileID: 8775498847321575416, guid: 54a7924fa1c7931438cf35e305b16795, type: 3}
+      price: 100
     - prefab: {fileID: 6019181310076494403, guid: f31058ac3b817be4cb4f56830582194c, type: 3}
       price: 0
 --- !u!114 &1019564013

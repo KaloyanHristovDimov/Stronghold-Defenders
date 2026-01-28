@@ -17,7 +17,7 @@ MonoBehaviour:
   range: 6
   price: 100
   aoeRange: 4
-  speed: 1
+  speed: 5
   towerType: 3
   biome: 1
   prefab: {fileID: 8775498847321575416, guid: 54a7924fa1c7931438cf35e305b16795, type: 3}
