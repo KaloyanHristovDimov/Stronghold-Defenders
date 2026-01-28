@@ -15,7 +15,7 @@ MonoBehaviour:
   damageType: 0
   damage: 20
   range: 5
-  price: 100
+  price: 20
   aoeRange: 0
   speed: 1
   towerType: 0

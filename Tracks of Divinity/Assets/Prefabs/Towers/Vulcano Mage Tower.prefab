@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4606374426256442695}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 250709032421968472}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6172135896739228319}
   - component: {fileID: 8838866292431771707}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tower placed Emitter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 2128918702315265286}
   - component: {fileID: 382158243973143730}
   - component: {fileID: 3048585367801888671}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ Transform:
   m_GameObject: {fileID: 8275663548764009445}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: 1.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -190,7 +190,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3735743381889709196}
   - component: {fileID: 2222359795019835480}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Vulcano Mage Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,7 +206,7 @@ Transform:
   m_GameObject: {fileID: 8775498847321575416}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.4192958, y: -1.4000001, z: 8.06697}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -233,11 +233,10 @@ MonoBehaviour:
   range: 5
   aoe: 1
   aoeRange: 8
-  towerType: 0
-  biome: 0
+  towerType: 3
+  biome: 3
   damageType: 0
   price: 100
   Data: {fileID: 11400000, guid: 29946c75e87aac546a486a666ba21030, type: 2}
   projectilePrefab: {fileID: 3661539046528954552, guid: 8536a7252726abc40a7cf204585b3665, type: 3}
   firePoint: {fileID: 4606374426256442695}
-  atackSFX: {fileID: 0}

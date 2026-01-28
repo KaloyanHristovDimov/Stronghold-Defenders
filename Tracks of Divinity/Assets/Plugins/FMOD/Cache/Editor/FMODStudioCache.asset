@@ -108,6 +108,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 131
+--- !u!114 &-5575939969257954659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Can't place a tower here -sound
+  m_EditorClassIdentifier: 
+  Path: event:/Can't place a tower here -sound
+  Guid:
+    Data1: 1238930504
+    Data2: 1182690767
+    Data3: 269600392
+    Data4: 966022105
+  Banks:
+  - {fileID: -4297319943478323924}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 400
 --- !u!114 &-4479364318012006207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,7 +177,7 @@ MonoBehaviour:
   Path: Assets/Audio/SFX/FMod/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639051265606562123
+  lastModified: 639052169982030835
   FileSizes: []
   Exists: 1
 --- !u!114 &-4061772737242212175
@@ -180,6 +207,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1500
+--- !u!114 &-999757970682330453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Tracks of Divinity Main Theme ver.2
+  m_EditorClassIdentifier: 
+  Path: event:/Tracks of Divinity Main Theme ver.2
+  Guid:
+    Data1: 1046897508
+    Data2: 1272260870
+    Data3: -54853242
+    Data4: -1082804659
+  Banks:
+  - {fileID: -4297319943478323924}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 280615
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,13 +267,15 @@ MonoBehaviour:
   - {fileID: 5949849545718232417}
   - {fileID: 1984315728654802931}
   - {fileID: 7615082799509743939}
+  - {fileID: -5575939969257954659}
+  - {fileID: -999757970682330453}
   EditorParameters: []
   MasterBanks:
   - {fileID: -4297319943478323924}
   StringsBanks:
   - {fileID: 8743097032352320319}
   cacheVersion: 131856
-  cacheTime: 639051265606986880
+  cacheTime: 639052169982050877
   SerializableEventsDict:
   - key: event:/magic atack earth
     index: 0
@@ -255,6 +311,10 @@ MonoBehaviour:
     index: 15
   - key: event:/Tower Destroyed
     index: 16
+  - key: event:/Can't place a tower here -sound
+    index: 17
+  - key: event:/Tracks of Divinity Main Theme ver.2
+    index: 18
 --- !u!114 &421898686132718568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -567,8 +627,8 @@ MonoBehaviour:
   Path: Assets/Audio/SFX/FMod/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639051265606986880
+  lastModified: 639052169982050877
   FileSizes:
   - Name: 
-    Value: 1570
+    Value: 1696
   Exists: 1

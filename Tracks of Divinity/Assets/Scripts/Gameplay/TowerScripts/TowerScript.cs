@@ -35,6 +35,11 @@ public class TowereScript : MonoBehaviour
         aoe = Data.aoeRange > 0;
         aoeRange = Data.aoeRange;
 
+        if (!TryGetComponent<SphereCollider>(out SphereCollider col))
+        {
+            col = gameObject.AddComponent<SphereCollider>();
+            col.isTrigger = true;
+        }
 
         GetComponent<SphereCollider>().radius = range;
     }
