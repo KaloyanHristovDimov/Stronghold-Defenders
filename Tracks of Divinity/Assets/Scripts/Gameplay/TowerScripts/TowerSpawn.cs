@@ -3,17 +3,18 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 [System.Serializable]
-public class PrefabPricePair
+public class TowerPricePair
 {
-    public GameObject prefab;
-    public int price;
+    public Tower tower;
+    public GameObject prefab => tower.prefab;
+    public int price => tower.price;
 }
 
 [System.Serializable]
 public class BiomeTowerPair
 {
     public Biome biome;
-    public List<PrefabPricePair> pair;
+    public List<TowerPricePair> pair;
 }
 
 public class TowerSpawn : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
@@ -65,7 +66,7 @@ public class TowerSpawn : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void TrySpawnTower()
     {
-        PrefabPricePair pair = UICanvasController.Towers[biome].pair[(int)UICanvasController.currentTowerButton.type];
+        TowerPricePair pair = UICanvasController.Towers[biome].pair[(int)UICanvasController.currentTowerButton.type];
 
         if (!UICanvasController.GoldCounter.CanAfford(pair.price))
         {
