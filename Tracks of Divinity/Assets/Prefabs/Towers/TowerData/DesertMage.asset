@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DesertMage
   m_EditorClassIdentifier: 
   damageType: 0
-  damage: 30
+  damage: 5
   range: 5
   price: 100
   aoeRange: 0

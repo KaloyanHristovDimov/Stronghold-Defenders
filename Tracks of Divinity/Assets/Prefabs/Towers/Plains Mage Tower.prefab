@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5226366832281177569}
   - component: {fileID: 3353970812009026863}
   - component: {fileID: 172556272741429612}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 3148477437600411744}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: 1.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -96,7 +96,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6393821220004884180}
   - component: {fileID: 4027800324916712267}
-  m_Layer: 0
+  - component: {fileID: 3917944457686415739}
+  m_Layer: 8
   m_Name: Plains Mage Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +113,7 @@ Transform:
   m_GameObject: {fileID: 8032982742529412372}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.564755, y: -1.4000001, z: 8.289824}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -146,7 +147,27 @@ MonoBehaviour:
   Data: {fileID: 11400000, guid: 4980cf1bb0674514e91128caf35b8f4d, type: 2}
   projectilePrefab: {fileID: 6600213263276241065, guid: 2d6e6914ef540e5489c57326f18c095a, type: 3}
   firePoint: {fileID: 4462188167231584639}
-  atackSFX: {fileID: 0}
+--- !u!135 &3917944457686415739
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8032982742529412372}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8971995483918722747
 GameObject:
   m_ObjectHideFlags: 0
@@ -157,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4949020667303652563}
   - component: {fileID: 515845949538258632}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tower placed Emitter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -219,7 +240,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4462188167231584639}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

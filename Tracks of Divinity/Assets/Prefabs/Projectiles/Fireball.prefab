@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5810433959931555835}
   - component: {fileID: 4978497471119881875}
   - component: {fileID: 7445797786315971397}
-  - component: {fileID: 7368762769131084679}
   m_Layer: 0
   m_Name: Sphere (3)
   m_TagString: Untagged
@@ -88,27 +87,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &7368762769131084679
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1410562816964708164}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3661539046528954552
 GameObject:
   m_ObjectHideFlags: 0
@@ -120,7 +98,6 @@ GameObject:
   - component: {fileID: 5263867774535281400}
   - component: {fileID: 4331987420567120336}
   - component: {fileID: 5760073217260752381}
-  - component: {fileID: 7331136250351049565}
   - component: {fileID: 1541198860264359440}
   m_Layer: 0
   m_Name: Fireball
@@ -198,27 +175,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &7331136250351049565
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3661539046528954552}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1541198860264359440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,7 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d5271dc0dc77904da131b027415e1f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 100
+  speed: 20
 --- !u!1 &5933066441678876076
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,7 +199,6 @@ GameObject:
   - component: {fileID: 8885680591149701231}
   - component: {fileID: 3916912853083738646}
   - component: {fileID: 4694353233597072847}
-  - component: {fileID: 119859551515707105}
   m_Layer: 0
   m_Name: Sphere (1)
   m_TagString: Untagged
@@ -320,27 +275,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &119859551515707105
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5933066441678876076}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7731037845084190126
 GameObject:
   m_ObjectHideFlags: 0
@@ -352,7 +286,6 @@ GameObject:
   - component: {fileID: 6531275500296075981}
   - component: {fileID: 2838513593316919573}
   - component: {fileID: 3972464506586402512}
-  - component: {fileID: 8171466525261562842}
   m_Layer: 0
   m_Name: Sphere (2)
   m_TagString: Untagged
@@ -429,27 +362,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &8171466525261562842
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7731037845084190126}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7828410724445734977
 GameObject:
   m_ObjectHideFlags: 0
