@@ -254,8 +254,14 @@ MonoBehaviour:
   attackTime: 1
   enemiesInRange: []
   damage: 15
+  range: 5
   aoe: 0
   aoeRange: 4
+  towerType: 0
+  biome: 0
+  damageType: 0
+  price: 100
+  Data: {fileID: 11400000, guid: 558401f9cdf9131489a1946bd9798426, type: 2}
   projectilePrefab: {fileID: 9213508673528884966, guid: d21ddb6004a0aa64a8820e6d8963a066, type: 3}
   firePoint: {fileID: 6206427530185772360}
 --- !u!135 &4297787019354723162

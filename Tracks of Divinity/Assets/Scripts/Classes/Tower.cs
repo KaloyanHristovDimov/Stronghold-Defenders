@@ -1,12 +1,14 @@
 using UnityEngine;
 
-public class Tower : ICardInfo
+[CreateAssetMenu(fileName = "TowerData", menuName = "ScriptableObjects/TowerData", order = 2)]
+public class Tower : ScriptableObject, ICardInfo
 {
     public bool damageType;
     public int damage, range, price, aoeRange;
     public float speed;
     public TowerType towerType;
     public Biome biome;
+    public GameObject prefab;
 
     public Tower(TowerType towerType, int price, Biome biome)
     {
