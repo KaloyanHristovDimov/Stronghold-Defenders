@@ -6,8 +6,14 @@ public class EndPoint : MonoBehaviour, IPointerDownHandler
     public TileData.Direction direction;
     public TileInstance parentTile;
 
+    [Header("Visuals")]
+    [SerializeField] public GameObject placeTileInteractable;
+    [SerializeField] public GameObject sealInteractable;
+
     private Collider col;
     private bool interactable = true;
+
+    public bool sealedOff = false;
 
     private void Awake()
     {
@@ -31,16 +37,24 @@ public class EndPoint : MonoBehaviour, IPointerDownHandler
             WaveManager.Instance.UnregisterEndpoint(this);
     }
 
-    public void SetInteractable(bool value)
+    public void SetInteractable(bool allowInteraction)
     {
-        interactable = value;
-
-        if (col != null)
-            col.enabled = value;
-
-        for (int i = 0; i < transform.childCount; i++)
+        if (sealedOff || !allowInteraction)
         {
-            transform.GetChild(i).gameObject.SetActive(value);
+            placeTileInteractable.SetActive(false);
+            sealInteractable.SetActive(false);
+            return;
+        }
+
+        if (IsBlocked())
+        {
+            placeTileInteractable.SetActive(false);
+            sealInteractable.SetActive(true);
+        }
+        else
+        {
+            placeTileInteractable.SetActive(true);
+            sealInteractable.SetActive(false);
         }
     }
 
@@ -62,5 +76,23 @@ public class EndPoint : MonoBehaviour, IPointerDownHandler
             parentTile.gridPosition + DirectionUtils.ToVector(direction);
 
         return GridManager.Instance.IsOccupied(targetPos);
+    }
+
+    public void OnPlaceTilePressed()
+    {
+        TileManager.Instance.TrySpawnTile(parentTile, direction);
+    }
+
+    public void OnSealPressed()
+    {
+        if (sealedOff)
+            return;
+
+        if (WaveManager.Instance.TrySealEndpoint(this))
+        {
+            sealedOff = true;
+            placeTileInteractable.SetActive(false);
+            sealInteractable.SetActive(false);
+        }
     }
 }

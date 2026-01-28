@@ -64,6 +64,7 @@ public class WaveManager : MonoBehaviour
     [Header("Endpoint Sealing")]
     public int startingSealCost = 50;
     private int currentSealCost;
+    private readonly HashSet<EndPoint> sealedEndpoints = new();
 
     private bool waitingForPlayerTile = true;
     private bool nextWaveCountdownRunning = false;
@@ -87,7 +88,7 @@ public class WaveManager : MonoBehaviour
 
         waitingForPlayerTile = true;
         nextWaveCountdownRunning = false;
-        SetEndpointsInteractable(true);
+        RefreshAllEndpoints();
     }
 
     private void SetEndpointsInteractable(bool allowInteraction)
@@ -120,6 +121,7 @@ public class WaveManager : MonoBehaviour
             StopCoroutine(startNextWaveCoroutine);
 
         UICanvasController.WaveCounter.IncrementCount();
+        RefreshAllEndpoints();
         startNextWaveCoroutine = StartCoroutine(StartNextWaveAfterDelay());
     }
 
@@ -207,8 +209,10 @@ public class WaveManager : MonoBehaviour
             for (int i = 0; i < listOfActiveEndPoints.Count; i++)
             {
                 EndPoint ep = listOfActiveEndPoints[i];
-                if (ep != null && ep.gameObject.activeInHierarchy)
+                if (ep != null && ep.gameObject.activeInHierarchy && !sealedEndpoints.Contains(ep))
+                {
                     validEndpoints.Add(ep);
+                }
             }
 
             if (validEndpoints.Count == 0)
@@ -337,7 +341,9 @@ public class WaveManager : MonoBehaviour
     {
         for (int i = 0; i < listOfActiveEndPoints.Count; i++)
         {
-            SetEndpointsInteractable(CanPlaceTile);
+            EndPoint ep = listOfActiveEndPoints[i];
+            if (ep != null)
+                ep.SetInteractable(CanPlaceTile);
         }
     }
 
@@ -398,11 +404,30 @@ public class WaveManager : MonoBehaviour
         nextWaveCountdownRunning = false;
 
         SetEndpointsInteractable(true);
+        RefreshAllEndpoints();
     }
 
     public void EnemyDestroyed()
     {
         aliveEnemies = Mathf.Max(0, aliveEnemies - 1);
         TryCompleteWave();
+    }
+
+
+    public bool TrySealEndpoint(EndPoint endpoint)
+    {
+        if (endpoint == null || sealedEndpoints.Contains(endpoint))
+            return false;
+
+        GoldCounter gold = FindObjectOfType<GoldCounter>();
+        if (gold == null || !gold.CanAfford(currentSealCost))
+            return false;
+
+        gold.DecrementCount(currentSealCost);
+
+        sealedEndpoints.Add(endpoint);
+        currentSealCost *= 2;
+
+        return true;
     }
 }
