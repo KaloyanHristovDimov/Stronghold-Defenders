@@ -3616,7 +3616,7 @@ MonoBehaviour:
     - tower: {fileID: 11400000, guid: 558401f9cdf9131489a1946bd9798426, type: 2}
     - tower: {fileID: 11400000, guid: 558401f9cdf9131489a1946bd9798426, type: 2}
     - tower: {fileID: 11400000, guid: 558401f9cdf9131489a1946bd9798426, type: 2}
-    - tower: {fileID: 11400000, guid: 558401f9cdf9131489a1946bd9798426, type: 2}
+    - tower: {fileID: 11400000, guid: 29946c75e87aac546a486a666ba21030, type: 2}
     - tower: {fileID: 11400000, guid: 29946c75e87aac546a486a666ba21030, type: 2}
 --- !u!114 &1019564013
 MonoBehaviour:
