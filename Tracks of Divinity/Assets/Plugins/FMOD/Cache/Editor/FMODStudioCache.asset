@@ -1,5 +1,59 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8894058287880697248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/firing sound trebuchet
+  m_EditorClassIdentifier: 
+  Path: event:/firing sound trebuchet
+  Guid:
+    Data1: 156082662
+    Data2: 1090063083
+    Data3: 581718947
+    Data4: 16965224
+  Banks:
+  - {fileID: 621441017636678993}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 5400
+--- !u!114 &-8745986286463728789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Buttonclick
+  m_EditorClassIdentifier: 
+  Path: event:/Buttonclick
+  Guid:
+    Data1: 1950184363
+    Data2: 1128803777
+    Data3: 495694731
+    Data4: -803451786
+  Banks:
+  - {fileID: 621441017636678993}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 131
 --- !u!114 &-7645164165299856090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27,6 +81,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 12986
+--- !u!114 &-7543849594509216454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/magic atack magical
+  m_EditorClassIdentifier: 
+  Path: event:/magic atack magical
+  Guid:
+    Data1: -48065478
+    Data2: 1114586985
+    Data3: 104258998
+    Data4: 448088689
+  Banks:
+  - {fileID: 621441017636678993}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2495
 --- !u!114 &-7369946032238189418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,6 +216,114 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 400
+--- !u!114 &-5453005320244984530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Start Game(descent of you, the player)
+  m_EditorClassIdentifier: 
+  Path: event:/Start Game(descent of you, the player)
+  Guid:
+    Data1: 1523159164
+    Data2: 1268247573
+    Data3: 1264443046
+    Data4: -169519744
+  Banks:
+  - {fileID: 621441017636678993}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 7805
+--- !u!114 &-5404063777614226564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Tower Destroyed
+  m_EditorClassIdentifier: 
+  Path: event:/Tower Destroyed
+  Guid:
+    Data1: 1641013758
+    Data2: 1113326743
+    Data3: -619289726
+    Data4: 632152381
+  Banks:
+  - {fileID: 621441017636678993}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 725
+--- !u!114 &-5234519575098714688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Wave Defeated
+  m_EditorClassIdentifier: 
+  Path: event:/Wave Defeated
+  Guid:
+    Data1: 758856336
+    Data2: 1140088684
+    Data3: -1687870558
+    Data4: 1862868136
+  Banks:
+  - {fileID: 621441017636678993}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3162
+--- !u!114 &-5209828432455344100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/magic atack fire
+  m_EditorClassIdentifier: 
+  Path: event:/magic atack fire
+  Guid:
+    Data1: -481968169
+    Data2: 1282223358
+    Data3: -57475696
+    Data4: -795993154
+  Banks:
+  - {fileID: 621441017636678993}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1500
 --- !u!114 &-4479364318012006207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,6 +396,141 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1500
+--- !u!114 &-2855036280961051241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/magic atack earth
+  m_EditorClassIdentifier: 
+  Path: event:/magic atack earth
+  Guid:
+    Data1: 1625069323
+    Data2: 1227093019
+    Data3: -1987890808
+    Data4: 1093463260
+  Banks:
+  - {fileID: 621441017636678993}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1500
+--- !u!114 &-2430135700550287205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Tower placed
+  m_EditorClassIdentifier: 
+  Path: event:/Tower placed
+  Guid:
+    Data1: 1015558829
+    Data2: 1219541354
+    Data3: -1390344270
+    Data4: -722534839
+  Banks:
+  - {fileID: 621441017636678993}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 300
+--- !u!114 &-2321862250533056198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Boss Wave start
+  m_EditorClassIdentifier: 
+  Path: event:/Boss Wave start
+  Guid:
+    Data1: -612054683
+    Data2: 1179879216
+    Data3: -1980665458
+    Data4: -56023917
+  Banks:
+  - {fileID: 621441017636678993}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 12986
+--- !u!114 &-1856260984513388822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/General physical hit
+  m_EditorClassIdentifier: 
+  Path: event:/General physical hit
+  Guid:
+    Data1: 120211110
+    Data2: 1269950027
+    Data3: -1495055944
+    Data4: -588474326
+  Banks:
+  - {fileID: 621441017636678993}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 235
+--- !u!114 &-597242880215167490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/magic atack ice
+  m_EditorClassIdentifier: 
+  Path: event:/magic atack ice
+  Guid:
+    Data1: -313139205
+    Data2: 1148871602
+    Data3: 1150098342
+    Data4: -63856100
+  Banks:
+  - {fileID: 621441017636678993}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1500
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,34 +544,34 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: 8743097032352320319}
-  - {fileID: -4297319943478323924}
+  - {fileID: 171493172096135292}
+  - {fileID: 621441017636678993}
   EditorEvents:
-  - {fileID: 5722294799229619681}
-  - {fileID: -6311858424126245367}
-  - {fileID: -7369946032238189418}
-  - {fileID: 6747734812122008290}
-  - {fileID: -7645164165299856090}
-  - {fileID: 5110700593609712767}
-  - {fileID: 421898686132718568}
-  - {fileID: 3121199333082793309}
-  - {fileID: 1405758187736672532}
-  - {fileID: -5987695096659018728}
-  - {fileID: -4479364318012006207}
-  - {fileID: 2174323067272242397}
-  - {fileID: -4061772737242212175}
-  - {fileID: 8511710768441804724}
-  - {fileID: 5949849545718232417}
-  - {fileID: 1984315728654802931}
-  - {fileID: 7615082799509743939}
-  - {fileID: -5575939969257954659}
+  - {fileID: -2855036280961051241}
+  - {fileID: 3719023963757824495}
+  - {fileID: -7543849594509216454}
+  - {fileID: 248920822108488836}
+  - {fileID: 694304595895180042}
+  - {fileID: -2321862250533056198}
+  - {fileID: -5453005320244984530}
+  - {fileID: -5234519575098714688}
+  - {fileID: 4744837636801923743}
+  - {fileID: -1856260984513388822}
+  - {fileID: -8745986286463728789}
+  - {fileID: -2430135700550287205}
+  - {fileID: 948323351592362974}
+  - {fileID: -5209828432455344100}
+  - {fileID: -8894058287880697248}
+  - {fileID: 3345721511884059779}
+  - {fileID: -597242880215167490}
+  - {fileID: -5404063777614226564}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -4297319943478323924}
+  - {fileID: 621441017636678993}
   StringsBanks:
-  - {fileID: 8743097032352320319}
+  - {fileID: 171493172096135292}
   cacheVersion: 131856
-  cacheTime: 639052144098318947
+  cacheTime: 639052158310360713
   SerializableEventsDict:
   - key: event:/magic atack earth
     index: 0
@@ -255,36 +579,83 @@ MonoBehaviour:
     index: 1
   - key: event:/magic atack magical
     index: 2
-  - key: event:/on rock landing
-    index: 3
-  - key: event:/Boss Wave start
-    index: 4
-  - key: event:/Start Game(descent of you, the player)
-    index: 5
-  - key: event:/Wave Defeated
-    index: 6
-  - key: event:/magic atack sand
-    index: 7
-  - key: event:/General physical hit
-    index: 8
-  - key: event:/Buttonclick
-    index: 9
-  - key: event:/Tower placed
-    index: 10
-  - key: event:/Tile Placed
-    index: 11
-  - key: event:/magic atack fire
-    index: 12
-  - key: event:/firing sound trebuchet
-    index: 13
-  - key: event:/Sentry tower firing sound
-    index: 14
-  - key: event:/magic atack ice
-    index: 15
-  - key: event:/Tower Destroyed
-    index: 16
   - key: event:/Can't place a tower here -sound
+    index: 3
+  - key: event:/on rock landing
+    index: 4
+  - key: event:/Boss Wave start
+    index: 5
+  - key: event:/Start Game(descent of you, the player)
+    index: 6
+  - key: event:/Wave Defeated
+    index: 7
+  - key: event:/magic atack sand
+    index: 8
+  - key: event:/General physical hit
+    index: 9
+  - key: event:/Buttonclick
+    index: 10
+  - key: event:/Tower placed
+    index: 11
+  - key: event:/Tile Placed
+    index: 12
+  - key: event:/magic atack fire
+    index: 13
+  - key: event:/firing sound trebuchet
+    index: 14
+  - key: event:/Sentry tower firing sound
+    index: 15
+  - key: event:/magic atack ice
+    index: 16
+  - key: event:/Tower Destroyed
     index: 17
+--- !u!114 &171493172096135292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Audio/SFX/FMod/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 639052158310360713
+  FileSizes:
+  - Name: 
+    Value: 1632
+  Exists: 1
+--- !u!114 &248920822108488836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Can't place a tower here -sound
+  m_EditorClassIdentifier: 
+  Path: event:/Can't place a tower here -sound
+  Guid:
+    Data1: 1238930504
+    Data2: 1182690767
+    Data3: 269600392
+    Data4: 966022105
+  Banks:
+  - {fileID: 621441017636678993}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 400
 --- !u!114 &421898686132718568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -312,6 +683,78 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 3162
+--- !u!114 &621441017636678993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Audio/SFX/FMod/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 639052158310189753
+  FileSizes: []
+  Exists: 1
+--- !u!114 &694304595895180042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/on rock landing
+  m_EditorClassIdentifier: 
+  Path: event:/on rock landing
+  Guid:
+    Data1: -1383309228
+    Data2: 1335602369
+    Data3: -628945766
+    Data4: 1235904474
+  Banks:
+  - {fileID: 621441017636678993}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1776
+--- !u!114 &948323351592362974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Tile Placed
+  m_EditorClassIdentifier: 
+  Path: event:/Tile Placed
+  Guid:
+    Data1: -440183603
+    Data2: 1265412339
+    Data3: 1395512457
+    Data4: 1497935911
+  Banks:
+  - {fileID: 621441017636678993}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 8040
 --- !u!114 &1405758187736672532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -413,6 +856,87 @@ MonoBehaviour:
     Data4: -1443192493
   Banks:
   - {fileID: -4297319943478323924}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2073
+--- !u!114 &3345721511884059779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Sentry tower firing sound
+  m_EditorClassIdentifier: 
+  Path: event:/Sentry tower firing sound
+  Guid:
+    Data1: -1626345481
+    Data2: 1195121934
+    Data3: 38386820
+    Data4: -1799458787
+  Banks:
+  - {fileID: 621441017636678993}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 600
+--- !u!114 &3719023963757824495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Wave start
+  m_EditorClassIdentifier: 
+  Path: event:/Wave start
+  Guid:
+    Data1: -2139594973
+    Data2: 1194218999
+    Data3: 1411731607
+    Data4: 566267563
+  Banks:
+  - {fileID: 621441017636678993}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 11086
+--- !u!114 &4744837636801923743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/magic atack sand
+  m_EditorClassIdentifier: 
+  Path: event:/magic atack sand
+  Guid:
+    Data1: -1387159408
+    Data2: 1150190474
+    Data3: 1063892644
+    Data4: -1443192493
+  Banks:
+  - {fileID: 621441017636678993}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1

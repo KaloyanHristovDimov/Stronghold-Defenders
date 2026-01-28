@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class EndPoint : MonoBehaviour, IPointerDownHandler
+public class EndPoint : MonoBehaviour
 {
     public TileData.Direction direction;
     public TileInstance parentTile;
@@ -10,15 +10,10 @@ public class EndPoint : MonoBehaviour, IPointerDownHandler
     [SerializeField] public GameObject placeTileInteractable;
     [SerializeField] public GameObject sealInteractable;
 
-    private Collider col;
     private bool interactable = true;
 
     public bool sealedOff = false;
 
-    private void Awake()
-    {
-        col = GetComponent<Collider>();
-    }
 
     private void Start()
     {
@@ -58,14 +53,14 @@ public class EndPoint : MonoBehaviour, IPointerDownHandler
         }
     }
 
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        if (!interactable)
-            return;
+    //public void OnPointerDown(PointerEventData eventData)
+    //{
+    //    if (!interactable)
+    //        return;
 
-        TileManager.Instance.TrySpawnTile(parentTile, direction);
-        gameObject.SetActive(false);
-    }
+    //    TileManager.Instance.TrySpawnTile(parentTile, direction);
+    //    gameObject.SetActive(false);
+    //}
 
     public bool IsBlocked()
     {
@@ -81,6 +76,7 @@ public class EndPoint : MonoBehaviour, IPointerDownHandler
     public void OnPlaceTilePressed()
     {
         TileManager.Instance.TrySpawnTile(parentTile, direction);
+        gameObject.SetActive(false);
     }
 
     public void OnSealPressed()
