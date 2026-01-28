@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 8053865847695259050}
   - component: {fileID: 3623109802222016234}
   - component: {fileID: 3700760939068316}
+  - component: {fileID: -1943644561984846229}
   m_Layer: 0
   m_Name: IceCubePlaceHolder
   m_TagString: Untagged
@@ -172,3 +173,16 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-1943644561984846229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8413435507212906539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d5271dc0dc77904da131b027415e1f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 100

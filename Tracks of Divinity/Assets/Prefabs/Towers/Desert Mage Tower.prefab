@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 116339403967239614}
   - component: {fileID: 1316868437341850334}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Desert Mage Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 2440866968495100099}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.19866419, y: -1.4000001, z: 7.7590823}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -60,7 +60,6 @@ MonoBehaviour:
   Data: {fileID: 11400000, guid: 9dd3a4c0253ab114ab61abeb678b81c0, type: 2}
   projectilePrefab: {fileID: 9030258471697152219, guid: acb22696b30d1754bb6cbbaf5de34410, type: 3}
   firePoint: {fileID: 8122509735530776226}
-  atackSFX: {fileID: 0}
 --- !u!1 &3397131919023532376
 GameObject:
   m_ObjectHideFlags: 0
@@ -70,7 +69,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8122509735530776226}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +85,7 @@ Transform:
   m_GameObject: {fileID: 3397131919023532376}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -103,7 +102,7 @@ GameObject:
   - component: {fileID: 1403543357021893172}
   - component: {fileID: 5683626623958021753}
   - component: {fileID: 7267554441432900479}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +118,7 @@ Transform:
   m_GameObject: {fileID: 3803746162007808313}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: 1.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -188,7 +187,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5152011885291342785}
   - component: {fileID: 8967242717984060364}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tower placed Emitter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
