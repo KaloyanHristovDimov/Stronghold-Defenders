@@ -61,6 +61,10 @@ public class WaveManager : MonoBehaviour
     public bool waveInProgress = false;
     public bool finishedSpawning = false;
 
+    [Header("Endpoint Sealing")]
+    public int startingSealCost = 50;
+    private int currentSealCost;
+
     private bool waitingForPlayerTile = true;
     private bool nextWaveCountdownRunning = false;
     private Coroutine startNextWaveCoroutine;
@@ -79,17 +83,26 @@ public class WaveManager : MonoBehaviour
 
     private void Start()
     {
+        currentSealCost = startingSealCost;
+
         waitingForPlayerTile = true;
         nextWaveCountdownRunning = false;
         SetEndpointsInteractable(true);
     }
 
-    private void SetEndpointsInteractable(bool interactable)
+    private void SetEndpointsInteractable(bool allowInteraction)
     {
         for (int i = 0; i < listOfActiveEndPoints.Count; i++)
         {
-            if (listOfActiveEndPoints[i] != null)
-                listOfActiveEndPoints[i].SetInteractable(interactable);
+            EndPoint ep = listOfActiveEndPoints[i];
+            if (ep == null)
+                continue;
+
+            bool canUse =
+                allowInteraction &&
+                !ep.IsBlocked();
+
+            ep.SetInteractable(canUse);
         }
     }
 
@@ -318,6 +331,14 @@ public class WaveManager : MonoBehaviour
             StopCoroutine(c);
 
         endpointSpawnRoutines.Remove(endpoint);
+    }
+
+    public void RefreshAllEndpoints()
+    {
+        for (int i = 0; i < listOfActiveEndPoints.Count; i++)
+        {
+            SetEndpointsInteractable(CanPlaceTile);
+        }
     }
 
     private void UpdateGroupsToPickFrom()

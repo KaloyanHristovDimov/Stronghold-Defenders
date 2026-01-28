@@ -12,6 +12,7 @@ public class TileInstance : MonoBehaviour
 
         transform.position = GridManager.Instance.GridToWorld(gridPos);
         GridManager.Instance.RegisterTile(gridPos, this);
+        WaveManager.Instance?.RefreshAllEndpoints();
         if (GetComponentInChildren<EnemyNavigation>() != null) 
         {
             GetComponentInChildren<EnemyNavigation>().SetupNavigation(tileData);
@@ -19,5 +20,7 @@ public class TileInstance : MonoBehaviour
         
         if(!spawningStartingTile) foreach(var sp in transform.Find("default").GetChild(0).GetComponentsInChildren<TowerSpawn>())
             sp.Initialize((int)tileData.tileBiome);
+
+
     }
 }
