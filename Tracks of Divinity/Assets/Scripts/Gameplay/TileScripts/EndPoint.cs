@@ -17,6 +17,7 @@ public class EndPoint : MonoBehaviour, IPointerDownHandler
     private void Start()
     {
         parentTile = GetComponentInParent<TileInstance>();
+        WaveManager.Instance?.RefreshAllEndpoints();
     }
 
     private void OnEnable()
@@ -50,5 +51,16 @@ public class EndPoint : MonoBehaviour, IPointerDownHandler
 
         TileManager.Instance.TrySpawnTile(parentTile, direction);
         gameObject.SetActive(false);
+    }
+
+    public bool IsBlocked()
+    {
+        if (parentTile == null)
+            return true;
+
+        Vector2Int targetPos =
+            parentTile.gridPosition + DirectionUtils.ToVector(direction);
+
+        return GridManager.Instance.IsOccupied(targetPos);
     }
 }
