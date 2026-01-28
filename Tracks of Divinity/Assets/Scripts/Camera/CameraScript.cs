@@ -17,14 +17,18 @@ public class FixedPovCamera : MonoBehaviour
     [SerializeField] private float rotationSpeed = 45f;
     [SerializeField] private bool invertRotationKeys = false;
 
+    [Header("Mouse Look (Hold RMB)")]
+    [SerializeField] private bool allowMouseLook = true;
+    [SerializeField] private float mouseSensitivity = 360f;
+
+    [Header("Mouse Pan (Hold MMB)")]
+    [SerializeField] private bool allowMousePan = true;
+    [SerializeField] private float mousePanSpeed = 150f;
+
     private float pitch;
     private float yaw;
 
-    // Anchor point so that:
-    // position = basePosition + forward * zoomOffset
     private Vector3 basePosition;
-
-    // Offset along camera forward
     private float zoomOffset;
 
     private void Awake()
@@ -42,38 +46,50 @@ public class FixedPovCamera : MonoBehaviour
     private void LateUpdate()
     {
         float dt = Time.deltaTime;
-
         Vector3 worldPosBefore = transform.position;
 
+        // O reset: set yaw to 0, BUT keep world position the same
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            Vector3 worldPos = transform.position;
+
+            yaw = 0f;
+
+            Quaternion rot0 = Quaternion.Euler(pitch, yaw, 0f);
+            Vector3 fwd0 = rot0 * Vector3.forward;
+
+            basePosition = worldPos - fwd0 * zoomOffset;
+
+            UpdateTransform();
+            return;
+        }
+
         // ---------- ROTATION ----------
-        float yawInput = 0f;
+        float yawDelta = 0f;
 
         if (allowRotation)
         {
-            if (Input.GetKey(KeyCode.Q)) yawInput -= 1f;
-            if (Input.GetKey(KeyCode.E)) yawInput += 1f;
-            if (invertRotationKeys) yawInput = -yawInput;
-
-            yaw += yawInput * rotationSpeed * dt;
+            if (Input.GetKey(KeyCode.Q)) yawDelta -= rotationSpeed * dt;
+            if (Input.GetKey(KeyCode.E)) yawDelta += rotationSpeed * dt;
+            if (invertRotationKeys) yawDelta = -yawDelta;
         }
 
-        // Reset yaw to world 0 when pressing O
-        if (Input.GetKeyDown(KeyCode.O))
+        if (allowMouseLook && Input.GetMouseButton(1))
         {
-            yaw = 0f;
-            yawInput = 1f; // force compensation
+            float mouseX = Input.GetAxisRaw("Mouse X");
+            yawDelta += mouseX * mouseSensitivity * dt;
         }
+
+        yaw += yawDelta;
 
         Quaternion rot = Quaternion.Euler(pitch, yaw, 0f);
         Vector3 viewForward = rot * Vector3.forward;
 
-        // Compensate anchor so camera doesn't move when yaw changes
-        if (yawInput != 0f)
-        {
+        // Keep position stable while yaw changes (Q/E or RMB)
+        if (yawDelta != 0f)
             basePosition = worldPosBefore - viewForward * zoomOffset;
-        }
 
-        // ---------- MOVEMENT ----------
+        // ---------- MOVEMENT (WASD) ----------
         float x = 0f;
         float z = 0f;
         if (Input.GetKey(KeyCode.A)) x -= 1f;
@@ -81,22 +97,43 @@ public class FixedPovCamera : MonoBehaviour
         if (Input.GetKey(KeyCode.S)) z -= 1f;
         if (Input.GetKey(KeyCode.W)) z += 1f;
 
-        Vector3 right = rot * Vector3.right;
-        Vector3 forward = rot * Vector3.forward;
+        Vector3 rightMove = rot * Vector3.right;
+        Vector3 forwardMove = rot * Vector3.forward;
 
         if (constrainMoveToHorizontalPlane)
         {
-            right.y = 0f;
-            forward.y = 0f;
-            right.Normalize();
-            forward.Normalize();
+            rightMove.y = 0f;
+            forwardMove.y = 0f;
+            rightMove.Normalize();
+            forwardMove.Normalize();
         }
 
-        Vector3 move = right * x + forward * z;
+        Vector3 move = rightMove * x + forwardMove * z;
         if (move.sqrMagnitude > 1f)
             move.Normalize();
 
         basePosition += move * moveSpeed * dt;
+
+        // ---------- MOUSE PAN (MMB drag — inverted) ----------
+        if (allowMousePan && Input.GetMouseButton(2))
+        {
+            float mx = Input.GetAxisRaw("Mouse X");
+            float my = Input.GetAxisRaw("Mouse Y");
+
+            Vector3 rightPan = rot * Vector3.right;
+            Vector3 forwardPan = rot * Vector3.forward;
+
+            if (constrainMoveToHorizontalPlane)
+            {
+                rightPan.y = 0f;
+                forwardPan.y = 0f;
+                rightPan.Normalize();
+                forwardPan.Normalize();
+            }
+
+            Vector3 pan = -rightPan * mx + -forwardPan * my;
+            basePosition += pan * mousePanSpeed * dt;
+        }
 
         // ---------- ZOOM ----------
         float scroll = Input.mouseScrollDelta.y;
@@ -109,10 +146,8 @@ public class FixedPovCamera : MonoBehaviour
     private void UpdateTransform()
     {
         Quaternion rot = Quaternion.Euler(pitch, yaw, 0f);
-        Vector3 forward = rot * Vector3.forward;
-
         transform.rotation = rot;
-        transform.position = basePosition + forward * zoomOffset;
+        transform.position = basePosition + (rot * Vector3.forward) * zoomOffset;
     }
 
     private void OnValidate()
