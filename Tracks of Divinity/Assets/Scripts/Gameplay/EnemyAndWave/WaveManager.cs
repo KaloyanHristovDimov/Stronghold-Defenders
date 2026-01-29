@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class WaveManager : MonoBehaviour
@@ -63,6 +64,7 @@ public class WaveManager : MonoBehaviour
 
     [Header("Endpoint Sealing")]
     public int startingSealCost = 50;
+    [SerializeField] private TextMeshProUGUI sealCostText;
     private int currentSealCost;
     private readonly HashSet<EndPoint> sealedEndpoints = new();
 
@@ -428,6 +430,7 @@ public class WaveManager : MonoBehaviour
 
         sealedEndpoints.Add(endpoint);
         currentSealCost *= 2;
+        sealCostText.text = "Cost: " + currentSealCost;
 
         return true;
     }

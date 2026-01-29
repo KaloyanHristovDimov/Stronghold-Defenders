@@ -64,6 +64,7 @@ GameObject:
   - component: {fileID: 3284171661001388055}
   - component: {fileID: 4465518357364084849}
   - component: {fileID: 7977053499166768207}
+  - component: {fileID: 5179410865030727168}
   m_Layer: 0
   m_Name: Seal
   m_TagString: Untagged
@@ -117,7 +118,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 8e648602238400041aa73f61a493be29, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -189,6 +190,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &5179410865030727168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5393881719054909769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f3040261f0fcea4abfe31606a94b110, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7477570707394763216
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ public class UICanvasController : MonoBehaviour
     [SerializeField] private GoldCounter goldCounter;
     [SerializeField] private CounterController waveCounter, healthCounter;
     [SerializeField] private TowerCard mainTowerCard;
+    [SerializeField] private RectTransform wallCardRectT;
     [SerializeField] private LoseWindow loseScreen;
     [SerializeField] private ChoiceWindow choiceWindow;
     [SerializeField] private List<BiomeTowerPair> towers;
@@ -15,6 +16,7 @@ public class UICanvasController : MonoBehaviour
     public static CounterController WaveCounter => inst.waveCounter;
     public static CounterController HealthCounter => inst.healthCounter;
     public static TowerCard MainTowerCard => inst.mainTowerCard;
+    public static RectTransform WallCardRectT => inst.wallCardRectT;
     public static LoseWindow LoseScreen => inst.loseScreen;
     public static ChoiceWindow ChoiceWindow => inst.choiceWindow;
     public static List<BiomeTowerPair> Towers => inst.towers;
@@ -38,9 +40,11 @@ public class UICanvasController : MonoBehaviour
 
     private void Update()
     {
-        if(!towerCardRectT.gameObject.activeSelf)
+        if(!towerCardRectT.gameObject.activeSelf && !WallCardRectT.gameObject.activeSelf)
             return;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRectT, Input.mousePosition, null, out var mousePos);
-        towerCardRectT.anchoredPosition = new(mousePos.x, mousePos.y);
+        
+        if(towerCardRectT.gameObject.activeSelf) towerCardRectT.anchoredPosition = new(mousePos.x, mousePos.y);
+        if(WallCardRectT.gameObject.activeSelf) WallCardRectT.anchoredPosition = new(mousePos.x, mousePos.y);
     }
 }
