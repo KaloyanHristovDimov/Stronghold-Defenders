@@ -11,8 +11,9 @@ public class TowerCard : Card
         rangeText = cBeginTag + "Range: " + cEndTag, speedText = cBeginTag + "Attack Speed: " + cEndTag,
         damageTypeText = cBeginTag + "Damage Type: " + cEndTag, aoeRangeText = cBeginTag + "AOE Range: " + cEndTag;
 
-    public void Display(Tower tower)
+    public void Display(Tower tower, Sprite sprite)
     {
+        icon.sprite = sprite;
         base.Display(tower);
         title.text = tower.biome == Biome.Plains ? tower.towerType.ToString() : (tower.biome.ToString() + " " + tower.towerType.ToString());
         damage.text = damageText + tower.damage;

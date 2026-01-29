@@ -6,6 +6,7 @@ public class UICanvasController : MonoBehaviour
     [SerializeField] private GoldCounter goldCounter;
     [SerializeField] private CounterController waveCounter, healthCounter;
     [SerializeField] private TowerCard mainTowerCard;
+    [SerializeField] private DraggedIcon draggedIcon;
     [SerializeField] private RectTransform wallCardRectT;
     [SerializeField] private LoseWindow loseScreen;
     [SerializeField] private ChoiceWindow choiceWindow;
@@ -16,6 +17,7 @@ public class UICanvasController : MonoBehaviour
     public static CounterController WaveCounter => inst.waveCounter;
     public static CounterController HealthCounter => inst.healthCounter;
     public static TowerCard MainTowerCard => inst.mainTowerCard;
+    public static DraggedIcon DraggedIcon => inst.draggedIcon;
     public static RectTransform WallCardRectT => inst.wallCardRectT;
     public static LoseWindow LoseScreen => inst.loseScreen;
     public static ChoiceWindow ChoiceWindow => inst.choiceWindow;

@@ -127,6 +127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 561ab1eca6e6cbe4ca7508de2d952059, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
+  icon: {fileID: 8805852026390834660}
   cover: {fileID: 7503251491890606705}
   dragCover: {fileID: 8370420143142192860}
 --- !u!1 &3614024381202819630

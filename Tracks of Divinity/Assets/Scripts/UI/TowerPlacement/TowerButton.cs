@@ -1,9 +1,11 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class TowerButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     public TowerType type;
+    [SerializeField] private Image icon;
     [SerializeField] private GameObject cover, dragCover;
 
     private bool isDragging;
@@ -15,6 +17,7 @@ public class TowerButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         dragCover.SetActive(true);
         UICanvasController.currentTowerButton = this;
         UICanvasController.ActivateTowerSpawnPoints(true);
+        UICanvasController.DraggedIcon.Activate(icon.sprite);
     }
 
     public void OnDrag(PointerEventData e)
@@ -32,6 +35,7 @@ public class TowerButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         dragCover.SetActive(false);
         UICanvasController.currentTowerButton = null;
         UICanvasController.ActivateTowerSpawnPoints();
+        UICanvasController.DraggedIcon.gameObject.SetActive(false);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -53,7 +57,7 @@ public class TowerButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         RectTransformUtility.ScreenPointToLocalPointInRectangle(UICanvasController.canvasRectT, Input.mousePosition, null, out var mousePos);
         UICanvasController.towerCardRectT.anchoredPosition = new(mousePos.x, mousePos.y);
 
-        UICanvasController.MainTowerCard.Display(UICanvasController.Towers[biome].pair[type].tower);
+        UICanvasController.MainTowerCard.Display(UICanvasController.Towers[biome].pair[type].tower, icon.sprite);
         UICanvasController.MainTowerCard.gameObject.SetActive(true);
     }
 }
