@@ -4839,7 +4839,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2348076963582948600, guid: b1c784c441926d8478aca3ce5e0a02e7, type: 3}
       propertyPath: m_text
-      value: YOU GOT PENETRATED
+      value: YOU LOST
       objectReference: {fileID: 0}
     - target: {fileID: 2348076963582948600, guid: b1c784c441926d8478aca3ce5e0a02e7, type: 3}
       propertyPath: m_fontSize

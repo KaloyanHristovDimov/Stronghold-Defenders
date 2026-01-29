@@ -7,5 +7,11 @@ public class LoseWindow : PauseMenuWindow
 
     public override void Close() => Debug.Log("LoseWindow: Shouldn't call Close() unless the player right-clicked.");
 
-    //Get highscore from Persister and display it
+    private void Awake()
+    {
+        if(AchievementsLoader.obj.highScore < UICanvasController.WaveCounter.Count)
+            AchievementsLoader.obj.highScore = UICanvasController.WaveCounter.Count;
+
+        highscoreCount.text = AchievementsLoader.obj.highScore.ToString();
+    }
 }

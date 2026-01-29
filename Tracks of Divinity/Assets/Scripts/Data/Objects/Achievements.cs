@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 [System.Serializable]
 public class Achievements
 {
+    public int highScore;
     public List<Achievement> unlockedAchievements = new(), lockedAchievements = new();
 
     [JsonConstructor]
