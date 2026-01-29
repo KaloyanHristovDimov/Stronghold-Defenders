@@ -15,7 +15,7 @@ MonoBehaviour:
   damageType: 0
   damage: 15
   range: 6
-  price: 100
+  price: 150
   aoeRange: 4
   speed: 2
   appliesSlow: 0

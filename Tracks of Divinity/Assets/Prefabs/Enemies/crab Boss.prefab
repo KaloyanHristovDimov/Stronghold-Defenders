@@ -134,13 +134,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 5
-  speed: 0.5
+  speed: 1
   health: 600
   pathPoints: 0
   slowCoolDown: 1
   isSlowed: 0
-  moneyAward: 600
-  damage: 60
+  moneyAward: 300
+  damage: 10
   goldCounterName: GoldCounter
 --- !u!54 &4512726902599805515
 Rigidbody:
