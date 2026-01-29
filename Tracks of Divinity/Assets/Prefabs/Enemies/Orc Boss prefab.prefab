@@ -74,13 +74,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19b80fdc18c136e44b93aef5e835db12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   speed: 1
   health: 800
   pathPoints: 0
   slowCoolDown: 1
   isSlowed: 0
   moneyAward: 500
-  damage: 100
+  damage: 30
   goldCounterName: GoldCounter
 --- !u!65 &2382794530653097023
 BoxCollider:

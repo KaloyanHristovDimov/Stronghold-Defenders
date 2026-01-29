@@ -50,6 +50,9 @@ public class WaveManager : MonoBehaviour
     public float timeBetweenWaves = 5f;
     public int wavesBetweenAddNewGround = 5;
 
+    [Header("Wave Scaling")]
+    [SerializeField] private int groupsPerWaveMultiplier = 1;
+
     [Header("Spawn Sync")]
     [SerializeField] private float endpointAssignmentDelay = 0.1f;
 
@@ -187,7 +190,8 @@ public class WaveManager : MonoBehaviour
                 return;
             }
 
-            for (int i = 0; i < waveNumber; i++)
+            int groupsToSpawn = waveNumber * groupsPerWaveMultiplier;
+            for (int i = 0; i < groupsToSpawn; i++)
             {
                 MonsterGroup randomGroup = listOfGroupsToPickFrom[Random.Range(0, listOfGroupsToPickFrom.Count)];
                 listOfGroupsOfMonstersToSpawn.Add(randomGroup);

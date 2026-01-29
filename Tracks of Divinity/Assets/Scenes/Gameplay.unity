@@ -1670,6 +1670,7 @@ MonoBehaviour:
   mouseSensitivity: 360
   allowMousePan: 1
   mousePanSpeed: 150
+  dtCapFps: 120
 --- !u!114 &330585550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6480,6 +6481,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 875196109}
     - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
+      propertyPath: groupsPerWaveMultiplier
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
       propertyPath: wavesBetweenAddNewGround
       value: 2
       objectReference: {fileID: 0}
@@ -6489,47 +6494,47 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
       propertyPath: listOfAllGroupsOfMonsters.Array.data[1].Name
-      value: Crab
+      value: Ant
       objectReference: {fileID: 0}
     - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
       propertyPath: listOfAllGroupsOfMonsters.Array.data[2].Name
-      value: Mystic
+      value: Crab
       objectReference: {fileID: 0}
     - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
       propertyPath: listOfAllGroupsOfMonsters.Array.data[3].Name
-      value: Goblin
+      value: Mystic
       objectReference: {fileID: 0}
     - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
       propertyPath: listOfAllGroupsOfMonsters.Array.data[4].Name
-      value: Orc
+      value: Goblin
       objectReference: {fileID: 0}
     - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
       propertyPath: listOfAllGroupsOfMonsters.Array.data[5].Name
-      value: Goblin Boss
+      value: Orc
       objectReference: {fileID: 0}
     - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
       propertyPath: listOfAllGroupsOfMonsters.Array.data[6].Name
-      value: Orc Boss
+      value: Goblin Boss
       objectReference: {fileID: 0}
     - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
       propertyPath: listOfAllGroupsOfMonsters.Array.data[7].Name
-      value: Goblin Horde
+      value: Orc Boss
       objectReference: {fileID: 0}
     - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
       propertyPath: listOfAllGroupsOfMonsters.Array.data[8].Name
-      value: Orc horde
+      value: Goblin Horde
       objectReference: {fileID: 0}
     - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
       propertyPath: listOfAllGroupsOfMonsters.Array.data[9].Name
-      value: Goblin Boss horde
+      value: Orc horde
       objectReference: {fileID: 0}
     - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
       propertyPath: listOfAllGroupsOfMonsters.Array.data[10].Name
-      value: Orc boss horde
+      value: Goblin Boss horde
       objectReference: {fileID: 0}
     - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
       propertyPath: listOfAllGroupsOfMonsters.Array.data[11].Name
-      value: Ant
+      value: Orc boss horde
       objectReference: {fileID: 0}
     - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
       propertyPath: listOfAllGroupsOfMonsters.Array.data[12].Name
@@ -6560,6 +6565,10 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
+      propertyPath: listOfAllGroupsOfMonsters.Array.data[1].amount
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
       propertyPath: listOfAllGroupsOfMonsters.Array.data[2].amount
       value: 5
       objectReference: {fileID: 0}
@@ -6573,7 +6582,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
       propertyPath: listOfAllGroupsOfMonsters.Array.data[5].amount
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
       propertyPath: listOfAllGroupsOfMonsters.Array.data[6].amount
@@ -6581,7 +6590,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
       propertyPath: listOfAllGroupsOfMonsters.Array.data[7].amount
-      value: 15
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
       propertyPath: listOfAllGroupsOfMonsters.Array.data[8].amount
@@ -6589,7 +6598,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
       propertyPath: listOfAllGroupsOfMonsters.Array.data[9].amount
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
       propertyPath: listOfAllGroupsOfMonsters.Array.data[10].amount
@@ -6597,7 +6606,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
       propertyPath: listOfAllGroupsOfMonsters.Array.data[11].amount
-      value: 15
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
       propertyPath: listOfAllGroupsOfMonsters.Array.data[12].amount
@@ -6630,47 +6639,47 @@ PrefabInstance:
     - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
       propertyPath: listOfAllGroupsOfMonsters.Array.data[1].MonsterPrefab
       value: 
-      objectReference: {fileID: 7575971027027918242, guid: 527c19e583db5cf4896f03e14b7031bb, type: 3}
+      objectReference: {fileID: 7141878774471241115, guid: 0cf3ecdc37054564fbdba3cf6e91670a, type: 3}
     - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
       propertyPath: listOfAllGroupsOfMonsters.Array.data[2].MonsterPrefab
       value: 
-      objectReference: {fileID: 8461746925846130518, guid: 582293ac18e19cd4d9e18716fa6a29ab, type: 3}
+      objectReference: {fileID: 7575971027027918242, guid: 527c19e583db5cf4896f03e14b7031bb, type: 3}
     - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
       propertyPath: listOfAllGroupsOfMonsters.Array.data[3].MonsterPrefab
       value: 
-      objectReference: {fileID: 7051209767090465233, guid: 5477e9ff9e311c34cb919bd28696fb2a, type: 3}
+      objectReference: {fileID: 8461746925846130518, guid: 582293ac18e19cd4d9e18716fa6a29ab, type: 3}
     - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
       propertyPath: listOfAllGroupsOfMonsters.Array.data[4].MonsterPrefab
       value: 
-      objectReference: {fileID: 7709249339422852092, guid: fec35155239fd14448510d7b498e6665, type: 3}
+      objectReference: {fileID: 7051209767090465233, guid: 5477e9ff9e311c34cb919bd28696fb2a, type: 3}
     - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
       propertyPath: listOfAllGroupsOfMonsters.Array.data[5].MonsterPrefab
       value: 
-      objectReference: {fileID: 7051209767090465233, guid: e47b57a0224fad141b6a91c851f32075, type: 3}
+      objectReference: {fileID: 7709249339422852092, guid: fec35155239fd14448510d7b498e6665, type: 3}
     - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
       propertyPath: listOfAllGroupsOfMonsters.Array.data[6].MonsterPrefab
       value: 
-      objectReference: {fileID: 7709249339422852092, guid: d469a08bfe78040409d8a2047640bc1f, type: 3}
+      objectReference: {fileID: 7051209767090465233, guid: e47b57a0224fad141b6a91c851f32075, type: 3}
     - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
       propertyPath: listOfAllGroupsOfMonsters.Array.data[7].MonsterPrefab
       value: 
-      objectReference: {fileID: 7051209767090465233, guid: 5477e9ff9e311c34cb919bd28696fb2a, type: 3}
+      objectReference: {fileID: 7709249339422852092, guid: d469a08bfe78040409d8a2047640bc1f, type: 3}
     - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
       propertyPath: listOfAllGroupsOfMonsters.Array.data[8].MonsterPrefab
       value: 
-      objectReference: {fileID: 7709249339422852092, guid: fec35155239fd14448510d7b498e6665, type: 3}
+      objectReference: {fileID: 7051209767090465233, guid: 5477e9ff9e311c34cb919bd28696fb2a, type: 3}
     - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
       propertyPath: listOfAllGroupsOfMonsters.Array.data[9].MonsterPrefab
       value: 
-      objectReference: {fileID: 7051209767090465233, guid: e47b57a0224fad141b6a91c851f32075, type: 3}
+      objectReference: {fileID: 7709249339422852092, guid: fec35155239fd14448510d7b498e6665, type: 3}
     - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
       propertyPath: listOfAllGroupsOfMonsters.Array.data[10].MonsterPrefab
       value: 
-      objectReference: {fileID: 7709249339422852092, guid: d469a08bfe78040409d8a2047640bc1f, type: 3}
+      objectReference: {fileID: 7051209767090465233, guid: e47b57a0224fad141b6a91c851f32075, type: 3}
     - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
       propertyPath: listOfAllGroupsOfMonsters.Array.data[11].MonsterPrefab
       value: 
-      objectReference: {fileID: 7141878774471241115, guid: 0cf3ecdc37054564fbdba3cf6e91670a, type: 3}
+      objectReference: {fileID: 7709249339422852092, guid: d469a08bfe78040409d8a2047640bc1f, type: 3}
     - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
       propertyPath: listOfAllGroupsOfMonsters.Array.data[12].MonsterPrefab
       value: 
@@ -9400,7 +9409,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -250}
+  m_AnchoredPosition: {x: 0, y: -250.00002}
   m_SizeDelta: {x: 1000, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4647997426414277785

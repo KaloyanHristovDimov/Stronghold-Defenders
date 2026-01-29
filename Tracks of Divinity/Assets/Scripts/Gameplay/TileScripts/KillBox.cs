@@ -12,7 +12,7 @@ public class KillBox : MonoBehaviour
         if (enemyS != null)
         {
             UICanvasController.HealthCounter.DecrementCount(enemyS.health);
-            enemyS.health -= damage;
+            enemyS.damage -= damage;
             
             if(UICanvasController.HealthCounter.Count <= 0) UICanvasController.LoseScreen.Open();
         }

@@ -139,8 +139,8 @@ MonoBehaviour:
   pathPoints: 0
   slowCoolDown: 1
   isSlowed: 0
-  moneyAward: 30
-  damage: 10
+  moneyAward: 15
+  damage: 3
   goldCounterName: GoldCounter
 --- !u!54 &9181705965674707260
 Rigidbody:

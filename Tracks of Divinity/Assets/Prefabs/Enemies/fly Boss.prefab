@@ -54,7 +54,7 @@ MonoBehaviour:
   slowCoolDown: 0.5
   isSlowed: 0
   moneyAward: 35
-  damage: 30
+  damage: 5
   goldCounterName: GoldCounter
 --- !u!54 &8534363251469533115
 Rigidbody:
