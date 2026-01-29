@@ -68,6 +68,8 @@ public class WaveManager : MonoBehaviour
     private int currentSealCost;
     private readonly HashSet<EndPoint> sealedEndpoints = new();
 
+    [SerializeField] private WaveIsStarting waveIsStarting;
+
     private bool waitingForPlayerTile = true;
     private bool nextWaveCountdownRunning = false;
     private Coroutine startNextWaveCoroutine;
@@ -129,6 +131,8 @@ public class WaveManager : MonoBehaviour
 
     private IEnumerator StartNextWaveAfterDelay()
     {
+        waveIsStarting.Activate();
+        
         float timer = timeBetweenWaves;
         while (timer > 0f)
         {
