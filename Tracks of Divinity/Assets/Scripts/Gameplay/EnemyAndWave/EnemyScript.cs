@@ -39,6 +39,16 @@ public class EnemyScript : MonoBehaviour
         }
         SlownesCheck();
     }
+
+    public void ApplySlow(float slowMultiplier, float duration)
+    {
+        if (isSlowed) return;
+
+        speed = originalSpeed * slowMultiplier;
+        slowCoolDown = duration;
+        isSlowed = true;
+    }
+
     private void SlownesCheck()
     {
         if (isSlowed)

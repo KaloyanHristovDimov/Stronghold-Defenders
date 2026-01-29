@@ -8,8 +8,15 @@ public class TowereScript : MonoBehaviour
     public List<GameObject> enemiesInRange = new List<GameObject>();
     public int damage = 50;
     public float range = 5f;
+    [Header("AOE Settings")]
     public bool aoe = false;
     public float aoeRange = 4;
+
+    [Header("Slow Effect")]
+    public bool appliesSlow = false;
+    [Range(0.1f, 1f)] public float slowMultiplier = 1f;
+    public float slowDuration = 2f;
+
     public TowerType towerType;
     public Biome biome;
     public bool damageType=false;
@@ -34,6 +41,10 @@ public class TowereScript : MonoBehaviour
         damageType = Data.damageType;
         aoe = Data.aoeRange > 0;
         aoeRange = Data.aoeRange;
+
+        appliesSlow = Data.appliesSlow;
+        slowMultiplier = Data.slowMultiplier;
+        slowDuration = Data.slowDuration;
 
 
         GetComponent<SphereCollider>().radius = range;
@@ -116,7 +127,7 @@ public class TowereScript : MonoBehaviour
         );
 
         Projectile projectile = projectileGO.GetComponent<Projectile>();
-        projectile.Initialize(target, damage, aoe, aoeRange);
+        projectile.Initialize(target, damage, aoe, aoeRange, appliesSlow, slowMultiplier, slowDuration);
 
         //atackSFX.Play();
     }

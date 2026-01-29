@@ -9,12 +9,20 @@ public class Projectile : MonoBehaviour
     private bool aoe = false;
     private float aoeRange = 0f;
 
-    public void Initialize(Transform target, int damage, bool aoe, float aoeRange)
+    private bool appliesSlow = false;
+    private float slowMultiplier = 1f;
+    private float slowDuration = 0f;
+
+    public void Initialize(Transform target, int damage, bool aoe, float aoeRange, bool appliesSlow, float slowMultiplier, float slowDuration)
     {
         this.target = target;
         this.damage = damage;
         this.aoe = aoe;
         this.aoeRange = aoeRange;
+
+        this.appliesSlow = appliesSlow;
+        this.slowMultiplier = slowMultiplier;
+        this.slowDuration = slowDuration;
     }
     void Update()
     {
@@ -54,9 +62,15 @@ public class Projectile : MonoBehaviour
     private void DamageSingleTarget(Transform enemyTransform)
     {
         EnemyScript enemy = enemyTransform.GetComponent<EnemyScript>();
+
         if (enemy != null)
         {
             enemy.health -= damage;
+            if (appliesSlow)
+            {
+                enemy.ApplySlow(slowMultiplier, slowDuration);
+                Debug.Log("Applied slow to enemy.");
+            }
         }
     }
 
@@ -72,6 +86,11 @@ public class Projectile : MonoBehaviour
                 if (enemy != null)
                 {
                     enemy.health -= damage;
+                    if (appliesSlow)
+                    {
+                        enemy.ApplySlow(slowMultiplier, slowDuration);
+                        Debug.Log("Applied slow to enemy in AOE.");
+                    }
                 }
             }
         }

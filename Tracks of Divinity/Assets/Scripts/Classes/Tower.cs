@@ -6,6 +6,13 @@ public class Tower : ScriptableObject, ICardInfo
     public bool damageType;
     public int damage, range, price, aoeRange;
     public float speed;
+
+    [Header("Slow Effect")]
+    public bool appliesSlow;
+    [Range(0.1f, 1f)] public float slowMultiplier = 0.6f;
+    public float slowDuration = 2f;
+
+    [Header("Meta")]
     public TowerType towerType;
     public Biome biome;
     public GameObject prefab;
