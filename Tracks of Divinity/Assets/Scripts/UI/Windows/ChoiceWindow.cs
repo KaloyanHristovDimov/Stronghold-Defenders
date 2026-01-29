@@ -6,8 +6,9 @@ using UnityEngine;
 public class ChoiceWindow : Window
 {
     public static ChoiceWindow Instance;
+    public GameObject windowContainer;
     [SerializeField] private List<Transform> tileContainers;
-    [SerializeField] private List<TextMeshProUGUI> towerSpacesTexts, biomeBuffTexts, biomeDebuffTexts, tileNameTexts;
+    [SerializeField] private List<TextMeshProUGUI> towerSpacesTexts, biomeBuffTexts, biomeDebuffTexts;
 
     const string towerSpacesTextPrefix = "<color=#666666>Tower Spaces:</color> ",
                  biomeBuffTextPrefix = "<color=#666666>Biome Buff:</color> ",
@@ -62,7 +63,6 @@ public class ChoiceWindow : Window
             var iconInstance = Instantiate(iconPrefab, tileContainers[i]);
             spawnedIcons.Add(iconInstance);
 
-            tileNameTexts[i].text = tilesToShow[i].name;
             towerSpacesTexts[i].text = towerSpacesTextPrefix + tilesToShow[i].towerAmount.ToString();
 
             switch (tilesToShow[i].tileBiome)
@@ -123,5 +123,37 @@ public class ChoiceWindow : Window
         }
     }
 
-    public override void Close() => Debug.Log("ChoiceWindow: Use CloseAfterChoice() instead of Close() to close the choice window.");
+    public override void Update()
+    {
+        if(!Input.GetMouseButtonDown(1))
+            return;
+        camTf = (camera != null) ? camera.transform : (Camera.main != null ? Camera.main.transform : null);
+
+        if (camTf != null)
+        {
+            if(windowContainer.activeSelf)
+            {
+                if (fixedPovCam == null)
+                    fixedPovCam = camTf.GetComponent<FixedPovCamera>();
+
+                if (fixedPovCam != null)
+                    fixedPovCam.AddWorldOffset(-cameraOffsetApplied);
+                else
+                    camTf.position -= cameraOffsetApplied;
+            }
+            else
+            {
+                if (fixedPovCam == null)
+                    fixedPovCam = camTf.GetComponent<FixedPovCamera>();
+
+                cameraOffsetApplied = newPosition;
+
+                if (fixedPovCam != null)
+                    fixedPovCam.AddWorldOffset(cameraOffsetApplied);
+                else
+                    camTf.position += cameraOffsetApplied;
+            }
+        }
+        windowContainer.SetActive(!windowContainer.activeSelf);
+    }
 }

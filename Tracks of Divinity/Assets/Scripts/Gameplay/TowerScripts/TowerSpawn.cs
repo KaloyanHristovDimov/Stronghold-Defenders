@@ -53,7 +53,7 @@ public class TowerSpawn : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         if(!initialized)
             return;
         UICanvasController.currentTowerSpawnPoint = this;
-        UICanvasController.currentTowerButton.ShowCard(biome);
+        UICanvasController.currentTowerButton.ShowCard(biome, (int)UICanvasController.currentTowerButton.type);
     }
 
     public void OnPointerExit(PointerEventData eventData)
