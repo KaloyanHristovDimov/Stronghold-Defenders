@@ -13,11 +13,14 @@ MonoBehaviour:
   m_Name: PlainsBalistaData
   m_EditorClassIdentifier: 
   damageType: 0
-  damage: 20
+  damage: 5
   range: 5
   price: 20
   aoeRange: 0
-  speed: 1
+  speed: 1.5
+  appliesSlow: 0
+  slowMultiplier: 0
+  slowDuration: 0
   towerType: 0
   biome: 0
   prefab: {fileID: 2532222564612703519, guid: ee2990c6a6cb2bd4a9082b7d8d574091, type: 3}

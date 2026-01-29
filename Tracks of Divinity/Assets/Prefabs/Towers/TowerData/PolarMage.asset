@@ -16,8 +16,8 @@ MonoBehaviour:
   damage: 5
   range: 5
   price: 100
-  aoeRange: 4
-  speed: 1.5
+  aoeRange: 2
+  speed: 1
   appliesSlow: 1
   slowMultiplier: 0.24
   slowDuration: 5

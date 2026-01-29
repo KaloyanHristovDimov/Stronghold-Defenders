@@ -25,6 +25,10 @@ public class FixedPovCamera : MonoBehaviour
     [SerializeField] private bool allowMousePan = true;
     [SerializeField] private float mousePanSpeed = 150f;
 
+    [Header("Stability")]
+    [Tooltip("Caps camera dt to 120 FPS-equivalent so FPS dips don't cause big camera jumps.")]
+    [SerializeField] private float dtCapFps = 120f;
+
     private float pitch;
     private float yaw;
 
@@ -45,10 +49,30 @@ public class FixedPovCamera : MonoBehaviour
 
     private void LateUpdate()
     {
-        float dt = Time.deltaTime;
+        // ---------- UI BLOCK ----------
+        bool isChoiceWindowOpen =
+            UICanvasController.ChoiceWindow != null &&
+            UICanvasController.ChoiceWindow.windowContainer != null &&
+            UICanvasController.ChoiceWindow.windowContainer.activeInHierarchy;
+
+        if (isChoiceWindowOpen)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            return;
+        }
+
+        bool rmbLook = allowMouseLook && Input.GetMouseButton(1);
+        Cursor.lockState = rmbLook ? CursorLockMode.Locked : CursorLockMode.None;
+        Cursor.visible = !rmbLook;
+
+        // ---------- DT CLAMP (120 FPS cap) ----------
+        float cap = (dtCapFps <= 0f) ? (1f / 120f) : (1f / dtCapFps);
+        float dt = Mathf.Min(Time.deltaTime, cap);
+
         Vector3 worldPosBefore = transform.position;
 
-        // O reset: set yaw to 0, BUT keep world position the same
+        // ---------- O RESET: yaw to 0 without moving camera ----------
         if (Input.GetKeyDown(KeyCode.O))
         {
             Vector3 worldPos = transform.position;
@@ -74,7 +98,7 @@ public class FixedPovCamera : MonoBehaviour
             if (invertRotationKeys) yawDelta = -yawDelta;
         }
 
-        if (allowMouseLook && Input.GetMouseButton(1))
+        if (rmbLook)
         {
             float mouseX = Input.GetAxisRaw("Mouse X");
             yawDelta += mouseX * mouseSensitivity * dt;
@@ -156,6 +180,9 @@ public class FixedPovCamera : MonoBehaviour
             maxDistance = minDistance;
 
         startDistance = Mathf.Clamp(startDistance, minDistance, maxDistance);
+
+        if (dtCapFps < 1f)
+            dtCapFps = 120f;
     }
 
     public void AddWorldOffset(Vector3 offset)

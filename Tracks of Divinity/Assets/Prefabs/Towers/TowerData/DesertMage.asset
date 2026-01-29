@@ -14,10 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageType: 0
   damage: 5
-  range: 5
+  range: 10
   price: 100
   aoeRange: 0
   speed: 1
+  appliesSlow: 0
+  slowMultiplier: 0
+  slowDuration: 0
   towerType: 3
   biome: 1
   prefab: {fileID: 2440866968495100099, guid: 67537d44160eb8c49bebf73cda175097, type: 3}
