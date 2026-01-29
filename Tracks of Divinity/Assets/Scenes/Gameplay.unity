@@ -1817,6 +1817,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cellSize: 8
+  cloudPrefab: {fileID: 121829044757588538, guid: 5c7bcc7101a551343ac9244f4dd88284, type: 3}
+  cloudGridSize: 500
 --- !u!4 &355511875
 Transform:
   m_ObjectHideFlags: 0

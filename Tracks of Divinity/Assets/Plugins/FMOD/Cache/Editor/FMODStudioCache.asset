@@ -565,14 +565,13 @@ MonoBehaviour:
   - {fileID: 3345721511884059779}
   - {fileID: -597242880215167490}
   - {fileID: -5404063777614226564}
-  - {fileID: 2201295986184041994}
   EditorParameters: []
   MasterBanks:
   - {fileID: 621441017636678993}
   StringsBanks:
   - {fileID: 171493172096135292}
   cacheVersion: 131856
-  cacheTime: 639052175092013263
+  cacheTime: 639052158310360713
   SerializableEventsDict:
   - key: event:/magic atack earth
     index: 0
@@ -610,8 +609,6 @@ MonoBehaviour:
     index: 16
   - key: event:/Tower Destroyed
     index: 17
-  - key: event:/Tracks of Divinity Main Theme ver.2
-    index: 18
 --- !u!114 &171493172096135292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -627,10 +624,10 @@ MonoBehaviour:
   Path: Assets/Audio/SFX/FMod/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639052175092013263
+  lastModified: 639052158310360713
   FileSizes:
   - Name: 
-    Value: 1696
+    Value: 1632
   Exists: 1
 --- !u!114 &248920822108488836
 MonoBehaviour:
@@ -701,7 +698,7 @@ MonoBehaviour:
   Path: Assets/Audio/SFX/FMod/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639052175091857405
+  lastModified: 639052158310189753
   FileSizes: []
   Exists: 1
 --- !u!114 &694304595895180042
@@ -839,33 +836,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 8040
---- !u!114 &2201295986184041994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Tracks of Divinity Main Theme ver.2
-  m_EditorClassIdentifier: 
-  Path: event:/Tracks of Divinity Main Theme ver.2
-  Guid:
-    Data1: 1046897508
-    Data2: 1272260870
-    Data3: -54853242
-    Data4: -1082804659
-  Banks:
-  - {fileID: 621441017636678993}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 280615
 --- !u!114 &3121199333082793309
 MonoBehaviour:
   m_ObjectHideFlags: 0
