@@ -1,9 +1,8 @@
-using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PauseMenuWindow : PauseTypeWindow
 {
-    public void Restart() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    public void Restart() => SceneManager.LoadScene(1);
 
     public void MainMenu() => SceneManager.LoadScene(0);
 

@@ -33,4 +33,12 @@ public class UICanvasController : MonoBehaviour
     }
 
     public static void ActivateTowerSpawnPoints(bool activate = false) => TowerSpawnpoints.ForEach(spawnpoint => spawnpoint.SetActive(activate));
+
+    private void Update()
+    {
+        if(!towerCardRectT.gameObject.activeSelf)
+            return;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRectT, Input.mousePosition, null, out var mousePos);
+        towerCardRectT.anchoredPosition = new(mousePos.x, mousePos.y);
+    }
 }

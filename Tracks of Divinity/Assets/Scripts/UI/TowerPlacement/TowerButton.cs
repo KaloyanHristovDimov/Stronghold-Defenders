@@ -19,7 +19,7 @@ public class TowerButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void OnDrag(PointerEventData e)
     {
-        
+        //removing this method breaks everything
     }
 
     public void OnEndDrag(PointerEventData e)
