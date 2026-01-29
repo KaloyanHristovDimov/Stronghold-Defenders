@@ -11,8 +11,8 @@ public class KillBox : MonoBehaviour
         Debug.Log("Collided with base");
         if (enemyS != null)
         {
-            UICanvasController.HealthCounter.DecrementCount(enemyS.health);
-            enemyS.damage -= damage;
+            UICanvasController.HealthCounter.DecrementCount(enemyS.damage);
+            enemyS.health -= damage;
             
             if(UICanvasController.HealthCounter.Count <= 0) UICanvasController.LoseScreen.Open();
         }
