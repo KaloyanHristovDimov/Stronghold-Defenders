@@ -76,7 +76,18 @@ public class TileManager : MonoBehaviour
         ).ToList();
 
         if (validTiles.Count == 0)
-            return;
+        {
+            if(tilesToUse == allSplitTiles) 
+            {
+                validTiles = allSplitTiles;
+                
+            }
+            else
+            {
+                validTiles = allNormalTiles;
+            }
+
+        }
 
         List<TileData> options = PickRandomTiles(validTiles, 3);
         ChoiceWindow.Instance.Open(options, choice => SpawnTile(choice, spawnPos));
