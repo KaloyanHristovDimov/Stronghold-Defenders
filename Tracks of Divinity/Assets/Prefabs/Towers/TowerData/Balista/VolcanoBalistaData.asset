@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: VolcanoBalistaData
   m_EditorClassIdentifier: 
   damageType: 0
-  damage: 150
+  damage: 50
   range: 6
   price: 60
-  aoeRange: 1
+  aoeRange: 0
   speed: 1.75
   targetsStrongest: 1
   appliesSlow: 0

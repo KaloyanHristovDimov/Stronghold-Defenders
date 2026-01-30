@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PolarBalistaData
   m_EditorClassIdentifier: 
   damageType: 0
-  damage: 50
+  damage: 20
   range: 6
   price: 60
   aoeRange: 0

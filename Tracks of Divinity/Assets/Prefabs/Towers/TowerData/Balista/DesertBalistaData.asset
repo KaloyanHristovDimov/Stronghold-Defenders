@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DesertBalistaData
   m_EditorClassIdentifier: 
   damageType: 0
-  damage: 50
+  damage: 20
   range: 12
   price: 40
   aoeRange: 0
