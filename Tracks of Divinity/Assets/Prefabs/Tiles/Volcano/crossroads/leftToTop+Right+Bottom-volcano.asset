@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eb484b882b85bb43a5063a37a1fcf72, type: 3}
   m_Name: leftToTop+Right+Bottom-volcano
   m_EditorClassIdentifier: 
-  startDirection: 1
-  endDirections: 000000000300000002000000
+  startDirection: 3
+  endDirections: 000000000100000002000000
   name: Mamata
   prefab: {fileID: 5626642184166101891, guid: c5c2f6ed750c7e14c984206cc67e6f7b, type: 3}
   icon: {fileID: 5626642184166101891, guid: 664452f67f031014aadbcad03f258a2a, type: 3}

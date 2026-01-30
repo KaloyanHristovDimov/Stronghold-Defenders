@@ -93,6 +93,7 @@ public class EndPoint : MonoBehaviour
             placeTileInteractable.SetActive(false);
             sealInteractable.SetActive(false);
             wallVisuals.SetActive(true);
+            UICanvasController.WallCardRectT.gameObject.SetActive(false);
         }
     }
 }
