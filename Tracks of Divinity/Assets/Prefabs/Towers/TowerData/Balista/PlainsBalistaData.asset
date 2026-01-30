@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: PlainsBalistaData
   m_EditorClassIdentifier: 
   damageType: 0
-  damage: 5
+  damage: 10
   range: 6
   price: 20
   aoeRange: 0
   speed: 1.5
+  targetsStrongest: 1
   appliesSlow: 0
   slowMultiplier: 0
   slowDuration: 0

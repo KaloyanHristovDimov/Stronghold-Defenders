@@ -6261,11 +6261,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
       propertyPath: listOfAllGroupsOfMonsters.Array.data[1].Name
-      value: Ant
+      value: Crab
       objectReference: {fileID: 0}
     - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
       propertyPath: listOfAllGroupsOfMonsters.Array.data[2].Name
-      value: Crab
+      value: Ant
       objectReference: {fileID: 0}
     - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
       propertyPath: listOfAllGroupsOfMonsters.Array.data[3].Name
@@ -6333,11 +6333,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
       propertyPath: listOfAllGroupsOfMonsters.Array.data[1].amount
-      value: 20
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
       propertyPath: listOfAllGroupsOfMonsters.Array.data[2].amount
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
       propertyPath: listOfAllGroupsOfMonsters.Array.data[3].amount
@@ -6406,11 +6406,11 @@ PrefabInstance:
     - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
       propertyPath: listOfAllGroupsOfMonsters.Array.data[1].MonsterPrefab
       value: 
-      objectReference: {fileID: 7141878774471241115, guid: 0cf3ecdc37054564fbdba3cf6e91670a, type: 3}
+      objectReference: {fileID: 7575971027027918242, guid: 527c19e583db5cf4896f03e14b7031bb, type: 3}
     - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
       propertyPath: listOfAllGroupsOfMonsters.Array.data[2].MonsterPrefab
       value: 
-      objectReference: {fileID: 7575971027027918242, guid: 527c19e583db5cf4896f03e14b7031bb, type: 3}
+      objectReference: {fileID: 7141878774471241115, guid: 0cf3ecdc37054564fbdba3cf6e91670a, type: 3}
     - target: {fileID: 3300667475312667595, guid: e1ecd1d1a70ec424aa3cf58af5b2d909, type: 3}
       propertyPath: listOfAllGroupsOfMonsters.Array.data[3].MonsterPrefab
       value: 

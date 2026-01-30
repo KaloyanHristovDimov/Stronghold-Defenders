@@ -8,6 +8,7 @@ public class TowereScript : MonoBehaviour
     public List<GameObject> enemiesInRange = new List<GameObject>();
     public int damage = 50;
     public float range = 5f;
+    private bool targetsStrongest = false;
     [Header("AOE Settings")]
     public bool aoe = false;
     public float aoeRange = 4;
@@ -41,6 +42,7 @@ public class TowereScript : MonoBehaviour
         damageType = Data.damageType;
         aoe = Data.aoeRange > 0;
         aoeRange = Data.aoeRange;
+        targetsStrongest = Data.targetsStrongest;
 
         appliesSlow = Data.appliesSlow;
         slowMultiplier = Data.slowMultiplier;
@@ -67,11 +69,12 @@ public class TowereScript : MonoBehaviour
     private void Atack()
     {
         float maxPathPoints = -1f;
+        float maxHealth = -1f;
         enemyToDamage = null;
 
         if (enemiesInRange.Count > 0)
         {
-            for (int i = enemiesInRange.Count - 1; i >= 0; i--)
+            for (int i = 0; i < enemiesInRange.Count; i++)
             {
                 GameObject enemy = enemiesInRange[i];
                 if (enemy == null)
@@ -79,13 +82,26 @@ public class TowereScript : MonoBehaviour
                     enemiesInRange.RemoveAt(i);
                     continue;
                 }
-
-                float pathPoints = enemy.GetComponent<EnemyScript>().pathPoints;
-                if (pathPoints > maxPathPoints)
+                
+                if (!targetsStrongest)
                 {
-                    maxPathPoints = pathPoints;
-                    enemyToDamage = enemy;
+                    float pathPoints = enemy.GetComponent<EnemyScript>().pathPoints;
+                    if (pathPoints > maxPathPoints)
+                    {
+                        maxPathPoints = pathPoints;
+                        enemyToDamage = enemy;
+                    }
                 }
+                else
+                {
+                    float health = enemy.GetComponent<EnemyScript>().health;
+                    if (health > maxHealth)
+                    {
+                        maxHealth = health;
+                        enemyToDamage = enemy;
+                    }
+                }
+
             }
 
             if (enemyToDamage != null)

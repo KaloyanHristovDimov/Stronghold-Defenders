@@ -6,6 +6,7 @@ public class Tower : ScriptableObject, ICardInfo
     public bool damageType;
     public int damage, range, price, aoeRange;
     public float speed;
+    public bool targetsStrongest = false;
 
     [Header("Slow Effect")]
     public bool appliesSlow;
