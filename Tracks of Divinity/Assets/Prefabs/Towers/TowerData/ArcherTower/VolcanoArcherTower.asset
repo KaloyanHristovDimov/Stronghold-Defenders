@@ -17,7 +17,7 @@ MonoBehaviour:
   range: 6
   price: 25
   aoeRange: 1
-  speed: 0.1
+  speed: 0.75
   appliesSlow: 0
   slowMultiplier: 0
   slowDuration: 0
