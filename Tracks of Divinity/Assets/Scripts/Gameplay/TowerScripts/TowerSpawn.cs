@@ -19,13 +19,8 @@ public class BiomeTowerPair
 
 public class TowerSpawn : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    
-
     private bool initialized;
     private int biome;
-
-    //public AudioSource audioSource;
-
 
     public void Initialize(int tileBiome)
     {
@@ -35,31 +30,22 @@ public class TowerSpawn : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         biome = tileBiome;
     }
 
-    // public void OnPointerDown(PointerEventData eventData)
-    // {
-    //     int selected = TowerSelect.Instance.selectedTower;
-
-    //     if (selected < 0 || selected >= towers.Count)
-    //     {
-    //         //ErrorFeedback();
-    //         return;
-    //     }
-
-    //     TrySpawnTower(towers[selected].prefab, towers[selected].price);
-    // }
-
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if(!initialized)
-            return;
+        if (!initialized) return;
+
         UICanvasController.currentTowerSpawnPoint = this;
+
+        // Your current UI method:
+        // NOTE: this probably shows base price, not scaled price.
+        // We'll keep it working, and you can upgrade the UI later (see notes below).
         UICanvasController.currentTowerButton.ShowCard(biome, (int)UICanvasController.currentTowerButton.type);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if(!initialized)
-            return;
+        if (!initialized) return;
+
         UICanvasController.currentTowerSpawnPoint = null;
         UICanvasController.currentTowerButton.HideCard();
     }
@@ -69,24 +55,40 @@ public class TowerSpawn : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         TowerPricePair pair = UICanvasController.Towers[biome].pair[(int)UICanvasController.currentTowerButton.type];
         OnPointerExit(null);
 
-        if (!UICanvasController.GoldCounter.CanAfford(pair.price))
-        {
-            //ErrorFeedback();
+        if (pair == null || pair.tower == null)
             return;
-        }
 
+        // --- NEW: scaled price ---
+        int cost = GetScaledCost(pair.tower);
 
-        UICanvasController.GoldCounter.DecrementCount(pair.price);
+        if (!UICanvasController.GoldCounter.CanAfford(cost))
+            return;
+
+        UICanvasController.GoldCounter.DecrementCount(cost);
+
         Instantiate(pair.prefab, transform.position, Quaternion.identity);
+
+        // --- NEW: register this placement so the next one costs more ---
+        RegisterPlaced(pair.tower);
+
         UICanvasController.TowerSpawnpoints.Remove(gameObject);
         Destroy(gameObject);
     }
 
-    
+    private static int GetScaledCost(Tower towerData)
+    {
+        // If scaler isn't in the scene, fall back to base price (safe behavior)
+        if (TowerPriceScaler.Instance == null)
+            return towerData.price;
 
-    //private void ErrorFeedback()
-    //{
-    //    Debug.Log("Not enough money or no tower selected");
-    //    audioSource.Play();
-    //}
+        return TowerPriceScaler.Instance.GetCurrentPrice(towerData);
+    }
+
+    private static void RegisterPlaced(Tower towerData)
+    {
+        if (TowerPriceScaler.Instance == null)
+            return;
+
+        TowerPriceScaler.Instance.RegisterPlaced(towerData);
+    }
 }

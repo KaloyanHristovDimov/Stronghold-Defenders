@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: PolarBalistaData
   m_EditorClassIdentifier: 
   damageType: 0
+<<<<<<< Updated upstream
   damage: 10
+=======
+  damage: 50
+>>>>>>> Stashed changes
   range: 6
   price: 60
   aoeRange: 0

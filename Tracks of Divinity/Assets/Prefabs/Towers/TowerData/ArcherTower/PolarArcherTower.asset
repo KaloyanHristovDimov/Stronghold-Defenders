@@ -22,5 +22,5 @@ MonoBehaviour:
   slowMultiplier: 0.15
   slowDuration: 1
   towerType: 1
-  biome: 3
+  biome: 2
   prefab: {fileID: 7777445204059470826, guid: b6151fcef42ac22469e8934e55670f38, type: 3}
