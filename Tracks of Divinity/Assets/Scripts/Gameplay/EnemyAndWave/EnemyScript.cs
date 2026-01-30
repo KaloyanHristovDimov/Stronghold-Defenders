@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class EnemyScript : MonoBehaviour
 {
@@ -13,6 +14,11 @@ public class EnemyScript : MonoBehaviour
         Crab
     }
     public MonsterType type;
+
+    // 🔹 STATIC death counter for all enemy instances
+    public static Dictionary<MonsterType, int> DeathCounts = new Dictionary<MonsterType, int>();
+
+
     public float speed = 5f;
     public int health = 100;
     public float pathPoints = 0f;
@@ -28,6 +34,12 @@ public class EnemyScript : MonoBehaviour
     {
         originalSpeed = speed;
         goldCounter = GameObject.Find(goldCounterName);
+
+        // 🔹 Ensure this monster type exists in the dictionary
+        if (!DeathCounts.ContainsKey(type))
+        {
+            DeathCounts[type] = 0;
+        }
     }
     void Update()
     {
@@ -64,7 +76,14 @@ public class EnemyScript : MonoBehaviour
 
     void OnDestroy()
     {
+         // 🔹 Track death by type
+        DeathCounts[type]++;
+
+        // Optional: Debug output
+        Debug.Log($"{type} died. Total: {DeathCounts[type]}");
+
         UICanvasController.GoldCounter.IncrementCount(moneyAward);
         WaveManager.Instance.EnemyDestroyed();
+    
     }
 }
