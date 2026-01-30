@@ -1659,6 +1659,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 25
   constrainMoveToHorizontalPlane: 1
+  useMovementBounds: 1
+  leftBound: -125
+  rightBound: 125
+  downBound: -125
+  upBound: 125
   scrollSpeed: 300
   minDistance: 45
   maxDistance: 90
@@ -1819,7 +1824,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cellSize: 8
   cloudPrefab: {fileID: 121829044757588538, guid: 5c7bcc7101a551343ac9244f4dd88284, type: 3}
-  cloudGridSize: 200
+  cloudGridSize: 80
 --- !u!4 &355511875
 Transform:
   m_ObjectHideFlags: 0
@@ -1829,7 +1834,7 @@ Transform:
   m_GameObject: {fileID: 355511873}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.1413667, y: 11.100558, z: -2.6226342}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9409,7 +9414,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -250.00002}
+  m_AnchoredPosition: {x: 0, y: -250.00003}
   m_SizeDelta: {x: 1000, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4647997426414277785

@@ -6,6 +6,17 @@ public class FixedPovCamera : MonoBehaviour
     [SerializeField] private float moveSpeed = 25f;
     [SerializeField] private bool constrainMoveToHorizontalPlane = true;
 
+    [Header("Movement Bounds (world X/Z)")]
+    [SerializeField] private bool useMovementBounds = true;
+    [Tooltip("Minimum X (left)")]
+    [SerializeField] private float leftBound = -100f;
+    [Tooltip("Maximum X (right)")]
+    [SerializeField] private float rightBound = 100f;
+    [Tooltip("Minimum Z (down)")]
+    [SerializeField] private float downBound = -100f;
+    [Tooltip("Maximum Z (up)")]
+    [SerializeField] private float upBound = 100f;
+
     [Header("Zoom (offset along view forward)")]
     [SerializeField] private float scrollSpeed = 300f;
     [SerializeField] private float minDistance = 45f;
@@ -136,7 +147,7 @@ public class FixedPovCamera : MonoBehaviour
         if (move.sqrMagnitude > 1f)
             move.Normalize();
 
-        basePosition += move * moveSpeed * dt;
+        Vector3 playerDelta = move * moveSpeed * dt;
 
         // ---------- MOUSE PAN (MMB drag — inverted) ----------
         if (allowMousePan && Input.GetMouseButton(2))
@@ -156,8 +167,11 @@ public class FixedPovCamera : MonoBehaviour
             }
 
             Vector3 pan = -rightPan * mx + -forwardPan * my;
-            basePosition += pan * mousePanSpeed * dt;
+            playerDelta += pan * mousePanSpeed * dt;
         }
+
+        // Apply bounds ONLY to player-controlled movement (WASD + MMB pan)
+        basePosition += ApplyPlayerBounds(basePosition, playerDelta);
 
         // ---------- ZOOM ----------
         float scroll = Input.mouseScrollDelta.y;
@@ -165,6 +179,39 @@ public class FixedPovCamera : MonoBehaviour
         zoomOffset = Mathf.Clamp(zoomOffset, minDistance, maxDistance);
 
         UpdateTransform();
+    }
+
+    private Vector3 ApplyPlayerBounds(Vector3 currentBase, Vector3 desiredDelta)
+    {
+        if (!useMovementBounds || desiredDelta == Vector3.zero)
+            return desiredDelta;
+
+        Vector3 delta = desiredDelta;
+
+        // Only restrict movement that would push further OUT of bounds.
+        // If we're already outside (teleported), allow movement back toward the bounds.
+
+        // X axis (left/right)
+        if (currentBase.x <= leftBound && delta.x < 0f) delta.x = 0f;
+        else if (currentBase.x >= rightBound && delta.x > 0f) delta.x = 0f;
+        else
+        {
+            float nextX = currentBase.x + delta.x;
+            if (nextX < leftBound) delta.x = leftBound - currentBase.x;
+            if (nextX > rightBound) delta.x = rightBound - currentBase.x;
+        }
+
+        // Z axis (down/up)
+        if (currentBase.z <= downBound && delta.z < 0f) delta.z = 0f;
+        else if (currentBase.z >= upBound && delta.z > 0f) delta.z = 0f;
+        else
+        {
+            float nextZ = currentBase.z + delta.z;
+            if (nextZ < downBound) delta.z = downBound - currentBase.z;
+            if (nextZ > upBound) delta.z = upBound - currentBase.z;
+        }
+
+        return delta;
     }
 
     private void UpdateTransform()
@@ -183,8 +230,13 @@ public class FixedPovCamera : MonoBehaviour
 
         if (dtCapFps < 1f)
             dtCapFps = 120f;
+
+        // Keep bounds sane
+        if (rightBound < leftBound) rightBound = leftBound;
+        if (upBound < downBound) upBound = downBound;
     }
 
+    // Teleport-style move: intentionally NOT clamped, per request.
     public void AddWorldOffset(Vector3 offset)
     {
         basePosition += offset;
