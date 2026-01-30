@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eb484b882b85bb43a5063a37a1fcf72, type: 3}
   m_Name: rightToBottom+Left+Top-volcano
   m_EditorClassIdentifier: 
-  startDirection: 3
-  endDirections: 000000000100000002000000
+  startDirection: 2
+  endDirections: 000000000100000003000000
   name: Hjalmar
   prefab: {fileID: 5626642184166101891, guid: c5c2f6ed750c7e14c984206cc67e6f7b, type: 3}
   icon: {fileID: 985004646540888612, guid: dc246573caab5f9449e366a0a0cb84b1, type: 3}
