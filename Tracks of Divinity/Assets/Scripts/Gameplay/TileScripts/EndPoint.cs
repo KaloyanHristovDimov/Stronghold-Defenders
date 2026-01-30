@@ -9,6 +9,7 @@ public class EndPoint : MonoBehaviour
     [Header("Visuals")]
     [SerializeField] public GameObject placeTileInteractable;
     [SerializeField] public GameObject sealInteractable;
+    [SerializeField] public GameObject wallVisuals;
 
     private bool interactable = true;
 
@@ -19,6 +20,8 @@ public class EndPoint : MonoBehaviour
     {
         parentTile = GetComponentInParent<TileInstance>();
         WaveManager.Instance?.RefreshAllEndpoints();
+
+        wallVisuals.SetActive(false);
     }
 
     private void OnEnable()
@@ -89,6 +92,7 @@ public class EndPoint : MonoBehaviour
             sealedOff = true;
             placeTileInteractable.SetActive(false);
             sealInteractable.SetActive(false);
+            wallVisuals.SetActive(true);
         }
     }
 }
