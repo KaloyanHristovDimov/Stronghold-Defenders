@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 2
-  speed: 10
+  speed: 6
   health: 5
   pathPoints: 0
   slowCoolDown: 0.5

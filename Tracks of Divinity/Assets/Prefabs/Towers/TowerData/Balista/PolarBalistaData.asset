@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b0fcdc30afd85c546aab7a38ca057be2, type: 3}
-  m_Name: DesertMage
+  m_Name: PolarBalistaData
   m_EditorClassIdentifier: 
   damageType: 0
-  damage: 10
-  range: 10
-  price: 75
+  damage: 5
+  range: 6
+  price: 60
   aoeRange: 0
-  speed: 1
-  appliesSlow: 0
-  slowMultiplier: 0
-  slowDuration: 0
-  towerType: 3
-  biome: 1
-  prefab: {fileID: 2440866968495100099, guid: 67537d44160eb8c49bebf73cda175097, type: 3}
+  speed: 1.5
+  appliesSlow: 1
+  slowMultiplier: 0.15
+  slowDuration: 2
+  towerType: 0
+  biome: 2
+  prefab: {fileID: 2532222564612703519, guid: 766ea7e6d7d9aec46b2923361985a7bb, type: 3}
