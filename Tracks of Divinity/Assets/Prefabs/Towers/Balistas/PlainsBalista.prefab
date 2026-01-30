@@ -147,7 +147,7 @@ Transform:
   m_GameObject: {fileID: 6121509322216978259}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.520929, y: -1.4, z: -6.765477}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -321,6 +321,9 @@ MonoBehaviour:
   range: 5
   aoe: 0
   aoeRange: 4
+  appliesSlow: 0
+  slowMultiplier: 1
+  slowDuration: 2
   towerType: 0
   biome: 0
   damageType: 0
@@ -328,7 +331,6 @@ MonoBehaviour:
   Data: {fileID: 11400000, guid: 558401f9cdf9131489a1946bd9798426, type: 2}
   projectilePrefab: {fileID: 9213508673528884966, guid: d21ddb6004a0aa64a8820e6d8963a066, type: 3}
   firePoint: {fileID: 6206427530185772360}
-  atackSFX: {fileID: 0}
 --- !u!135 &4297787019354723162
 SphereCollider:
   m_ObjectHideFlags: 0

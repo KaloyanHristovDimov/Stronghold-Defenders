@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b0fcdc30afd85c546aab7a38ca057be2, type: 3}
-  m_Name: VolcanoMags
+  m_Name: PlainsArcherTower
   m_EditorClassIdentifier: 
   damageType: 0
-  damage: 15
+  damage: 1
   range: 6
-  price: 150
-  aoeRange: 4
-  speed: 2
+  price: 10
+  aoeRange: 0
+  speed: 0.1
   appliesSlow: 0
   slowMultiplier: 0
   slowDuration: 0
-  towerType: 3
-  biome: 3
-  prefab: {fileID: 8775498847321575416, guid: 54a7924fa1c7931438cf35e305b16795, type: 3}
+  towerType: 1
+  biome: 0
+  prefab: {fileID: 7777445204059470826, guid: 187a7826f103e6d45821bc3cab4efc79, type: 3}
