@@ -108,9 +108,9 @@ RectTransform:
   - {fileID: 5425231995758515489}
   m_Father: {fileID: 7985216919938459056}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -117, y: 44}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 20, y: 44}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 1, y: 0}
 --- !u!222 &1826297727126699443
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Cost
+  m_text: 'Cost: 33'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5c702298daa4dc0408a14aebd93d0dcf, type: 2}
   m_sharedMaterial: {fileID: 3345419729273473064, guid: 5c702298daa4dc0408a14aebd93d0dcf, type: 2}
@@ -502,7 +502,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 1.25
 --- !u!1 &6271047518548041299
 GameObject:
   m_ObjectHideFlags: 0
