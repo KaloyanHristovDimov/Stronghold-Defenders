@@ -71,8 +71,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 20}
-  m_SizeDelta: {x: -340, y: -90}
+  m_AnchoredPosition: {x: 0, y: 7.5}
+  m_SizeDelta: {x: -340, y: -85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1254487551394039798
 CanvasRenderer:
@@ -129,7 +129,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 127.25
+  m_fontSize: 132.15
   m_fontSizeBase: 110
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -241,11 +241,11 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0, g: 0, b: 0, a: 0.32941177}
-    m_HighlightedColor: {r: 0, g: 0, b: 0, a: 0.101960786}
+    m_NormalColor: {r: 0, g: 0, b: 0, a: 0.2}
+    m_HighlightedColor: {r: 0, g: 0, b: 0, a: 0.050980393}
     m_PressedColor: {r: 0, g: 0, b: 0, a: 0}
-    m_SelectedColor: {r: 0, g: 0, b: 0, a: 0.32941177}
-    m_DisabledColor: {r: 0, g: 0, b: 0, a: 0.32941177}
+    m_SelectedColor: {r: 0, g: 0, b: 0, a: 0.2}
+    m_DisabledColor: {r: 0, g: 0, b: 0, a: 0.2}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -305,7 +305,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1.75
+  m_PixelsPerUnitMultiplier: 2.5
 --- !u!1 &8436460166125087796
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,4 +380,4 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1.75
+  m_PixelsPerUnitMultiplier: 2.5
